@@ -15,7 +15,7 @@ export const registerUser = createAsyncThunk(
   'user/signup',
   async (userData, { rejectWithValue }) => {
     try {
-      const newUser = await authApi.signupUser(userData);
+      const newUser = await authApi.registerUser(userData);
       token.set(userData.token);
       return newUser;
     } catch ({ response }) {
