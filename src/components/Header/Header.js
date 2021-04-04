@@ -24,12 +24,13 @@ export default function Header() {
           <div className={styles.pro}>
             <b className={styles.textpro}>Pro</b>
           </div>
+          <div className={styles.triangle}></div>
           <div className={styles.test}>
             <b className={styles.texttest}>[Test_]</b>
           </div>
         </Link>
       </div>
-      <hr></hr>
+
       <div className={styles.btnThumb}>
         <button type="button" onClick={toggleeMemu} className={styles.btnMenu}>
           {menuShow ? (
