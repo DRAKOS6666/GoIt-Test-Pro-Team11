@@ -1,10 +1,15 @@
 .headerWrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 320px;
   height: 70px;
   background-color: var(--primary-bg-color);
-  background-color: tomato;
+}
+
+.Link {
+  display: flex;
+  text-decoration: none;
 }
 
 .logo {
@@ -47,4 +52,22 @@
   margin-left: 7px;
   font-size: 14px;
   color: var(--footer-bg-color);
+}
+
+.btnThumb {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.btnMenu {
+  padding: 0;
+  display: block;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.icon {
+  fill: var(--primary-text-color);
 }
