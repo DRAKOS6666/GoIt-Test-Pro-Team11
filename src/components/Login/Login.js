@@ -24,6 +24,10 @@ const Login = () => {
     event.preventDefault();
     dispatch(authOperations.loginUser({ email, password }));
   };
+  const handleSubmitRegister = event => {
+    event.preventDefault();
+    dispatch(authOperations.registerUser({ email, password }));
+  };
 
   return (
     <>
@@ -45,10 +49,33 @@ const Login = () => {
             required
             type="password"
             onChange={e => setPassword(e.target.value)}
-            placeholder="Enter your Name"
+            placeholder="Enter your Password"
           />
         </label>
         <button type="submit">Login</button>
+      </form>
+      <form onSubmit={handleSubmitRegister}>
+        <label>
+          E-mail:
+      <input
+            autoFocus
+            required
+            autoComplete="on"
+            type="email"
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Enter your E-mail"
+          />
+        </label>
+        <label>
+          Password:
+      <input
+            required
+            type="password"
+            onChange={e => setPassword(e.target.value)}
+            placeholder="Enter your Password"
+          />
+        </label>
+        <button type="submit">Register</button>
       </form></>
   );
 };

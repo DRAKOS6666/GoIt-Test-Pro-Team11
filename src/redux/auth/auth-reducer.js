@@ -53,8 +53,8 @@ const isLoggedIn = createReducer(false, {
   [authOperations.registerUser.fulfilled]: () => true,
   [authOperations.loginUser.fulfilled]: () => true,
   [authOperations.getCurrentUser.fulfilled]: () => true,
-
   [authOperations.logoutUser.fulfilled]: () => false,
+
   [authOperations.logoutUser.rejected]: () => false,
   [authOperations.getCurrentUser.rejected]: () => false,
   [authOperations.registerUser.rejected]: () => false,
