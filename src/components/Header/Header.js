@@ -31,18 +31,26 @@ export default function Header() {
         </Link>
       </div>
 
-      <div className={styles.btnThumb}>
-        <button type="button" onClick={toggleeMemu} className={styles.btnMenu}>
-          {menuShow ? (
-            <Menu className={styles.icon} />
-          ) : (
-            <Close className={styles.icon} />
-          )}
-        </button>
-      </div>
+      {window.innerWidth < 768 && (
+        <div className={styles.btnThumb}>
+          <button
+            type="button"
+            onClick={toggleeMemu}
+            className={styles.btnMenu}
+          >
+            {menuShow ? (
+              <Menu className={styles.icon} />
+            ) : (
+              <Close className={styles.icon} />
+            )}
+          </button>
+        </div>
+      )}
+
+      {(!menuShow || window.innerWidth > 767) && <Navigation />}
 
       {/* {isAuth && <UserMenu />} */}
-      {/* <Navigation /> */}
+
       {/* <UserMenu /> */}
     </div>
   );
