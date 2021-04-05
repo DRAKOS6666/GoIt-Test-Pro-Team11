@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import UserMenu from 'components/UserMenu';
+import UserMenu from 'components/UserMenu';
 import { ReactComponent as Out } from '../../images/icons/sign-out.svg';
 import { useSelector } from 'react-redux';
 import { authSelectors } from 'redux/auth';
@@ -32,6 +32,10 @@ export default function Header() {
         </Link>
       </div>
 
+      {(!menuShow || window.innerWidth > 767) && <Navigation />}
+
+      {/*  вместо true => isAuth  */ true && menuShow && <UserMenu />}
+
       {window.innerWidth < 768 && (
         <div className={styles.btnThumb}>
           <button
@@ -48,17 +52,14 @@ export default function Header() {
         </div>
       )}
 
-      {(!menuShow || window.innerWidth > 767) && <Navigation />}
-
-      {
-        <button type="button" className={styles.btnOut}>
-          <Out className={styles.out} />
-        </button>
-      }
-
-      {/* {isAuth && <UserMenu />} */}
-
-      {/* <UserMenu /> */}
+      {/*  вместо true => isAuth  */ ((true && !menuShow) ||
+        window.innerWidth > 767) && (
+        <div className={styles.outBox}>
+          <button type="button" className={styles.btnOut}>
+            <Out />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
