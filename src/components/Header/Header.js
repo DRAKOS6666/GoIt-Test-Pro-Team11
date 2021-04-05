@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import UserMenu from 'components/UserMenu';
+import { ReactComponent as Out } from '../../images/icons/sign-out.svg';
 import { useSelector } from 'react-redux';
 import { authSelectors } from 'redux/auth';
 import { ReactComponent as Menu } from '../../images/icons/menu.svg';
@@ -48,6 +49,12 @@ export default function Header() {
       )}
 
       {(!menuShow || window.innerWidth > 767) && <Navigation />}
+
+      {
+        <button type="button" className={styles.btnOut}>
+          <Out className={styles.out} />
+        </button>
+      }
 
       {/* {isAuth && <UserMenu />} */}
 
