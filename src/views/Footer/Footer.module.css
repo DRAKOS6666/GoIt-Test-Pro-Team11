@@ -1,0 +1,23 @@
+.footer {
+  background-color: #02172a;
+  width: 320px;
+  padding: 10px 0 10px 0;
+}
+.footer_wrap {
+  display: inline-flex;
+}
+.footer_descr {
+  display: block;
+  font-size: 10px;
+  color: #808992;
+  line-height: 12px;
+  margin: 0 0 0 7px;
+}
+.footer_des {
+  margin: 0;
+}
+.footer_descr_link {
+  font-size: 10px;
+  color: #808992;
+  line-height: 12px;
+}
