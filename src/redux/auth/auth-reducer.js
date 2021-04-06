@@ -37,15 +37,29 @@ const user = createReducer(
   {},
   {
     [authOperations.getCurrentUser.fulfilled]: (_, { payload }) => payload,
-    [authOperations.registerUser.fulfilled]: (state, { payload }) => payload.user,
-    [authOperations.loginUser.fulfilled]: (state, { payload }) => payload.user,
+    [authOperations.registerUser.fulfilled]: (state, { payload }) => payload,
+    [authOperations.loginUser.fulfilled]: (state, { payload }) =>
+      payload.userData,
     [authOperations.logoutUser.fulfilled]: () => null,
   },
 );
 
-const token = createReducer(null, {
-  [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.token,
-  [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.token,
+const accessToken = createReducer(null, {
+  [authOperations.registerUser.fulfilled]: (_, { payload }) => payload,
+  [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.accessToken,
+  [authOperations.logoutUser.fulfilled]: () => null,
+});
+
+const refreshToken = createReducer(null, {
+  [authOperations.registerUser.fulfilled]: (_, { payload }) => payload,
+  [authOperations.loginUser.fulfilled]: (_, { payload }) =>
+    payload.refreshToken,
+  [authOperations.logoutUser.fulfilled]: () => null,
+});
+
+const sid = createReducer(null, {
+  [authOperations.registerUser.fulfilled]: (_, { payload }) => payload,
+  [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.sid,
   [authOperations.logoutUser.fulfilled]: () => null,
 });
 
@@ -65,6 +79,70 @@ export default combineReducers({
   user,
   isLoading,
   error,
-  token,
+  accessToken,
   isLoggedIn,
+  refreshToken,
+  sid,
 });
+
+// import { createSlice } from '@reduxjs/toolkit';
+// import { authOperations } from 'redux/auth';
+
+// const initialState = {
+//   user: { email: null },
+//   accessToken: null,
+//   refreshtoken: null,
+//   sid: null,
+//   isLoggedIn: false,
+//   isFetchingCurrentUser: false,
+//   error: null,
+// };
+
+// const aithSlice = createSlice({
+//   name: 'auth',
+//   initialState,
+//   extraReducers: {
+//     [authOperations.registerUser.fulfilled](state, { payload }) {
+//       state.user = payload;
+//       state.token = payload.token;
+//       state.isLoggedIn = true;
+//       state.error = null;
+//     },
+//     [authOperations.registerUser.pending](state) {
+//       state.error = null;
+//     },
+//     [authOperations.registerUser.rejected](state, { payload }) {
+//       state.error = payload;
+//     },
+
+//     [authOperations.loginUser.fulfilled](state, { payload }) {
+//       state.user = payload.userData;
+//       state.token = payload.accessToken;
+//       state.token = payload.refreshToken;
+//       state.isLoggedIn = true;
+//     },
+//     [authOperations.loginUser.pending](state) {
+//       state.error = null;
+//     },
+//     [authOperations.loginUser.rejected](state, { payload }) {
+//       state.error = payload;
+//     },
+
+//     [authOperations.getCurrentUser.pending](state) {
+//       state.isFetchingCurrentUser = true;
+
+//       state.error = null;
+//     },
+//     [authOperations.getCurrentUser.fulfilled](state, { payload }) {
+//       state.user = payload;
+//       state.isLoggedIn = true;
+//       state.isFetchingCurrentUser = false;
+//     },
+//     [authOperations.getCurrentUser.rejected](state, { payload }) {
+//       state.isFetchingCurrentUser = false;
+//       state.error = payload;
+//     },
+//   },
+// });
+
+// export default aithSlice.reducer;

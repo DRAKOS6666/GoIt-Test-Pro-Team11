@@ -6,7 +6,6 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
-
 import styles from './UserMenu.module.css';
 
 const UserMenu = () => {
@@ -20,12 +19,9 @@ const UserMenu = () => {
   return (
     <div className="userMenuContainer">
       <span>
-        Welcome, <span className="userName">{user.name}</span>
+        Welcome, <span className="userName">{user.email}</span>
       </span>
-      <button onClick={onClickLogout} >
-        Logout
-      </button>
-
+      <button onClick={onClickLogout}>Logout</button>
     </div>
   );
 };
