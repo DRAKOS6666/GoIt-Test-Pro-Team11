@@ -15,12 +15,10 @@ export const registerUser = createAsyncThunk(
   'user/signup',
   async (userData, { rejectWithValue }) => {
     try {
-      console.log('authApi', authApi)
       const newUser = await authApi.registerUser(userData);
-      token.set(userData.token);
+      token.set(userData.accessToken);
       return newUser;
     } catch ({ response }) {
-      console.log('response', response);
       return rejectWithValue(`${response.data.message}`);
     }
   },
@@ -30,7 +28,7 @@ export const loginUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const response = await authApi.loginUser(userData);
-      token.set(response.token);
+      token.set(response.accessToken);
       return response;
     } catch ({ response }) {
       return rejectWithValue(`Email or Password is invalid`);

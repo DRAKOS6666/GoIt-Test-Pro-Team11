@@ -58,7 +58,6 @@ const Login = () => {
         <label>
           E-mail:
       <input
-            autoFocus
             required
             autoComplete="on"
             type="email"

@@ -12,9 +12,8 @@ export default function Header() {
   return (
     <div className='header-wrapper'>
       <h3>Logo</h3>
-      {/* {isAuth && <UserMenu />} */}
       <Navigation />
-      <UserMenu />
+      {isAuth && <UserMenu />}
     </div>
   )
 }

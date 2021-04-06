@@ -11,6 +11,7 @@ import styles from './UserMenu.module.css';
 
 const UserMenu = () => {
   const user = useSelector(authSelectors.getUser);
+  const isAuth = useSelector(authSelectors.getIsAuthUser);
   const dispatch = useDispatch();
 
   const onClickLogout = () => {
@@ -19,9 +20,10 @@ const UserMenu = () => {
 
   return (
     <div className="userMenuContainer">
-      <span>
-        Welcome, <span className="userName">{user.name}</span>
-      </span>
+      {isAuth && <span>
+        Welcome, <span className="userName">{user.email}</span>
+      </span>}
+
       <button onClick={onClickLogout} >
         Logout
       </button>
