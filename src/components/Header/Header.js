@@ -52,14 +52,16 @@ export default function Header() {
         </div>
       )}
 
-      {/*  вместо true => isAuth  */ ((true && !menuShow) ||
-        window.innerWidth > 767) && (
-        <div className={styles.outBox}>
-          <button type="button" className={styles.btnOut}>
-            <Out />
-          </button>
-        </div>
-      )}
+      {
+        /*  вместо true => isAuth  */ ((true && !menuShow) ||
+          (true && window.innerWidth > 767)) && (
+          <div className={styles.outBox}>
+            <button type="button" className={styles.btnOut}>
+              <Out />
+            </button>
+          </div>
+        )
+      }
     </div>
   );
 }

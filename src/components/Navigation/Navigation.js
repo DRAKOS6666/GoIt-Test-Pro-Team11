@@ -6,7 +6,7 @@ import styles from './Navigation.module.css';
 
 const Navigation = () => {
   return (
-    <div className={styles.Wrapper}>
+    <nav className={styles.Wrapper}>
       <div className={styles.thumb}>
         <NavLink
           to="/"
@@ -36,7 +36,7 @@ const Navigation = () => {
           Contacts
         </NavLink>
       </div>
-    </div>
+    </nav>
   );
 };
 export default Navigation;

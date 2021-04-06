@@ -23,8 +23,17 @@
   box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
 }
 
+@media screen and (max-width: 768px) {
+  .letter {
+    position: absolute;
+    top: 20px;
+    right: 90px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .letter {
+    position: inherit;
     margin-right: 20px;
   }
 }
@@ -32,7 +41,6 @@
 @media screen and (min-width: 1024px) {
   .letter {
     font-size: 14px;
-    margin-right: 20px;
   }
 }
 

@@ -19,7 +19,7 @@ const UserMenu = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.letter}>W</div>
-      <span className={styles.email}>email</span>
+      <span className={styles.email}>email@com.</span>
       {/* <button onClick={onClickLogout}>Out</button> */}
     </div>
   );
