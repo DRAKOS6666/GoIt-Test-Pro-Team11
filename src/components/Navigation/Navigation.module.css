@@ -1,4 +1,4 @@
-.Wrapper {
+.wrapper {
   position: absolute;
   top: 70px;
   left: 0;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .Wrapper {
+  .wrapper {
     display: flex;
     justify-content: flex-end;
     position: inherit;
@@ -34,7 +34,7 @@
   }
 }
 
-.NavLink {
+.navLink {
   display: flex;
   align-items: center;
   text-align: center;
@@ -49,14 +49,14 @@
 }
 
 @media screen and (width: 768px) {
-  .NavLink {
+  .navLink {
     font-size: 12px;
     line-height: 1.3;
   }
 }
 
 @media screen and (min-width: 769px) {
-  .NavLink {
+  .navLink {
     font-size: 14px;
     line-height: 1.2;
   }
