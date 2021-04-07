@@ -26,11 +26,10 @@
     "sass-loader": "^10.0.5"
   },
   "scripts": {
-    "start": "if-env NODE_ENV=production ?? react-scripts start || npm run check:node",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "test": "react-scripts test",
-    "check:node": "check-node-version --node '^12' && react-scripts start"
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,9 +45,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "check-node-version": "^4.1.0",
-    "if-env": "^1.0.4"
   }
 }
