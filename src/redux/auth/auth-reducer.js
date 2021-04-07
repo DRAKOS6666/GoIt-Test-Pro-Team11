@@ -37,17 +37,31 @@ const user = createReducer(
   {},
   {
     [authOperations.getCurrentUser.fulfilled]: (_, { payload }) => payload,
-    [authOperations.registerUser.fulfilled]: (state, { payload }) => payload.user,
-    [authOperations.loginUser.fulfilled]: (state, { payload }) => payload.user,
+    [authOperations.registerUser.fulfilled]: (state, { payload }) => payload.userData,
+    [authOperations.loginUser.fulfilled]: (state, { payload }) => payload.userData,
     [authOperations.logoutUser.fulfilled]: () => null,
   },
 );
 
-const token = createReducer(null, {
-  [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.token,
-  [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.token,
+const accessToken = createReducer(null, {
+  [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.accessToken,
+  [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.accessToken,
   [authOperations.logoutUser.fulfilled]: () => null,
 });
+
+const refreshToken = createReducer(null, {
+  [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.refreshToken,
+  [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.refreshToken,
+  [authOperations.logoutUser.fulfilled]: () => null,
+});
+
+const sessionId = createReducer(null, {
+  // [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.sid,
+  [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.sid,
+  [authOperations.logoutUser.fulfilled]: () => null,
+});
+
+
 
 const isLoggedIn = createReducer(false, {
   [authOperations.registerUser.fulfilled]: () => true,
@@ -62,9 +76,11 @@ const isLoggedIn = createReducer(false, {
 });
 
 export default combineReducers({
+  accessToken,
+  refreshToken,
+  sessionId,
   user,
   isLoading,
   error,
-  token,
   isLoggedIn,
 });

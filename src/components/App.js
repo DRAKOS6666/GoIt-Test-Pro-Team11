@@ -1,10 +1,11 @@
 import React, { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Switch } from 'react-router-dom';
 import { authOperations } from 'redux/auth';
 
 import PrivateRoute from 'components/Route/PrivateRoute';
 import PublicRoute from 'components/Route/PublicRoute';
+import { authSelectors } from 'redux/auth';
 
 import Home from 'components/Home';
 import Header from 'components/Header';
@@ -17,14 +18,17 @@ import Contacts from 'views/Contacts';
 import Footer from 'views/Footer';
 import Loader from 'components/Loader';
 
+
 import './index.css';
 
 function App() {
+  const user = useSelector(authSelectors.getUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(authOperations.getCurrentUser());
-  }, [dispatch]);
+    console.log('user', user)
+    dispatch(authOperations.getCurrentUser(user));
+  }, []);
 
   return (
     <div className="wrapper">

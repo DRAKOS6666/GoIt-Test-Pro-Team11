@@ -2,7 +2,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://protest-backend.goit.global';
 
-export async function getCurrentUser() {
+export async function getCurrentUser(userData) {
   const { data } = await axios.get('/user');
   return data;
 }
