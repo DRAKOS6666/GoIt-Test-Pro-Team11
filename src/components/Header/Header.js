@@ -40,7 +40,7 @@ export default function Header() {
 
       {(!menuShow || window.innerWidth > 767) && <Navigation />}
 
-      {/*  вместо true => isAuth  */ true && menuShow && <UserMenu />}
+      {isAuth && menuShow && <UserMenu />}
 
       {window.innerWidth < 768 && (
         <div className={styles.menuThumb}>
@@ -54,20 +54,17 @@ export default function Header() {
         </div>
       )}
 
-      {
-        /*  вместо true => isAuth  */ ((true && !menuShow) ||
-          (true && window.innerWidth > 767)) && (
-          <div className={styles.outThumb}>
-            <button
-              type="button"
-              onClick={onClickLogout}
-              className={styles.btnOut}
-            >
-              <Out />
-            </button>
-          </div>
-        )
-      }
+      {((isAuth && !menuShow) || (isAuth && window.innerWidth > 767)) && (
+        <div className={styles.outThumb}>
+          <button
+            type="button"
+            onClick={onClickLogout}
+            className={styles.btnOut}
+          >
+            <Out />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
