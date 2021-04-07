@@ -16,6 +16,7 @@ const Navigation = () => {
           Home
         </NavLink>
       </div>
+
       <div className={styles.thumb}>
         <NavLink
           to="/useful-info"
@@ -26,6 +27,7 @@ const Navigation = () => {
           Materials
         </NavLink>
       </div>
+
       <div className={styles.thumb}>
         <NavLink
           to="/contacts"
@@ -38,4 +40,5 @@ const Navigation = () => {
     </nav>
   );
 };
+
 export default Navigation;
