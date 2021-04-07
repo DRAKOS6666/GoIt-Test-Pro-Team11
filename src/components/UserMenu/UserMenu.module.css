@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   align-items: center;
+  flex-grow: 1;
   margin-left: auto;
 }
 
@@ -23,7 +24,7 @@
   box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .letter {
     position: absolute;
     top: 20px;
@@ -50,7 +51,9 @@
 
 @media screen and (min-width: 768px) {
   .email {
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     margin-right: 20px;
 
     font-family: var(--main-font);

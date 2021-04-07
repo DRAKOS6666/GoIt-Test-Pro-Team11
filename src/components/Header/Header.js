@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { authSelectors } from 'redux/auth';
+import { useSelector, useDispatch } from 'react-redux';
+import { authSelectors, authOperations } from 'redux/auth';
 
 import Navigation from 'components/Navigation';
 import UserMenu from 'components/UserMenu';
@@ -13,10 +13,15 @@ import styles from './Header.module.css';
 
 export default function Header() {
   const [menuShow, setMenuShow] = useState(true);
+  const dispatch = useDispatch();
   const isAuth = useSelector(authSelectors.getIsAuthUser);
 
   const toggleMemu = () => {
     setMenuShow(state => (state = !state));
+  };
+
+  const onClickLogout = () => {
+    dispatch(authOperations.logoutUser());
   };
 
   return (
@@ -53,7 +58,11 @@ export default function Header() {
         /*  вместо true => isAuth  */ ((true && !menuShow) ||
           (true && window.innerWidth > 767)) && (
           <div className={styles.outThumb}>
-            <button type="button" className={styles.btnOut}>
+            <button
+              type="button"
+              onClick={onClickLogout}
+              className={styles.btnOut}
+            >
               <Out />
             </button>
           </div>
