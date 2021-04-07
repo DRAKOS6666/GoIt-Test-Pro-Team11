@@ -10,7 +10,7 @@
   --main-font: Montserrat, sans-serif;
 }
 
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
   .wrapper {
     width: 80%;
   }
@@ -24,9 +24,9 @@
   .wrapper {
     width: 50%;
   }
-}
+} */
 
-.wrapper {
+/* .wrapper {
   text-align: center;
   padding: 15px;
   padding-top: 0;
@@ -34,4 +34,4 @@
   background-color: var(--primary-bg-color);
   margin: 0 auto;
   width: 35%;
-}
+} */
