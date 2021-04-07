@@ -1,8 +1,8 @@
-import * as testOperations from 'redux/qaTest/test-operations';
 import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 // import * as actions from './qaTest-actions';
 
+import { testOperations } from 'redux/qaTest';
 
 const isLoading = createReducer(false, {
   [testOperations.getTechQuestion.pending]: () => true,

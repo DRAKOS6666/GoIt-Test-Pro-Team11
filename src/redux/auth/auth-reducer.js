@@ -1,4 +1,4 @@
-import { createReducer, createSlice } from '@reduxjs/toolkit';
+import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
 import { authOperations } from 'redux/auth';
@@ -33,30 +33,19 @@ const error = createReducer(null, {
   [authOperations.logoutUser.pending]: () => null,
 });
 
-// const user = createReducer(
-//   {},
-//   {
-//     [authOperations.getCurrentUser.fulfilled]: (_, { payload }) => payload,
-//     [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.user,
-//     [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.userData,
-//     [authOperations.logoutUser.fulfilled]: () => null,
-//   },
-// );
-const userSlice = createSlice({
-  name: 'user',
-  initialState: {},
-  reducers: {
-    getCurrentUser: ({ user }, { payload }) => user = payload,
-    registerUser: ({ user }, { payload }) => user = payload,
-    loginUser: (state, { payload }) => {
-      state.user = payload.userData
-    }
-  }
-})
+const user = createReducer(
+  {},
+  {
+    [authOperations.getCurrentUser.fulfilled]: (_, { payload }) => payload,
+    [authOperations.registerUser.fulfilled]: (state, { payload }) => payload.user,
+    [authOperations.loginUser.fulfilled]: (state, { payload }) => payload.user,
+    [authOperations.logoutUser.fulfilled]: () => null,
+  },
+);
 
 const token = createReducer(null, {
   [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.token,
-  [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.accessToken,
+  [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.token,
   [authOperations.logoutUser.fulfilled]: () => null,
 });
 
@@ -64,8 +53,8 @@ const isLoggedIn = createReducer(false, {
   [authOperations.registerUser.fulfilled]: () => true,
   [authOperations.loginUser.fulfilled]: () => true,
   [authOperations.getCurrentUser.fulfilled]: () => true,
-  [authOperations.logoutUser.fulfilled]: () => false,
 
+  [authOperations.logoutUser.fulfilled]: () => false,
   [authOperations.logoutUser.rejected]: () => false,
   [authOperations.getCurrentUser.rejected]: () => false,
   [authOperations.registerUser.rejected]: () => false,
@@ -73,8 +62,7 @@ const isLoggedIn = createReducer(false, {
 });
 
 export default combineReducers({
-  user: userSlice.reducer,
-  // user,
+  user,
   isLoading,
   error,
   token,
