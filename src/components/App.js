@@ -36,7 +36,7 @@ function App() {
       </Header>
       <Suspense fallback={<Loader />}>
         <Switch>
-    
+
           <PublicRoute path="/auth" component={Login} redirectTo="/auth" restricted />
 
 

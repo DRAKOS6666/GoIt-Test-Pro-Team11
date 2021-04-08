@@ -1,0 +1,36 @@
+{
+    "resources": [
+        {
+            "id": 1,
+            "url": "https://dou.ua/",
+            "name": "Dou.ua"
+        },
+        {
+            "id": 2,
+            "url": "https://habr.com/ru/",
+            "name": "Habr"
+        },
+        {
+            "id": 3,
+            "url": "https://goit.ua/",
+            "name": "goit.ua"
+        }
+    ],
+    "books": [
+        {
+            "id": 1,
+            "url": "https://dou.ua/",
+            "name": "Testing dot.com Savin."
+        },
+        {
+            "id": 2,
+            "url": "https://habr.com/ru/",
+            "name": "A mental hospital in the hands of patients. "
+        },
+        {
+            "id": 3,
+            "url": "https://goit.ua/",
+            "name": "Scrum. J. Sutherland."
+        }
+    ]
+}
