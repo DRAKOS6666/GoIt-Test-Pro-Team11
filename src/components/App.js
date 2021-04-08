@@ -44,6 +44,13 @@ function App() {
 
           <PublicRoute path="/results" component={Results} redirectTo="/auth" />
 
+          <PublicRoute path="/auth" component={Login} redirectTo="/auth" restricted />
+
+
+          <PublicRoute path="/test" component={Test} redirectTo="/auth" />
+
+          <PublicRoute path="/results" component={Results} redirectTo="/autMaterials " />
+
           <PublicRoute
             path="/useful-info"
             component={Materials}
