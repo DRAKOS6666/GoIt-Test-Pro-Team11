@@ -37,8 +37,8 @@ const user = createReducer(
   {},
   {
     [authOperations.getCurrentUser.fulfilled]: (_, { payload }) => payload,
-    [authOperations.registerUser.fulfilled]: (state, { payload }) => payload.userData,
-    [authOperations.loginUser.fulfilled]: (state, { payload }) => payload.userData,
+    [authOperations.registerUser.fulfilled]: (_, { payload }) => payload,
+    [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.userData,
     [authOperations.logoutUser.fulfilled]: () => null,
   },
 );

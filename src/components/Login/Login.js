@@ -20,14 +20,19 @@ const Login = () => {
     }
   }, [error]);
 
-  const handleSubmit = event => {
+  const handleLoginSubmit = event => {
     event.preventDefault();
     dispatch(authOperations.loginUser({ email, password }));
   };
 
+  const handleRegisterSubmit = event => {
+    event.preventDefault();
+    dispatch(authOperations.registerUser({ email, password }));
+  };
+
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLoginSubmit}>
         <label>
           E-mail:
       <input
@@ -49,7 +54,32 @@ const Login = () => {
           />
         </label>
         <button type="submit">Login</button>
-      </form></>
+      </form>
+
+      <form onSubmit={handleRegisterSubmit}>
+        <label>
+          E-mail:
+      <input
+            autoFocus
+            required
+            autoComplete="on"
+            type="email"
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Enter your E-mail"
+          />
+        </label>
+        <label>
+          Password:
+      <input
+            required
+            type="password"
+            onChange={e => setPassword(e.target.value)}
+            placeholder="Enter your Name"
+          />
+        </label>
+        <button type="submit">Register</button>
+      </form>
+    </>
   );
 };
 
