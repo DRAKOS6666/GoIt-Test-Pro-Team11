@@ -17,10 +17,7 @@ import Materials from './Materials';
 import Contacts from 'views/Contacts';
 import Footer from 'views/Footer';
 import Loader from 'components/Loader';
-import {
-  books,
-  resources,
-} from '../components/Materials/usefullMaterials.json';
+import { books, resources, } from '../components/Materials/usefullMaterials.json';
 
 import './index.css';
 
