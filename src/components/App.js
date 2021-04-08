@@ -18,7 +18,6 @@ import Contacts from 'views/Contacts';
 import Footer from 'views/Footer';
 import Loader from 'components/Loader';
 
-
 import './index.css';
 
 function App() {
@@ -37,7 +36,9 @@ function App() {
       </Header>
       <Suspense fallback={<Loader />}>
         <Switch>
+    
           <PublicRoute path="/auth" component={Login} redirectTo="/auth" restricted />
+
 
           <PublicRoute path="/test" component={Test} redirectTo="/auth" />
 
