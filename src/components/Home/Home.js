@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { authSelectors } from 'redux/auth';
 
 import styles from './Home.module.css';
-import ContactsIcon from '@material-ui/icons/Contacts';
 
 const Home = () => {
   const isAuth = useSelector(authSelectors.getIsAuthUser);
