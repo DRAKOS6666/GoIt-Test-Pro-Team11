@@ -45,20 +45,17 @@ const user = createReducer(
 );
 
 const accessToken = createReducer(null, {
-  [authOperations.registerUser.fulfilled]: (_, { payload }) => payload,
   [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.accessToken,
   [authOperations.logoutUser.fulfilled]: () => null,
 });
 
 const refreshToken = createReducer(null, {
-  [authOperations.registerUser.fulfilled]: (_, { payload }) => payload,
   [authOperations.loginUser.fulfilled]: (_, { payload }) =>
     payload.refreshToken,
   [authOperations.logoutUser.fulfilled]: () => null,
 });
 
 const sid = createReducer(null, {
-  [authOperations.registerUser.fulfilled]: (_, { payload }) => payload,
   [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.sid,
   [authOperations.logoutUser.fulfilled]: () => null,
 });

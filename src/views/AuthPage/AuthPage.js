@@ -30,6 +30,7 @@ function AuthPage() {
     setEmail('');
     setPassword('');
   };
+
   //kon@mail.com
   //12345
 
