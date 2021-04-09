@@ -7,14 +7,14 @@ background-image: url(../../images/mobil.jpg);
 } 
 @media screen and (min-width: 768px) {
     .section{
-        margin: 0;
         background-image: url(../../images/tablet.jpg);
     }   
 }
 @media screen and (min-width: 1024px) {
     .section{
         background-image: url(../../images/desktop.jpg);
-    }   
+    } 
+     
 }
 li,h2 {
   margin: 0;
@@ -33,6 +33,10 @@ h2 {
   margin-left: 190px;
   margin-right: 694px;
 }
+.link{
+  color:#000000;
+}
+
 .list{
   margin-left: 250px;
   padding-right: 694px;
@@ -58,10 +62,30 @@ h2 {
   line-height: 16px;
   padding: 0;
 }
+.link:hover{
+  color:blue;
+}
+@media screen and (min-width: 1024px) {
+.materials{
+       font-size: 14px;
+       line-height: 22px;
+    } 
+}
+
 .title{
   color: #000000;
   margin-bottom: 25px;
+  min-width: 110px;
+  font-size: 28px;
 }
+@media screen and (min-width: 1024px) {
+  .tilte{
+min-width: 396px;
+  font-size: 28px;
+  }
+}
+ 
+
 .title::after {
   content: '';
   display: block;
