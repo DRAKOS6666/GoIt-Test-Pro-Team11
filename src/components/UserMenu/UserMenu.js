@@ -7,7 +7,7 @@ import styles from './UserMenu.module.css';
 const UserMenu = () => {
   const user = useSelector(authSelectors.getUser);
 
-  const userEmail = 'user@gmail.com';
+  const userEmail = user.email;
 
   return (
     user && (

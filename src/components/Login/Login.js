@@ -74,29 +74,19 @@ const Login = () => {
     }
   }, [error]);
 
-  const handleSubmit = event => {
+  const handleLoginSubmit = event => {
     event.preventDefault();
     dispatch(authOperations.loginUser({ email, password }));
   };
 
-  // const useInput = initialValue => {
-  //   const [value, setValue] = useState(initialValue);
-  //   const [isDirty, setDirty] = useState(false);
-
-  //   const onChange = e => {
-  //     setValue(e.target.value);
-  //   };
-
-  //   const onBlur = e => {
-  //     setDirty(true);
-  //   };
-
-  //   return value, onChange, onBlur;
-  // };
+  const handleRegisterSubmit = event => {
+    event.preventDefault();
+    dispatch(authOperations.registerUser({ email, password }));
+  };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLoginSubmit}>
         <label>
           E-mail:
           {/* уведомление пользователя об ошибке */}
@@ -133,6 +123,7 @@ const Login = () => {
             placeholder="Enter your Name"
           />
         </label>
+
         {/* <button type="submit">Login</button>       */}
         <button disabled={!formValid} type="submit">
           SIGN IN
@@ -140,6 +131,32 @@ const Login = () => {
         <button disabled={!formValid} type="submit">
           SIGN UP
         </button>
+
+        <button type="submit">Login</button>
+      </form>
+
+      <form onSubmit={handleRegisterSubmit}>
+        <label>
+          E-mail:
+          <input
+            autoFocus
+            required
+            autoComplete="on"
+            type="email"
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Enter your E-mail"
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            required
+            type="password"
+            onChange={e => setPassword(e.target.value)}
+            placeholder="Enter your Name"
+          />
+        </label>
+        <button type="submit">Register</button>
       </form>
     </>
   );
