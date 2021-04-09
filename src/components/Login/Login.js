@@ -79,63 +79,85 @@ const Login = () => {
     dispatch(authOperations.loginUser({ email, password }));
   };
 
-  const handleRegisterSubmit = event => {
-    event.preventDefault();
-    dispatch(authOperations.registerUser({ email, password }));
-  };
+  // const handleRegisterSubmit = event => {
+  //   event.preventDefault();
+  //   dispatch(authOperations.registerUser({ email, password }));
+  // };
 
   return (
     <>
-      <form onSubmit={handleLoginSubmit}>
-        <label>
-          E-mail:
-          {/* уведомление пользователя об ошибке */}
-          {emailDirty && emailError && (
-            <div style={{ color: 'red' }}>{emailError}</div>
-          )}
-          <input
-            value={email}
-            onBlur={e => blurHandler(e)}
-            name="email"
-            autoFocus
-            required
-            autoComplete="on"
-            type="email"
-            // onChange={e => setEmail(e.target.value)}
-            onChange={e => emailHandler(e)}
-            placeholder="Enter your E-mail"
-          />
-        </label>
-        <label>
-          Password:
-          {/* уведомление пользователя об ошибке */}
-          {passwordDirty && passwordError && (
-            <div style={{ color: 'red' }}>{passwordError}</div>
-          )}
-          <input
-            value={password}
-            onBlur={e => blurHandler(e)}
-            name="password"
-            required
-            type="password"
-            // onChange={e => setPassword(e.target.value)}
-            onChange={e => passwordHandler(e)}
-            placeholder="Enter your Name"
-          />
-        </label>
+      <form onSubmit={handleLoginSubmit} className={styles.form}>
+        <div className={styles.container}>
+          <p className={styles.text}>
+            You can use your Google Account to authorize:
+          </p>
 
-        {/* <button type="submit">Login</button>       */}
-        <button disabled={!formValid} type="submit">
-          SIGN IN
-        </button>
-        <button disabled={!formValid} type="submit">
-          SIGN UP
-        </button>
+          <a
+            href="https://protest-backend.goit.global/auth/google"
+            className={styles.google_container}
+          >
+            <img src="" alt="" />
+            <p className={styles.google}>Google</p>
+          </a>
 
-        <button type="submit">Login</button>
+          <p className={styles.text}>
+            Or login to our app using e-mail and password:
+          </p>
+          <label>
+            {/* уведомление пользователя об ошибке */}
+            {emailDirty && emailError && (
+              <div style={{ color: 'red' }}>{emailError}</div>
+            )}
+            <input
+              className={styles.input}
+              value={email}
+              onBlur={e => blurHandler(e)}
+              name="email"
+              autoFocus
+              required
+              autoComplete="on"
+              type="email"
+              onChange={e => emailHandler(e)}
+              placeholder="E-mail"
+            />
+          </label>
+          <label>
+            {/* уведомление пользователя об ошибке */}
+            {passwordDirty && passwordError && (
+              <div style={{ color: 'red' }}>{passwordError}</div>
+            )}
+            <input
+              className={styles.input}
+              value={password}
+              onBlur={e => blurHandler(e)}
+              name="password"
+              required
+              type="password"
+              onChange={e => passwordHandler(e)}
+              placeholder="Password"
+            />
+          </label>
+
+          <div className={styles.buttons_container}>
+            <button
+              disabled={!formValid}
+              type="submit"
+              className={styles.button}
+            >
+              SIGN IN
+            </button>
+            <button
+              disabled={!formValid}
+              type="submit"
+              className={styles.button}
+            >
+              SIGN UP
+            </button>
+          </div>
+        </div>
       </form>
 
-      <form onSubmit={handleRegisterSubmit}>
+      {/* <form onSubmit={handleRegisterSubmit}>
         <label>
           E-mail:
           <input
@@ -157,7 +179,7 @@ const Login = () => {
           />
         </label>
         <button type="submit">Register</button>
-      </form>
+      </form> */}
     </>
   );
 };
