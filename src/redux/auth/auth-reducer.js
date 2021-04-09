@@ -84,3 +84,65 @@ export default combineReducers({
   error,
   isLoggedIn,
 });
+
+// import { createSlice } from '@reduxjs/toolkit';
+// import { authOperations } from 'redux/auth';
+
+// const initialState = {
+//   user: { email: null },
+//   accessToken: null,
+//   refreshtoken: null,
+//   sid: null,
+//   isLoggedIn: false,
+//   isFetchingCurrentUser: false,
+//   error: null,
+// };
+
+// const aithSlice = createSlice({
+//   name: 'auth',
+//   initialState,
+//   extraReducers: {
+//     [authOperations.registerUser.fulfilled](state, { payload }) {
+//       state.user = payload;
+//       state.token = payload.token;
+//       state.isLoggedIn = true;
+//       state.error = null;
+//     },
+//     [authOperations.registerUser.pending](state) {
+//       state.error = null;
+//     },
+//     [authOperations.registerUser.rejected](state, { payload }) {
+//       state.error = payload;
+//     },
+
+//     [authOperations.loginUser.fulfilled](state, { payload }) {
+//       state.user = payload.userData;
+//       state.token = payload.accessToken;
+//       state.token = payload.refreshToken;
+//       state.isLoggedIn = true;
+//     },
+//     [authOperations.loginUser.pending](state) {
+//       state.error = null;
+//     },
+//     [authOperations.loginUser.rejected](state, { payload }) {
+//       state.error = payload;
+//     },
+
+//     [authOperations.getCurrentUser.pending](state) {
+//       state.isFetchingCurrentUser = true;
+
+//       state.error = null;
+//     },
+//     [authOperations.getCurrentUser.fulfilled](state, { payload }) {
+//       state.user = payload;
+//       state.isLoggedIn = true;
+//       state.isFetchingCurrentUser = false;
+//     },
+//     [authOperations.getCurrentUser.rejected](state, { payload }) {
+//       state.isFetchingCurrentUser = false;
+//       state.error = payload;
+//     },
+//   },
+// });
+
+// export default aithSlice.reducer;
