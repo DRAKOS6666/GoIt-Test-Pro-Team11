@@ -53,10 +53,9 @@ export const logoutUser = createAsyncThunk(
 );
 
 export const getCurrentUser = createAsyncThunk(
-  'user/info',
+  'auth/refresh',
   async (userData, { rejectWithValue }) => {
     try {
-      console.log('userData', userData)
       const response = await authApi.getCurrentUser(userData.email);
       return response;
     } catch (err) {
