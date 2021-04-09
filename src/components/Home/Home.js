@@ -9,8 +9,9 @@ const Home = () => {
   const isAuth = useSelector(authSelectors.getIsAuthUser);
   return (
     <div className="appTitle">
-      <h2 >Home Component</h2>
-    </div>);
-}
+      <h2>Home Component</h2>
+    </div>
+  );
+};
 
 export default Home;

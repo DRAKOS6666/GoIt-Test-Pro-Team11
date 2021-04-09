@@ -10,7 +10,9 @@ import { authSelectors } from 'redux/auth';
 import Home from 'components/Home';
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
-import Login from 'components/Login';
+import AuthPage from 'views/AuthPage';
+// import Login from 'components/Login';
+// import Register from 'components/Register';
 import Test from 'components/Test';
 import Results from './Results';
 import Materials from './Materials';
@@ -37,10 +39,9 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Switch>
 
-          <PublicRoute path="/auth" component={Login} redirectTo="/auth" restricted />
+          <PublicRoute path="/auth" component={AuthPage} redirectTo="/auth" restricted />
 
           <PublicRoute path="/test" component={Test} redirectTo="/auth" />
-
           <PublicRoute path="/results" component={Results} redirectTo="/auth" />
 
           <PublicRoute path="/useful-info" component={Materials} redirectTo="/auth" />
