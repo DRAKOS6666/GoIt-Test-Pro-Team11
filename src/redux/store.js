@@ -28,9 +28,9 @@ if (process.env.NODE_ENV === `development`) {
 }
 
 const persistAuthConfig = {
-  key: 'token',
+  key: 'tokens',
   storage,
-  whitelist: ['accessToken', 'refreshToken', 'sid'],
+  whitelist: ['accessToken', 'refreshToken', 'sid', 'user'],
 };
 
 const store = configureStore({

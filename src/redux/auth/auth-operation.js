@@ -16,7 +16,7 @@ export const registerUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const newUser = await authApi.registerUser(userData);
-
+      token.set(userData.token);
       return newUser;
     } catch ({ response }) {
       console.log('response', response);
@@ -30,8 +30,7 @@ export const loginUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const response = await authApi.loginUser(userData);
-      token.set(response.token);
-
+      token.set(response.accesToken);
       return response;
     } catch ({ response }) {
       return rejectWithValue(`Email or Password is invalid`);
@@ -54,10 +53,11 @@ export const logoutUser = createAsyncThunk(
 );
 
 export const getCurrentUser = createAsyncThunk(
-  'auth/refresh',
-  async (_, { rejectWithValue }) => {
+  'user/info',
+  async (userData, { rejectWithValue }) => {
     try {
-      const response = await authApi.getCurrentUser();
+      console.log('userData', userData)
+      const response = await authApi.getCurrentUser(userData.email);
       return response;
     } catch (err) {
       return rejectWithValue(
@@ -68,7 +68,7 @@ export const getCurrentUser = createAsyncThunk(
   {
     condition: (_, { getState }) => {
       const {
-        auth: { token: persistedToken },
+        auth: { accessToken: persistedToken },
       } = getState();
       if (!persistedToken) {
         return false;

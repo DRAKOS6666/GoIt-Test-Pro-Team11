@@ -37,28 +37,31 @@ const user = createReducer(
   {},
   {
     [authOperations.getCurrentUser.fulfilled]: (_, { payload }) => payload,
-    [authOperations.registerUser.fulfilled]: (state, { payload }) => payload,
-    [authOperations.loginUser.fulfilled]: (state, { payload }) =>
-      payload.userData,
+    [authOperations.registerUser.fulfilled]: (_, { payload }) => payload,
+    [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.userData,
     [authOperations.logoutUser.fulfilled]: () => null,
   },
 );
 
 const accessToken = createReducer(null, {
+  [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.accessToken,
   [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.accessToken,
   [authOperations.logoutUser.fulfilled]: () => null,
 });
 
 const refreshToken = createReducer(null, {
-  [authOperations.loginUser.fulfilled]: (_, { payload }) =>
-    payload.refreshToken,
+  [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.refreshToken,
+  [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.refreshToken,
   [authOperations.logoutUser.fulfilled]: () => null,
 });
 
-const sid = createReducer(null, {
+const sessionId = createReducer(null, {
+  // [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.sid,
   [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.sid,
   [authOperations.logoutUser.fulfilled]: () => null,
 });
+
+
 
 const isLoggedIn = createReducer(false, {
   [authOperations.registerUser.fulfilled]: () => true,
@@ -73,13 +76,13 @@ const isLoggedIn = createReducer(false, {
 });
 
 export default combineReducers({
+  accessToken,
+  refreshToken,
+  sessionId,
   user,
   isLoading,
   error,
-  accessToken,
   isLoggedIn,
-  refreshToken,
-  sid,
 });
 
 // import { createSlice } from '@reduxjs/toolkit';
