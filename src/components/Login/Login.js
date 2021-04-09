@@ -79,10 +79,10 @@ const Login = () => {
     dispatch(authOperations.loginUser({ email, password }));
   };
 
-  // const handleRegisterSubmit = event => {
-  //   event.preventDefault();
-  //   dispatch(authOperations.registerUser({ email, password }));
-  // };
+  const handleRegisterSubmit = event => {
+    event.preventDefault();
+    dispatch(authOperations.registerUser({ email, password }));
+  };
 
   return (
     <>
@@ -92,11 +92,8 @@ const Login = () => {
             You can use your Google Account to authorize:
           </p>
 
-          <a
-            href="https://protest-backend.goit.global/auth/google"
-            className={styles.google_container}
-          >
-            <img src="" alt="" />
+          <a href="https://protest-backend.goit.global/auth/google">
+            <img src="/src/images/icons/google-symbol.svg" alt="" />
             <p className={styles.google}>Google</p>
           </a>
 
@@ -157,7 +154,8 @@ const Login = () => {
         </div>
       </form>
 
-      {/* <form onSubmit={handleRegisterSubmit}>
+      {/* Куда эту форму??? */}
+      <form onSubmit={handleRegisterSubmit}>
         <label>
           E-mail:
           <input
@@ -179,7 +177,7 @@ const Login = () => {
           />
         </label>
         <button type="submit">Register</button>
-      </form> */}
+      </form>
     </>
   );
 };

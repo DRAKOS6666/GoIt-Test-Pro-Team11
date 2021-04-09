@@ -76,12 +76,14 @@ letter-spacing: 0.02em;
 color: #000000;
 }
 
-.google_container {
-width: 159px;
-height: 51px;
-
-
-background-color: #FAFAFA;
-}
-
 /* @media screen and (min-width: 768px) */
+
+/* плавное изменение прозрачности  placeholder-а при фокусе */
+.input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.5s ease;}
+.input::-moz-placeholder                {opacity: 1; transition: opacity 0.5s ease;}
+.input:-moz-placeholder                 {opacity: 1; transition: opacity 0.5s ease;}
+.input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.5s ease;}
+.input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.5s ease;}
+.input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.5s ease;}
+.input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.5s ease;}
+.input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.5s ease;}
