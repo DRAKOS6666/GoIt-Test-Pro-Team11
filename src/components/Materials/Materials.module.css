@@ -28,31 +28,27 @@ img {
   margin: 0;
   padding: 0; 
  } 
-h2 {
-  width: 396px;
-  margin-left: 190px;
-  margin-right: 694px;
-}
+
 .link{
   color:#000000;
 }
 
 .list{
-  margin-left: 250px;
-  padding-right: 694px;
-  width: 396px;
-  height: 95px;
+  height: 52px;
   display: flex;
   flex-direction: column;
-  padding: 0;
-  margin-bottom: 0px;
-  margin-top: 0;
+  margin: 0;
+  padding-left: 20px;
+}
+@media screen and (min-width: 768px) {
+  .list{
+    padding-left: 175px;
+    height: 62px;
+  }
 }
 .materials {
   width: 295px;
   height: 95px;
-  left: 250px;
-  top: 243px;
   font-family: Montserrat;
   font-style: normal;
   letter-spacing: 0.02em;
@@ -74,14 +70,23 @@ h2 {
 
 .title{
   color: #000000;
-  margin-bottom: 25px;
-  min-width: 110px;
+  margin-bottom: 10px;
+  min-width: 129px;
   font-size: 28px;
+  margin-right: 555px;
 }
+@media screen and (min-width: 768px) {
+  .title{
+  margin-right: 0;
+  margin-left: 115px;
+}
+}
+
 @media screen and (min-width: 1024px) {
   .tilte{
-min-width: 396px;
+  min-width: 396px;
   font-size: 28px;
+  margin-left: 140px;
   }
 }
  
@@ -89,17 +94,34 @@ min-width: 396px;
 .title::after {
   content: '';
   display: block;
-  width: 321px;
+  width: 150px;
   height: 1px;
-  margin-top: 22px;
+  margin-top: 10px;
   opacity: 0.15;
   border: 1px solid #00122f;
 }
+@media screen and (min-width: 768px) {
+  .title::after {
+    width: 322px;
+  }
+}
 .resources {
-  margin-top: 38px;
-  padding-bottom: 262px;
+  margin-top: 40px;
+  margin-left: 20px;
+  padding-bottom: 111px;
 }
 .literature {
-  padding-top: 98px;
-  margin-bottom: 0;
+  padding-top: 40px;
+  margin-left: 20px;
+}
+@media screen and (min-width: 768px) {
+  .literature {
+    padding-top: 119px;
+    
+  }
+}
+@media screen and (min-width: 1024px) {
+  .literature {
+    padding-top: 98px;
+  }
 }
