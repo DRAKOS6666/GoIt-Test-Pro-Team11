@@ -24,6 +24,7 @@ export const registerUser = createAsyncThunk(
     }
   },
 );
+
 export const loginUser = createAsyncThunk(
   'auth/login',
   async (userData, { rejectWithValue }) => {
@@ -37,6 +38,7 @@ export const loginUser = createAsyncThunk(
     }
   },
 );
+
 export const logoutUser = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
