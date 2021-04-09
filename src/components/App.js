@@ -36,29 +36,21 @@ function App() {
       </Header>
       <Suspense fallback={<Loader />}>
         <Switch>
-    
-          <PublicRoute path="/auth" component={Login} redirectTo="/auth" restricted />
 
+          <PublicRoute path="/auth" component={Login} redirectTo="/auth" restricted />
 
           <PublicRoute path="/test" component={Test} redirectTo="/auth" />
 
           <PublicRoute path="/results" component={Results} redirectTo="/auth" />
 
-          <PublicRoute
-            path="/useful-info"
-            component={Materials}
-            redirectTo="/auth"
-          />
+          <PublicRoute path="/useful-info" component={Materials} redirectTo="/auth" />
 
-          <PublicRoute
-            path="/contacts"
-            component={Contacts}
-            redirectTo="/auth"
-          />
+          <PublicRoute path="/contacts" component={Contacts} redirectTo="/auth" />
 
           <PublicRoute path="/" component={Home} redirectTo="/auth" />
 
           <Redirect to="/auth" />
+
         </Switch>
         <Footer />
       </Suspense>
