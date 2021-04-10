@@ -19,6 +19,7 @@ import Materials from './Materials';
 import Contacts from 'views/Contacts';
 import Footer from 'views/Footer';
 import Loader from 'components/Loader';
+import { books, resources, } from '../components/Materials/usefullMaterials.json';
 
 import './index.css';
 
@@ -39,12 +40,16 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Switch>
 
+          <PublicRoute path="/auth" component={Login} redirectTo="/auth" restricted />
+
           <PublicRoute path="/auth" component={AuthPage} redirectTo="/auth" restricted />
 
           <PublicRoute path="/test" component={Test} redirectTo="/auth" />
           <PublicRoute path="/results" component={Results} redirectTo="/auth" />
 
-          <PublicRoute path="/useful-info" component={Materials} redirectTo="/auth" />
+          <PrivateRoute path="/useful-info" redirectTo="/auth">
+            <Materials books={books} resources={resources} />
+          </PrivateRoute>
 
           <PublicRoute path="/contacts" component={Contacts} redirectTo="/auth" />
 
