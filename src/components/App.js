@@ -28,7 +28,6 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('user', user)
     dispatch(authOperations.getCurrentUser(user));
   }, []);
 
@@ -40,11 +39,10 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Switch>
 
-          <PublicRoute path="/auth" component={Login} redirectTo="/auth" restricted />
-
           <PublicRoute path="/auth" component={AuthPage} redirectTo="/auth" restricted />
 
           <PublicRoute path="/test" component={Test} redirectTo="/auth" />
+
           <PublicRoute path="/results" component={Results} redirectTo="/auth" />
 
           <PrivateRoute path="/useful-info" redirectTo="/auth">
