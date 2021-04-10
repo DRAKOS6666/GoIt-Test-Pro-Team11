@@ -16,6 +16,7 @@ import AuthPage from 'views/AuthPage';
 import Test from 'components/Test';
 import Results from './Results';
 import Materials from './Materials';
+import MainPage from './MainPage'
 import Contacts from 'views/Contacts';
 import Footer from 'views/Footer';
 import Loader from 'components/Loader';
@@ -29,7 +30,7 @@ function App() {
 
   useEffect(() => {
     dispatch(authOperations.getCurrentUser(user));
-  }, []);
+  }, [dispatch, user]);
 
   return (
     <div className="wrapper">
@@ -47,6 +48,10 @@ function App() {
 
           <PrivateRoute path="/useful-info" redirectTo="/auth">
             <Materials books={books} resources={resources} />
+          </PrivateRoute>
+            
+          <PrivateRoute path="/" redirectTo="/auth">
+            <MainPage />
           </PrivateRoute>
 
           <PublicRoute path="/contacts" component={Contacts} redirectTo="/auth" />
