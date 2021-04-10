@@ -7,12 +7,9 @@ import PrivateRoute from 'components/Route/PrivateRoute';
 import PublicRoute from 'components/Route/PublicRoute';
 import { authSelectors } from 'redux/auth';
 
-import Home from 'components/Home';
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import AuthPage from 'views/AuthPage';
-// import Login from 'components/Login';
-// import Register from 'components/Register';
 import Test from 'components/Test';
 import Results from './Results';
 import Materials from './Materials';
@@ -20,7 +17,6 @@ import MainPage from './MainPage'
 import Contacts from 'views/Contacts';
 import Footer from 'views/Footer';
 import Loader from 'components/Loader';
-import { books, resources, } from '../components/Materials/usefullMaterials.json';
 
 import './index.css';
 
@@ -30,7 +26,7 @@ function App() {
 
   useEffect(() => {
     dispatch(authOperations.getCurrentUser(user));
-  }, [dispatch, user]);
+  }, []);
 
   return (
     <div className="wrapper">
@@ -40,23 +36,17 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Switch>
 
-          <PublicRoute path="/auth" component={AuthPage} redirectTo="/auth" restricted />
+          <PrivateRoute exact path="/" component={MainPage} redirectTo="/auth" />
+
+          <PublicRoute path="/auth" component={AuthPage} redirectTo="/" restricted />
 
           <PublicRoute path="/test" component={Test} redirectTo="/auth" />
 
           <PublicRoute path="/results" component={Results} redirectTo="/auth" />
 
-          <PrivateRoute path="/useful-info" redirectTo="/auth">
-            <Materials books={books} resources={resources} />
-          </PrivateRoute>
-            
-          <PrivateRoute path="/" redirectTo="/auth">
-            <MainPage />
-          </PrivateRoute>
+          <PrivateRoute path="/useful-info" component={Materials} redirectTo="/auth" />
 
           <PublicRoute path="/contacts" component={Contacts} redirectTo="/auth" />
-
-          <PublicRoute path="/" component={Home} redirectTo="/auth" />
 
           <Redirect to="/auth" />
 

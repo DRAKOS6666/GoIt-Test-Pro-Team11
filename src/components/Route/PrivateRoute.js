@@ -8,8 +8,9 @@ const PrivateRoute = ({ component: Component, redirectTo, ...routeProps }) => {
   return (
     <Route
       {...routeProps}
-      render={props =>
-        isAuth ? <Component {...props} /> : <Redirect to={redirectTo} />
+      render={props => {
+        return isAuth ? <Component {...props} /> : <Redirect to={redirectTo} />
+      }
       }
     />
   );
