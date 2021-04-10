@@ -27,7 +27,6 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('user', user)
     dispatch(authOperations.getCurrentUser(user));
   }, []);
 

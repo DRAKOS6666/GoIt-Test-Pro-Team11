@@ -15,17 +15,39 @@ import {
   REGISTER,
 } from 'redux-persist';
 
+
+import refreshTokenMiddleware from './middlewares/refreshToken';
+
+// const refreshUser = store => next => action => {
+//   try {
+//     console.log('store', store)
+//     console.log('next', next)
+//     console.log('action', action)
+//     return next(action)
+//   } catch (err) {
+//     console.log('Caught an exception!', err)
+//     // Raven.captureException(err, {
+//     //   extra: {
+//     //     action,
+//     //     state: store.getState()
+//     //   }
+//     // })
+//     throw err
+//   }
+// }
+
 const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
+  refreshTokenMiddleware,
 ];
 
-if (process.env.NODE_ENV === `development`) {
-  middleware.push(logger);
-}
+// if (process.env.NODE_ENV === `development`) {
+//   middleware.push(logger);
+// }
 
 const persistAuthConfig = {
   key: 'tokens',

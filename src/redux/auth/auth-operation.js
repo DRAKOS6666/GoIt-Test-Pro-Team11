@@ -19,7 +19,6 @@ export const registerUser = createAsyncThunk(
       token.set(userData.token);
       return newUser;
     } catch ({ response }) {
-      console.log('response', response);
       return rejectWithValue(`${response.data.message}`);
     }
   },
@@ -74,5 +73,19 @@ export const getCurrentUser = createAsyncThunk(
       }
       token.set(persistedToken);
     },
+  },
+);
+
+export const refreshUser = createAsyncThunk(
+  'auth/refreshToken',
+  async ({ sid, refreshToken }, { rejectWithValue }) => {
+    try {
+      token.set(refreshToken);
+      const response = await authApi.refreshToken(sid);
+      token.set(response.accesToken);
+      return response;
+    } catch (err) {
+      return rejectWithValue(`${err.response.statusText} ${err.response.status}`);
+    }
   },
 );
