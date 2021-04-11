@@ -5,6 +5,7 @@ import { authSelectors, authOperations } from 'redux/auth';
 
 import Navigation from 'components/Navigation';
 import UserMenu from 'components/UserMenu';
+
 import { ReactComponent as Menu } from '../../images/icons/menu.svg';
 import { ReactComponent as Close } from '../../images/icons/close.svg';
 import { ReactComponent as Out } from '../../images/icons/sign-out.svg';
