@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default function TestAnswerOption({ answer, onChecked }) {
+export default function TestAnswerOption({
+  answer,
+  onSelection,
+  selectedOption,
+}) {
   return (
     <li>
       <label>
@@ -8,8 +12,8 @@ export default function TestAnswerOption({ answer, onChecked }) {
           type="radio"
           name="answer"
           value={answer}
-          onChange={onchange}
-          cheked={onChecked}
+          onChange={onSelection}
+          checked={selectedOption === answer}
         />
         {answer}
       </label>
