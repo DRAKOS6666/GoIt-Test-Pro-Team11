@@ -1,11 +1,18 @@
 import React from 'react';
-
+import AnswerOption from './AnswerOption/AnswerOption';
 import styles from './TestForm.module.css';
 
-const TestForm = () => {
+export default function TestForm({ question }) {
+  const onCheked = () => {};
 
-    return (<form>
-        Test Form
-    </form>);
-};
-export default TestForm;
+  return (
+    <div>
+      <h3>{question.question}</h3>
+      <ul>
+        {question.answers.map(answer => (
+          <AnswerOption answer={answer} />
+        ))}
+      </ul>
+    </div>
+  );
+}
