@@ -67,7 +67,7 @@ const isLoggedIn = createReducer(false, {
   [authOperations.registerUser.fulfilled]: () => true,
   [authOperations.loginUser.fulfilled]: () => true,
   [authOperations.getCurrentUser.fulfilled]: () => true,
-
+  
   [authOperations.logoutUser.fulfilled]: () => false,
   [authOperations.logoutUser.rejected]: () => false,
   [authOperations.getCurrentUser.rejected]: () => false,
@@ -98,7 +98,7 @@ export default combineReducers({
 //   error: null,
 // };
 
-// const aithSlice = createSlice({
+// const authSlice = createSlice({
 //   name: 'auth',
 //   initialState,
 //   extraReducers: {
@@ -108,9 +108,11 @@ export default combineReducers({
 //       state.isLoggedIn = true;
 //       state.error = null;
 //     },
+
 //     [authOperations.registerUser.pending](state) {
 //       state.error = null;
 //     },
+
 //     [authOperations.registerUser.rejected](state, { payload }) {
 //       state.error = payload;
 //     },
@@ -121,9 +123,11 @@ export default combineReducers({
 //       state.token = payload.refreshToken;
 //       state.isLoggedIn = true;
 //     },
+
 //     [authOperations.loginUser.pending](state) {
 //       state.error = null;
 //     },
+
 //     [authOperations.loginUser.rejected](state, { payload }) {
 //       state.error = payload;
 //     },
@@ -133,11 +137,13 @@ export default combineReducers({
 
 //       state.error = null;
 //     },
+
 //     [authOperations.getCurrentUser.fulfilled](state, { payload }) {
 //       state.user = payload;
 //       state.isLoggedIn = true;
 //       state.isFetchingCurrentUser = false;
 //     },
+
 //     [authOperations.getCurrentUser.rejected](state, { payload }) {
 //       state.isFetchingCurrentUser = false;
 //       state.error = payload;
@@ -145,4 +151,4 @@ export default combineReducers({
 //   },
 // });
 
-// export default aithSlice.reducer;
+// export default authSlice.reducer;
