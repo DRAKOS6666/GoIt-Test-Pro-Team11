@@ -6,7 +6,7 @@ export const getTechQuestion = createAsyncThunk(
   'testTech/fetch',
   async (_, { rejectWithValue }) => {
     try {
-      const qaTest = await testApi.getqaTest();
+      const qaTest = await testApi.getTechQuestion();
       return qaTest;
     } catch (err) {
       return rejectWithValue(`${err.message} ${err.name}`);
@@ -18,7 +18,7 @@ export const getTestTheoryQuestion = createAsyncThunk(
   'testTheory/fetch',
   async (_, { rejectWithValue }) => {
     try {
-      const qaTest = await testApi.getqaTest();
+      const qaTest = await testApi.getTheoryQuestion();
       return qaTest;
     } catch (err) {
       return rejectWithValue(`${err.message} ${err.name}`);
