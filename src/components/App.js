@@ -5,7 +5,6 @@ import { authOperations, authSelectors } from 'redux/auth';
 
 import PrivateRoute from 'components/Route/PrivateRoute';
 import PublicRoute from 'components/Route/PublicRoute';
-// import { authSelectors } from 'redux/auth';
 
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
@@ -33,30 +32,30 @@ function App() {
   return (
     // !isFetchingCurrentUser &&    (
     <div className="wrapper">
-    <Header>
-      <Navigation />
-    </Header>
-    <Suspense fallback={<Loader />}>
-      <Switch>
+      <Header>
+        <Navigation />
+      </Header>
+      <Suspense fallback={<Loader />}>
+        <Switch>
 
-        <PrivateRoute exact path="/" component={MainPage} redirectTo="/auth" />
+          <PrivateRoute exact path="/" component={MainPage} redirectTo="/auth" />
 
-        <PublicRoute path="/auth" component={AuthPage} redirectTo="/" restricted />
+          <PublicRoute path="/auth" component={AuthPage} redirectTo="/" restricted />
 
-        <PublicRoute path="/test" component={Test} redirectTo="/auth" />
+          <PublicRoute path="/test" component={Test} redirectTo="/auth" />
 
-        <PublicRoute path="/results" component={Results} redirectTo="/auth" />
+          <PublicRoute path="/results" component={Results} redirectTo="/auth" />
 
-        <PrivateRoute path="/useful-info" component={Materials} redirectTo="/auth" />
+          <PrivateRoute path="/useful-info" component={Materials} redirectTo="/auth" />
 
-        <PublicRoute path="/contacts" component={Contacts} redirectTo="/auth" />
+          <PublicRoute path="/contacts" component={Contacts} redirectTo="/auth" />
 
-        <Redirect to="/auth" />
+          <Redirect to="/auth" />
 
-      </Switch>
-      <Footer />
-    </Suspense>
-  </div>
+        </Switch>
+        <Footer />
+      </Suspense>
+    </div>
     // )
   );
 }
