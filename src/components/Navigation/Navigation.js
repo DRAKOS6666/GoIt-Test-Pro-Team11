@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
 import { authSelectors } from 'redux/auth';
 import { useSelector } from 'react-redux';
 
-const Navigation = () => {
+function Navigation() {
   const isAuth = useSelector(authSelectors.getIsAuthUser);
 
   return (
@@ -46,6 +46,6 @@ const Navigation = () => {
       </div>
     </nav>
   );
-};
+}
 
-export default Navigation;
+export default memo(Navigation);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { authSelectors, authOperations } from 'redux/auth';
@@ -12,7 +12,7 @@ import { ReactComponent as Out } from '../../images/icons/sign-out.svg';
 
 import styles from './Header.module.css';
 
-export default function Header() {
+function Header() {
   const [menuShow, setMenuShow] = useState(true);
   const dispatch = useDispatch();
   const isAuth = useSelector(authSelectors.getIsAuthUser);
@@ -24,6 +24,8 @@ export default function Header() {
   const onClickLogout = () => {
     dispatch(authOperations.logoutUser());
   };
+
+  useEffect(() => {}, []);
 
   return (
     <div className={styles.wrapper}>
@@ -69,3 +71,5 @@ export default function Header() {
     </div>
   );
 }
+
+export default memo(Header);
