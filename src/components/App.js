@@ -12,6 +12,7 @@ import AuthPage from 'views/AuthPage';
 import Test from 'components/Test';
 import Results from './Results';
 import Materials from './Materials';
+import { books, resources } from './Materials/usefullMaterials.json';
 import MainPage from './MainPage'
 import Contacts from 'views/Contacts';
 import Footer from 'views/Footer';
@@ -46,7 +47,9 @@ function App() {
 
           <PublicRoute path="/results" component={Results} redirectTo="/auth" />
 
-          <PrivateRoute path="/useful-info" component={Materials} redirectTo="/auth" />
+          <PrivateRoute path="/useful-info" component={Materials} redirectTo="/auth">
+            <Materials books={books} resources={resources} />
+          </PrivateRoute>
 
           <PublicRoute path="/contacts" component={Contacts} redirectTo="/auth" />
 
