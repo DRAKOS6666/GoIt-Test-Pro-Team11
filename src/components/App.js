@@ -10,10 +10,12 @@ import PublicRoute from 'components/Route/PublicRoute';
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import AuthPage from 'views/AuthPage';
-import Test from 'components/Test';
+
+import Test from 'views/TestPage/TestPage';
+
 import Results from './Results';
 import Materials from './Materials';
-import MainPage from './MainPage'
+import MainPage from './MainPage';
 import Contacts from 'views/Contacts';
 import Footer from 'views/Footer';
 import Loader from 'components/Loader';
@@ -33,30 +35,46 @@ function App() {
   return (
     // !isFetchingCurrentUser &&    (
     <div className="wrapper">
-    <Header>
-      <Navigation />
-    </Header>
-    <Suspense fallback={<Loader />}>
-      <Switch>
+      <Header>
+        <Navigation />
+      </Header>
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          <PrivateRoute
+            exact
+            path="/"
+            component={MainPage}
+            redirectTo="/auth"
+          />
 
-        <PrivateRoute exact path="/" component={MainPage} redirectTo="/auth" />
+          <PublicRoute
+            path="/auth"
+            component={AuthPage}
+            redirectTo="/"
+            restricted
+          />
 
-        <PublicRoute path="/auth" component={AuthPage} redirectTo="/" restricted />
+          <PublicRoute path="/test" component={Test} redirectTo="/auth" />
 
-        <PublicRoute path="/test" component={Test} redirectTo="/auth" />
+          <PublicRoute path="/results" component={Results} redirectTo="/auth" />
 
-        <PublicRoute path="/results" component={Results} redirectTo="/auth" />
+          <PrivateRoute
+            path="/useful-info"
+            component={Materials}
+            redirectTo="/auth"
+          />
 
-        <PrivateRoute path="/useful-info" component={Materials} redirectTo="/auth" />
+          <PublicRoute
+            path="/contacts"
+            component={Contacts}
+            redirectTo="/auth"
+          />
 
-        <PublicRoute path="/contacts" component={Contacts} redirectTo="/auth" />
-
-        <Redirect to="/auth" />
-
-      </Switch>
-      <Footer />
-    </Suspense>
-  </div>
+          <Redirect to="/auth" />
+        </Switch>
+        <Footer />
+      </Suspense>
+    </div>
     // )
   );
 }
