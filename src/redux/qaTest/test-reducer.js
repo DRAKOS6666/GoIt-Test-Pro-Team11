@@ -36,10 +36,7 @@ const error = createReducer(null, {
 
 const tests = createReducer([], {
   [testOperations.getTechQuestion.fulfilled]: (_, { payload }) => payload,
-  [testOperations.getTestTheoryQuestion.fulfilled]: (state, { payload }) => [
-    ...state,
-    payload,
-  ],
+  [testOperations.getTestTheoryQuestion.fulfilled]: (_, { payload }) => payload,
 
 });
 
