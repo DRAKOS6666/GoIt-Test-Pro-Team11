@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { authSelectors, authOperations } from 'redux/auth';
 
@@ -23,6 +23,7 @@ function Header() {
 
   const onClickLogout = () => {
     dispatch(authOperations.logoutUser());
+    setMenuShow(true);
   };
 
   useEffect(() => {}, []);
@@ -41,7 +42,9 @@ function Header() {
         </Link>
       </div>
 
-      {(!menuShow || window.innerWidth > 767) && <Navigation />}
+      {(!menuShow || window.innerWidth > 767) && (
+        <Navigation closMenu={() => setMenuShow(true)} />
+      )}
 
       {isAuth && menuShow && <UserMenu />}
 

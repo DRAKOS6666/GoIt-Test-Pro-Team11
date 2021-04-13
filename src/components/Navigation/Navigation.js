@@ -4,11 +4,11 @@ import styles from './Navigation.module.css';
 import { authSelectors } from 'redux/auth';
 import { useSelector } from 'react-redux';
 
-function Navigation() {
+function Navigation({ closMenu }) {
   const isAuth = useSelector(authSelectors.getIsAuthUser);
 
   return (
-    <nav className={styles.wrapper}>
+    <nav className={styles.wrapper} onClick={() => closMenu()}>
       {isAuth && (
         <div className={styles.thumb}>
           <NavLink
