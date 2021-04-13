@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { v4 as uuid } from 'uuid';
+
 import AnswerOption from './AnswerOption/AnswerOption';
 // import styles from './TestForm.module.css';
 
@@ -19,6 +21,14 @@ export default function TestForm({
     const { value } = e.target;
     setSelectedAnswer({ questionId: question.questionId, answer: value });
   };
+  const addAnswerIncrIdx = newAnswer => {
+    addAnswer(newAnswer);
+    increaseIdx();
+  };
+  const addAnswerDecrIdx = newAnswer => {
+    addAnswer(newAnswer);
+    decreaseIdx();
+  };
 
   return (
     <div>
@@ -30,11 +40,12 @@ export default function TestForm({
             answer={answer}
             onSelection={onCheked}
             selectedOption={selectedAnswer.answer}
+            key={uuid()}
           />
         ))}
       </ul>
-      <button onClick={decreaseIdx}>PrevQ</button>
-      <button onClick={increaseIdx}>NextQ</button>
+      <button onClick={() => addAnswerDecrIdx(selectedAnswer)}>PrevQ</button>
+      <button onClick={() => addAnswerIncrIdx(selectedAnswer)}>NextQ</button>
     </div>
   );
 }

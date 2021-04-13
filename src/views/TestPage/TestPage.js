@@ -32,16 +32,23 @@ export default function TestPage() {
   const sendAnswers = () => {};
 
   const addAnswer = newAnswer => {
+    console.log(newAnswer);
+    console.log(answers);
+    setAnswers(answers => [...answers, newAnswer]);
     const updatedAnswers = answers.map(answer => {
-      if (answer.id === newAnswer.id && answer.answer !== newAnswer.answer) {
-        answer.answer = newAnswer.answer;
-        return answer;
-      }
-      return [...answers, newAnswer];
+      const isAnswer = answer.id === newAnswer.id;
+      console.log(isAnswer);
+      return answer;
+      //   if (answer.id === newAnswer.id && answer.answer !== newAnswer.answer) {
+      //     answer.answer = newAnswer.answer;
+      //     return answer;
+      //   }
+      //   return [...answers, newAnswer];
+      // });
+      // console.log(updatedAnswers);
+      // setAnswers(answers => [...updatedAnswers]);
     });
-    setAnswers(answers => [...updatedAnswers]);
   };
-
   const increaseIdx = () => {
     if (idx === test.length - 1) {
       return;
@@ -65,6 +72,7 @@ export default function TestPage() {
         question={test[idx]}
         increaseIdx={increaseIdx}
         decreaseIdx={decreaseIdx}
+        addAnswer={addAnswer}
       />
     </div>
   );
