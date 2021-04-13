@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { authSelectors, authOperations } from 'redux/auth';
@@ -26,12 +26,10 @@ function Header() {
     setMenuShow(true);
   };
 
-  useEffect(() => {}, []);
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.logo}>
-        <Link to="/" className={styles.link}>
+        <Link to="/" className={styles.link} onClick={() => setMenuShow(true)}>
           <div className={styles.pro}>
             <b className={styles.textPro}>Pro</b>
           </div>
@@ -62,13 +60,15 @@ function Header() {
 
       {((isAuth && !menuShow) || (isAuth && window.innerWidth > 767)) && (
         <div className={styles.outThumb}>
-          <button
-            type="button"
-            onClick={onClickLogout}
-            className={styles.btnOut}
-          >
-            <Out />
-          </button>
+          <Link to="/">
+            <button
+              type="button"
+              onClick={onClickLogout}
+              className={styles.btnOut}
+            >
+              <Out />
+            </button>
+          </Link>
         </div>
       )}
     </div>
