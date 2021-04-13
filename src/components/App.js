@@ -1,11 +1,10 @@
 import React, { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Switch } from 'react-router-dom';
-import { authOperations } from 'redux/auth';
+import { authOperations, authSelectors } from 'redux/auth';
 
 import PrivateRoute from 'components/Route/PrivateRoute';
 import PublicRoute from 'components/Route/PublicRoute';
-import { authSelectors } from 'redux/auth';
 
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
@@ -23,12 +22,15 @@ import './index.css';
 function App() {
   const user = useSelector(authSelectors.getUser);
   const dispatch = useDispatch();
+  // const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrentUser);
+  // console.log('isFetchingCurrentUser: ', isFetchingCurrentUser);
 
   useEffect(() => {
     dispatch(authOperations.getCurrentUser(user));
   }, []);
 
   return (
+    // !isFetchingCurrentUser &&    (
     <div className="wrapper">
       <Header>
         <Navigation />
@@ -54,6 +56,7 @@ function App() {
         <Footer />
       </Suspense>
     </div>
+    // )
   );
 }
 
