@@ -10,13 +10,16 @@ import { authSelectors } from 'redux/auth';
 import Home from 'components/Home';
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
-import Login from 'components/Login';
+import AuthPage from 'views/AuthPage';
+// import Login from 'components/Login';
+// import Register from 'components/Register';
 import Test from 'components/Test';
 import Results from './Results';
 import Materials from './Materials';
 import Contacts from 'views/Contacts';
 import Footer from 'views/Footer';
 import Loader from 'components/Loader';
+import { books, resources, } from '../components/Materials/usefullMaterials.json';
 
 import './index.css';
 
@@ -25,7 +28,6 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('user', user)
     dispatch(authOperations.getCurrentUser(user));
   }, []);
 
@@ -36,29 +38,23 @@ function App() {
       </Header>
       <Suspense fallback={<Loader />}>
         <Switch>
-    
-          <PublicRoute path="/auth" component={Login} redirectTo="/auth" restricted />
 
+          <PublicRoute path="/auth" component={AuthPage} redirectTo="/auth" restricted />
 
           <PublicRoute path="/test" component={Test} redirectTo="/auth" />
 
           <PublicRoute path="/results" component={Results} redirectTo="/auth" />
 
-          <PublicRoute
-            path="/useful-info"
-            component={Materials}
-            redirectTo="/auth"
-          />
+          <PrivateRoute path="/useful-info" redirectTo="/auth">
+            <Materials books={books} resources={resources} />
+          </PrivateRoute>
 
-          <PublicRoute
-            path="/contacts"
-            component={Contacts}
-            redirectTo="/auth"
-          />
+          <PublicRoute path="/contacts" component={Contacts} redirectTo="/auth" />
 
           <PublicRoute path="/" component={Home} redirectTo="/auth" />
 
           <Redirect to="/auth" />
+
         </Switch>
         <Footer />
       </Suspense>
