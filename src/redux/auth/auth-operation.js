@@ -1,5 +1,6 @@
 import { authApi } from 'redux/auth';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const token = {
@@ -19,7 +20,6 @@ export const registerUser = createAsyncThunk(
       token.set(userData.token);
       return newUser;
     } catch ({ response }) {
-      console.log('response', response);
       return rejectWithValue(`${response.data.message}`);
     }
   },
@@ -33,7 +33,7 @@ export const loginUser = createAsyncThunk(
       token.set(response.accesToken);
       return response;
     } catch ({ response }) {
-      return rejectWithValue(`Email or Password is invalid`);
+      return rejectWithValue('Invalid email or password! Try again!');
     }
   },
 );

@@ -12,11 +12,13 @@ import AuthPage from 'views/AuthPage';
 import Test from 'components/Test';
 import Results from './Results';
 import Materials from './Materials';
-import MainPage from './MainPage'
+import MainPage from './MainPage';
 import Contacts from 'views/Contacts';
 import Footer from 'views/Footer';
 import Loader from 'components/Loader';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
 
 function App() {
@@ -37,24 +39,41 @@ function App() {
       </Header>
       <Suspense fallback={<Loader />}>
         <Switch>
+          <PrivateRoute
+            exact
+            path="/"
+            component={MainPage}
+            redirectTo="/auth"
+          />
 
-          <PrivateRoute exact path="/" component={MainPage} redirectTo="/auth" />
-
-          <PublicRoute path="/auth" component={AuthPage} redirectTo="/" restricted />
+          <PublicRoute
+            path="/auth"
+            component={AuthPage}
+            redirectTo="/"
+            restricted
+          />
 
           <PublicRoute path="/test" component={Test} redirectTo="/auth" />
 
           <PublicRoute path="/results" component={Results} redirectTo="/auth" />
 
-          <PrivateRoute path="/useful-info" component={Materials} redirectTo="/auth" />
+          <PrivateRoute
+            path="/useful-info"
+            component={Materials}
+            redirectTo="/auth"
+          />
 
-          <PublicRoute path="/contacts" component={Contacts} redirectTo="/auth" />
+          <PublicRoute
+            path="/contacts"
+            component={Contacts}
+            redirectTo="/auth"
+          />
 
           <Redirect to="/auth" />
-
         </Switch>
         <Footer />
       </Suspense>
+      <ToastContainer autoClose={3700} position="top-center" />
     </div>
     // )
   );

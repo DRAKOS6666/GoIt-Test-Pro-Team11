@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link, Route } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from 'redux/auth';
