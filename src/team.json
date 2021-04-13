@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "url": "",
+    "name": "DRAKOS",
+    "vocation": "Front-End Developer",
+    "descr": ""
+  },
+  {
+    "id": "2",
+    "url": "",
+    "name": "Vasylenko Yaroslav",
+    "vocation": "Front-End Developer",
+    "descr": ""
+  },
+  {
+    "id": "3",
+    "url": "",
+    "name": "Baraniuk Viktoriia",
+    "vocation": "Front-End Developer",
+    "descr": ""
+  },
+
+  {
+    "id": "4",
+    "url": "",
+    "name": "Khomiakov Dmitriy",
+    "vocation": "Front-End Developer",
+    "descr": ""
+  },
+  {
+    "id": "5",
+    "url": "",
+    "name": "Khodak Mikhail",
+    "vocation": "Front-End Developer",
+    "descr": ""
+  },
+  {
+    "id": "6",
+    "url": "",
+    "name": "Marina",
+    "vocation": "Front-End Developer",
+    "descr": ""
+  },
+
+  {
+    "id": "7",
+    "url": "",
+    "name": "Stepanov Serhiy",
+    "vocation": "Front-End Developer",
+    "descr": ""
+  },
+  {
+    "id": "8",
+    "url": "",
+    "name": "Reznik Denis",
+    "vocation": "Front-End Developer",
+    "descr": ""
+  },
+  {
+    "id": "9",
+    "url": "",
+    "name": "Sivonenko Yulia",
+    "vocation": "Front-End Developer",
+    "descr": ""
+  },
+
+  {
+    "id": "10",
+    "url": "",
+    "name": "Kholod Alex",
+    "vocation": "Front-End Developer",
+    "descr": ""
+  },
+  {
+    "id": "11",
+    "url": "",
+    "name": "Chepak Alexandr",
+    "vocation": "Front-End Developer",
+    "descr": ""
+  }
+]
