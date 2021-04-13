@@ -37,42 +37,44 @@ function App() {
       <Header>
         <Navigation />
       </Header>
-      <Suspense fallback={<Loader />}>
-        <Switch>
-          <PrivateRoute
-            exact
-            path="/"
-            component={MainPage}
-            redirectTo="/auth"
-          />
+      <div className="main-content">
+        <Suspense fallback={<Loader />}>
+          <Switch>
+            <PrivateRoute
+              exact
+              path="/"
+              component={MainPage}
+              redirectTo="/auth"
+            />
 
-          <PublicRoute
-            path="/auth"
-            component={AuthPage}
-            redirectTo="/"
-            restricted
-          />
+            <PublicRoute
+              path="/auth"
+              component={AuthPage}
+              redirectTo="/"
+              restricted
+            />
 
-          <PublicRoute path="/test" component={Test} redirectTo="/auth" />
+            <PublicRoute path="/test" component={Test} redirectTo="/auth" />
 
-          <PublicRoute path="/results" component={Results} redirectTo="/auth" />
+            <PublicRoute path="/results" component={Results} redirectTo="/auth" />
 
-          <PrivateRoute
-            path="/useful-info"
-            component={Materials}
-            redirectTo="/auth"
-          />
+            <PrivateRoute
+              path="/useful-info"
+              component={Materials}
+              redirectTo="/auth"
+            />
 
-          <PublicRoute
-            path="/contacts"
-            component={Contacts}
-            redirectTo="/auth"
-          />
+            <PublicRoute
+              path="/contacts"
+              component={Contacts}
+              redirectTo="/auth"
+            />
 
-          <Redirect to="/auth" />
-        </Switch>
-        <Footer />
-      </Suspense>
+            <Redirect to="/auth" />
+          </Switch>
+          <Footer />
+        </Suspense>
+      </div>
       <ToastContainer autoClose={3700} position="top-center" />
     </div>
     // )
