@@ -31,8 +31,15 @@ export default function TestPage() {
   // }, [title, dispatch]);
   const sendAnswers = () => {};
 
-  const addAnswer = answer => {
-    setAnswers(answers => {});
+  const addAnswer = newAnswer => {
+    const updatedAnswers = answers.map(answer => {
+      if (answer.id === newAnswer.id && answer.answer !== newAnswer.answer) {
+        answer.answer = newAnswer.answer;
+        return answer;
+      }
+      return [...answers, newAnswer];
+    });
+    setAnswers(answers => [...updatedAnswers]);
   };
 
   const increaseIdx = () => {
