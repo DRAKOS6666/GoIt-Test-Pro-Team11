@@ -13,10 +13,10 @@ export default function TestPage() {
   const title = 'qa technical training';
 
   const [idx, setIdx] = useState(0);
+  const [answers, setAnswers] = useState([]);
   // const dispatch = useDispatch();
   // const test = useSelector(getTestData);
 
-  console.log('test:', test);
   // useEffect(() => {
   //   switch (title) {
   //     case 'qa technical training':
@@ -29,6 +29,11 @@ export default function TestPage() {
   //       break;
   //   }
   // }, [title, dispatch]);
+  const sendAnswers = () => {};
+
+  const addAnswer = answer => {
+    setAnswers(answers => {});
+  };
 
   const increaseIdx = () => {
     if (idx === test.length - 1) {
@@ -44,14 +49,16 @@ export default function TestPage() {
     setIdx(idx => idx - 1);
   };
 
-  console.log('idx:', idx);
   return (
     <div>
       <h2>{title}</h2>
+
       <p>{`question ${idx + 1}/${test.length}`}</p>
-      <TestForm question={test[idx]} />
-      <button onClick={decreaseIdx}>PrevQ</button>
-      <button onClick={increaseIdx}>NextQ</button>
+      <TestForm
+        question={test[idx]}
+        increaseIdx={increaseIdx}
+        decreaseIdx={decreaseIdx}
+      />
     </div>
   );
 }
