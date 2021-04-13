@@ -18,5 +18,4 @@ export async function getTechResult(results) {
 
 export async function getTheoryResults(results) {
   const result = await axios.post(`/qa-test/theory-results`, results);
-  return result;
 }
