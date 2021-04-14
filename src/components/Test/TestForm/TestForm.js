@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import AnswerOption from './AnswerOption/AnswerOption';
 // import styles from './TestForm.module.css';
@@ -11,16 +11,33 @@ export default function TestForm({
   decreaseIdx,
   increaseIdx,
   addAnswer,
+  indexValue,
+  numberOfQ,
 }) {
-  const [selection, setSelection] = useState({});
   const answers = [...question.answers];
+  const [selection, setSelection] = useState({});
 
   const onSelection = e => {
     const { value } = e.target;
     const selectedAnswer = { questionId: question.questionId, answer: value };
-    addAnswer(selectedAnswer);
-    setSelection({ questionId: question.questionId, answer: value });
+    setSelection(selectedAnswer);
   };
+
+  const nextQ = () => {
+    increaseIdx();
+    addAnswer(selection);
+    setSelection({});
+  };
+
+  const prevQ = () => {
+    decreaseIdx();
+    addAnswer(selection);
+    setSelection({});
+  };
+  const turnOffButonNext =
+    indexValue >= 0 && indexValue < numberOfQ ? false : true;
+  const turnOffButonPrev =
+    indexValue <= numberOfQ && indexValue > 0 ? false : true;
 
   return (
     <div>
@@ -36,8 +53,12 @@ export default function TestForm({
           />
         ))}
       </ul>
-      <button onClick={decreaseIdx}>PrevQ</button>
-      <button onClick={increaseIdx}>NextQ</button>
+      <button onClick={prevQ} disabled={turnOffButonPrev}>
+        PrevQ
+      </button>
+      <button onClick={nextQ} disabled={turnOffButonNext}>
+        NextQ
+      </button>
     </div>
   );
 }
