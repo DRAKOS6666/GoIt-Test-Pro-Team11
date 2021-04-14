@@ -41,7 +41,7 @@
   }
 }
 
-@media screen and (width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .listItem:nth-child(even) {
     margin-right: 0;
   }
@@ -82,10 +82,14 @@
 }
 
 .content {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: start;
   padding: 20px;
   width: 280px;
   height: 126px;
   background-color: rgb(255, 255, 255);
+  overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
