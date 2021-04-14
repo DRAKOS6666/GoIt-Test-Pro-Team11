@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import AnswerOption from './AnswerOption/AnswerOption';
 // import styles from './TestForm.module.css';
@@ -21,17 +21,16 @@ export default function TestForm({
     const { value } = e.target;
     const selectedAnswer = { questionId: question.questionId, answer: value };
     setSelection(selectedAnswer);
+    addAnswer(selectedAnswer);
   };
 
   const nextQ = () => {
     increaseIdx();
-    addAnswer(selection);
     setSelection({});
   };
 
   const prevQ = () => {
     decreaseIdx();
-    addAnswer(selection);
     setSelection({});
   };
   const turnOffButonNext =

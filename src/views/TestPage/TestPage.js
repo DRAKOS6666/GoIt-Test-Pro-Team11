@@ -14,8 +14,6 @@ export default function TestPage() {
 
   const [idx, setIdx] = useState(0);
   const [answers, setAnswers] = useState([]);
-  const [activeNextQ, setActiveNextQ] = useState(false);
-  const [activePrevQ, setActivePrevQ] = useState(true);
   // const dispatch = useDispatch();
   // const test = useSelector(getTestData);
 
@@ -33,39 +31,31 @@ export default function TestPage() {
   // }, [title, dispatch]);
   // const sendAnswers = () => {};
 
-  const activeButton = indexValue => {
-    if (test.length - 1 > indexValue > 0) {
-      setActivePrevQ(activePrevQ => false);
-      setActiveNextQ(activeNextQ => false);
-    } else if (indexValue === 0) {
-      setActivePrevQ(activePrevQ => true);
-      setActiveNextQ(activeNextQ => false);
-    } else if (indexValue === test.length - 1) {
-      setActivePrevQ(activePrevQ => false);
-      setActiveNextQ(activeNextQ => true);
-    }
-  };
-
   const changeAnswer = (arrAnswers, newAnswer) => {
-    const rule = Boolean(arrAnswers.length);
-    if (rule) {
-      const updatedArrAnswers = arrAnswers.map(answer =>
-        answer.questionId === newAnswer.questionId &&
-        answer.answer !== newAnswer.answer
-          ? { ...answer, answer: newAnswer.answer }
-          : answer,
-      );
+    if (arrAnswers.length) {
+      const updatedArrAnswers = arrAnswers.map(option => {
+        if (
+          option.questionId === newAnswer.questionId &&
+          option.answer !== newAnswer.answer
+        ) {
+          return { ...option, answer: newAnswer.answer };
+        }
+        return option;
+      });
       return updatedArrAnswers;
     }
-
-    return arrAnswers;
   };
 
   const addAnswer = newAnswer => {
-    console.log('newAnswer:', newAnswer);
-    if (newAnswer.questionId) {
-      const newAnswersArr = changeAnswer(answers, newAnswer);
-      setAnswers(answers => [...newAnswersArr, newAnswer]);
+    if (Object.keys(newAnswer).length !== 0) {
+      if (answers.some(answer => answer.questionId === newAnswer.questionId)) {
+        const newAnswersArr = changeAnswer(answers, newAnswer);
+        console.log(newAnswersArr);
+        setAnswers([...newAnswersArr]);
+        console.log(answers);
+        return;
+      }
+      setAnswers(answers => [...answers, newAnswer]);
     }
   };
 
@@ -82,7 +72,7 @@ export default function TestPage() {
     }
     setIdx(idx => idx - 1);
   };
-
+  console.log(answers);
   return (
     <div>
       <h2>{title}</h2>
