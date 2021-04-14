@@ -137,7 +137,7 @@ const Login = () => {
 
           <div className={styles.buttons_container}>
             <button
-              onSubmit={handleRegisterSubmit}
+              onClick={handleRegisterSubmit}
               disabled={!formValid}
               type="submit"
               className={styles.button}
@@ -145,7 +145,7 @@ const Login = () => {
               SIGN IN
             </button>
             <button
-              onSubmit={handleLoginSubmit}
+              onClick={handleLoginSubmit}
               disabled={!formValid}
               type="submit"
               className={styles.button}
