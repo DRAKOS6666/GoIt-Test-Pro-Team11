@@ -1,12 +1,12 @@
 import test from '../../components/Test/TestForm/question.json';
 
-import React, { useState } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getTestData } from '../../redux/qaTest/test-selectors';
-// import {
-//   getTechQuestion,
-//   getTestTheoryQuestion,
-// } from '../../redux/qaTest/test-operations';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getTestData } from '../../redux/qaTest/test-selectors';
+import {
+  getTechQuestion,
+  getTestTheoryQuestion,
+} from '../../redux/qaTest/test-operations';
 import TestForm from '../../components/Test/TestForm/';
 
 export default function TestPage() {
@@ -16,6 +16,7 @@ export default function TestPage() {
   const [answers, setAnswers] = useState([]);
   // const dispatch = useDispatch();
   // const test = useSelector(getTestData);
+  // console.log(test);
 
   // useEffect(() => {
   //   switch (title) {
@@ -50,9 +51,7 @@ export default function TestPage() {
     if (Object.keys(newAnswer).length !== 0) {
       if (answers.some(answer => answer.questionId === newAnswer.questionId)) {
         const newAnswersArr = changeAnswer(answers, newAnswer);
-        console.log(newAnswersArr);
         setAnswers([...newAnswersArr]);
-        console.log(answers);
         return;
       }
       setAnswers(answers => [...answers, newAnswer]);
@@ -72,7 +71,7 @@ export default function TestPage() {
     }
     setIdx(idx => idx - 1);
   };
-  console.log(answers);
+
   return (
     <div>
       <h2>{title}</h2>
