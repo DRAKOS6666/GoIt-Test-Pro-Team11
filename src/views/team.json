@@ -1,0 +1,79 @@
+[
+  {
+    "url": "",
+    "alt": "Drobinko Konstantin",
+    "name": "Drobinko Konstantin",
+    "vocation": "Front-End Developer",
+    "description": "Team lead of the project. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "url": "",
+    "name": "Vasylenko Yaroslav",
+    "alt": "Vasylenko Yaroslav",
+    "vocation": "Front-End Developer",
+    "description": "Scrum master of the project. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "url": "",
+    "alt": "Baraniuk Viktoriia",
+    "name": "Baraniuk Viktoriia",
+    "vocation": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "url": "",
+    "alt": "Khomiakov Dmitriy",
+    "name": "Khomiakov Dmitriy",
+    "vocation": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "url": "",
+    "alt": "Khodak Mikhail",
+    "name": "Khodak Mikhail",
+    "vocation": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "url": "",
+    "alt": "Vetokh Marina",
+    "name": "Vetokh Marina",
+    "vocation": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "url": "",
+    "alt": "Stepanov Serhiy",
+    "name": "Stepanov Serhiy",
+    "vocation": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "url": "",
+    "alt": "Reznik Denis",
+    "name": "Reznik Denis",
+    "vocation": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "url": "",
+    "alt": "Sivonenko Yulia",
+    "name": "Sivonenko Yulia",
+    "vocation": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "url": "",
+    "alt": "Kholod Alex",
+    "name": "Kholod Alex",
+    "vocation": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "url": "",
+    "alt": "Chepak Alexandr",
+    "name": "Chepak Alexandr",
+    "vocation": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  }
+]

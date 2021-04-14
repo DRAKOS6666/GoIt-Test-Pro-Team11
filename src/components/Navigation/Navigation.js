@@ -8,7 +8,7 @@ function Navigation({ closMenu }) {
   const isAuth = useSelector(authSelectors.getIsAuthUser);
 
   return (
-    <nav className={styles.wrapper} onClick={() => closMenu()}>
+    <nav className={styles.wrapper}>
       {isAuth && (
         <div className={styles.thumb}>
           <NavLink
@@ -16,6 +16,7 @@ function Navigation({ closMenu }) {
             exact
             className={styles.navLink}
             activeClassName={styles.active}
+            onClick={() => closMenu()}
           >
             Home
           </NavLink>
@@ -29,6 +30,7 @@ function Navigation({ closMenu }) {
             exact
             className={styles.navLink}
             activeClassName={styles.active}
+            onClick={() => closMenu()}
           >
             Materials
           </NavLink>
@@ -40,6 +42,7 @@ function Navigation({ closMenu }) {
           to="/contacts"
           className={styles.navLink}
           activeClassName={styles.active}
+          onClick={() => closMenu()}
         >
           Contacts
         </NavLink>
