@@ -1,35 +1,33 @@
 import React from 'react';
-import { Chart } from "react-google-charts";
+import { Chart } from 'react-google-charts';
 
 import s from './Diagram.module.css';
 
-const Diagram = ({data}) => {
-  
- return (
-        <div className={s.position}>
-        <Chart 
-  width={'400px'}
-  height={'400px'}
-  chartType="PieChart"
-  loader={<div>Loading Chart</div>}
-  /* data={[['Answer', 'Percentage'], ['Correct', 75], ['Incorrect', (100- 75)]]} */
-  data={data}
-  
-  options={{
-    legend: '',
-    pieSliceText: '',
-    pieStartAngle: 135,
-    tooltip: { trigger: 'none' },
-    slices: {
-      0: { color: '#FF6B01' },
-      1: { color: '#D7D7D7' },
-    },
-  }}
-  rootProps={{'data-testid': '2' }}
-/></div>)
-}
-
-
+const Diagram = ({ data }) => {
+  return (
+    <div className={s.position}>
+      <Chart
+        width={'400px'}
+        height={'400px'}
+        chartType="PieChart"
+        loader={<div>Loading Chart</div>}
+        /* data={[['Answer', 'Percentage'], ['Correct', 75], ['Incorrect', (100- 75)]]} */
+        data={data}
+        options={{
+          legend: '',
+          pieSliceText: '',
+          pieStartAngle: 135,
+          tooltip: { trigger: 'none' },
+          slices: {
+            0: { color: '#FF6B01' },
+            1: { color: '#D7D7D7' },
+          },
+        }}
+        rootProps={{ 'data-testid': '2' }}
+      />
+    </div>
+  );
+};
 
 export default Diagram;
 

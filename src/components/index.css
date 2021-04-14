@@ -37,6 +37,7 @@ p {
 
 .main-content {
   padding: 0 20px;
+  background-color: var(--primary-bg-color);
 }
 
 @media screen and (max-width: 767px) {

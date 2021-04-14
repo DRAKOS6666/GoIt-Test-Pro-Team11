@@ -1,20 +1,20 @@
 [
   {
-    "url": "",
-    "alt": "Drobinko Konstantin",
-    "name": "Drobinko Konstantin",
+    "url": "Kostya.jpg",
+    "alt": "Drobinko Kostiantyn",
+    "name": "Drobinko Kostiantyn",
     "vocation": "Front-End Developer",
     "description": "Team lead of the project. Write a frontend according to a given layout, implement logic, link to a back-end."
   },
   {
-    "url": "",
+    "url": "Yaroslav.jpg",
     "name": "Vasylenko Yaroslav",
     "alt": "Vasylenko Yaroslav",
     "vocation": "Front-End Developer",
     "description": "Scrum master of the project. Write a frontend according to a given layout, implement logic, link to a back-end."
   },
   {
-    "url": "",
+    "url": "Vika.jpg",
     "alt": "Baraniuk Viktoriia",
     "name": "Baraniuk Viktoriia",
     "vocation": "Front-End Developer",
@@ -28,51 +28,51 @@
     "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
   },
   {
-    "url": "",
+    "url": "Misha.jpg",
     "alt": "Khodak Mikhail",
     "name": "Khodak Mikhail",
     "vocation": "Front-End Developer",
     "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
   },
   {
-    "url": "",
+    "url": "Marina.jpg",
     "alt": "Vetokh Marina",
     "name": "Vetokh Marina",
     "vocation": "Front-End Developer",
     "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
   },
   {
-    "url": "",
+    "url": "Sergey.jpg",
     "alt": "Stepanov Serhiy",
     "name": "Stepanov Serhiy",
     "vocation": "Front-End Developer",
     "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
   },
   {
-    "url": "",
+    "url": "Denis.jpg",
     "alt": "Reznik Denis",
     "name": "Reznik Denis",
     "vocation": "Front-End Developer",
     "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
   },
   {
-    "url": "",
+    "url": "Yulia.jpg",
     "alt": "Sivonenko Yulia",
     "name": "Sivonenko Yulia",
     "vocation": "Front-End Developer",
     "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
   },
   {
-    "url": "",
-    "alt": "Kholod Alex",
-    "name": "Kholod Alex",
+    "url": "Alex.jpg",
+    "alt": "Chepak Alexandr",
+    "name": "Chepak Alexandr",
     "vocation": "Front-End Developer",
     "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
   },
   {
     "url": "",
-    "alt": "Chepak Alexandr",
-    "name": "Chepak Alexandr",
+    "alt": "KHOLOD ALEX",
+    "name": "Kholod Alex",
     "vocation": "Front-End Developer",
     "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
   }
