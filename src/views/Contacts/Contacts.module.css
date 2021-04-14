@@ -29,6 +29,7 @@
   width: 280px;
   height: 370px;
   margin-bottom: 20px;
+  margin-right: 20px;
   list-style: none;
 }
 
@@ -36,12 +37,27 @@
   .listItem {
     width: 352px;
     height: 370px;
+    margin-right: 20px;
   }
 }
 
-@media screen and (min-width: 768px) {
-  .listItem:nth-child(odd) {
+@media screen and (width: 768px) {
+  .listItem:nth-child(even) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .listItem {
+    width: 295px;
+    height: 370px;
     margin-right: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .listItem:nth-child(4n + 4) {
+    margin-right: 0;
   }
 }
 
@@ -58,6 +74,13 @@
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .photo {
+    width: 295px;
+    height: 244px;
+  }
+}
+
 .content {
   padding: 20px;
   width: 280px;
@@ -69,6 +92,14 @@
   .content {
     padding: 20px 30px;
     width: 352px;
+    height: 126px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .content {
+    padding: 20px 30px;
+    width: 295px;
     height: 126px;
   }
 }
