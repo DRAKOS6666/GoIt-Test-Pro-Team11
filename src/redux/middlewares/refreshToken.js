@@ -4,14 +4,24 @@ import { authOperations } from 'redux/auth';
 
 const refreshToken = store => next => action => {
     try {
-        console.log('itsGood')
-        const { sid, refreshToken } = store.getState()
-        const response = authOperations.refreshUser(refreshToken, sid)
-        return response
-        // return next(action)
+        const {
+            response,
+        } = action;
+        console.log('response', response)
+        if (!response) {
+            return next(action);
+        }
+
+        // console.log('itsGood')
+        // const { sid, refreshToken } = store.getState()
+        // console.log('sid and rToken', sid, refreshToken)
+        // const response = authOperations.refreshUser(refreshToken, sid)
+        // return response
+        return next(action)
     } catch (err) {
         console.log('errorHandle', err)
         const { sid, refreshToken } = store.getState()
+
         const response = authOperations.refreshUser(refreshToken, sid)
         return response
         //   Raven.captureException(err, {

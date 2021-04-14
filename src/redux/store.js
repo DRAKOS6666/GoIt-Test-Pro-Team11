@@ -55,9 +55,15 @@ const persistAuthConfig = {
   whitelist: ['accessToken', 'refreshToken', 'sid', 'user'],
 };
 
+const persistTestConfig = {
+  key: 'testing',
+  storage,
+  whitelist: ['tests', 'results'],
+};
+
 const store = configureStore({
   reducer: {
-    qaTest: qaTestReducer,
+    qaTest: persistReducer(persistTestConfig, qaTestReducer),
     auth: persistReducer(persistAuthConfig, authReducer),
   },
   middleware,
