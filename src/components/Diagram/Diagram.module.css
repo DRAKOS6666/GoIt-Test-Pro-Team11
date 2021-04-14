@@ -1,0 +1,7 @@
+.position {
+    display: flex;
+    justify-content: center;
+}
+rect {
+    fill: transparent;
+}

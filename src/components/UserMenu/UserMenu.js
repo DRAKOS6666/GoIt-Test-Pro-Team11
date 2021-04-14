@@ -1,10 +1,10 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { authOperations, authSelectors } from 'redux/auth';
+import React, { memo } from 'react';
+import { useSelector } from 'react-redux';
+import { authSelectors } from 'redux/auth';
 
 import styles from './UserMenu.module.css';
 
-const UserMenu = () => {
+function UserMenu() {
   const user = useSelector(authSelectors.getUser);
 
   const userEmail = user.email;
@@ -21,5 +21,5 @@ const UserMenu = () => {
       </div>
     )
   );
-};
-export default UserMenu;
+}
+export default memo(UserMenu);
