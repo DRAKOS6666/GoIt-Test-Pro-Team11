@@ -86,7 +86,7 @@ const Login = () => {
 
   return (
     <>
-      <form onSubmit={handleLoginSubmit} className={styles.form}>
+      <form className={styles.form}>
         <div className={styles.container}>
           <p className={styles.text}>
             You can use your Google Account to authorize:
@@ -137,6 +137,7 @@ const Login = () => {
 
           <div className={styles.buttons_container}>
             <button
+              onSubmit={handleRegisterSubmit}
               disabled={!formValid}
               type="submit"
               className={styles.button}
@@ -144,6 +145,7 @@ const Login = () => {
               SIGN IN
             </button>
             <button
+              onSubmit={handleLoginSubmit}
               disabled={!formValid}
               type="submit"
               className={styles.button}
