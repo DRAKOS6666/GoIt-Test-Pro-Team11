@@ -32,22 +32,10 @@ export default function TestPage() {
   const sendAnswers = () => {};
 
   const addAnswer = newAnswer => {
-    console.log(newAnswer);
-    console.log(answers);
     setAnswers(answers => [...answers, newAnswer]);
-    const updatedAnswers = answers.map(answer => {
-      const isAnswer = answer.id === newAnswer.id;
-      console.log(isAnswer);
-      return answer;
-      //   if (answer.id === newAnswer.id && answer.answer !== newAnswer.answer) {
-      //     answer.answer = newAnswer.answer;
-      //     return answer;
-      //   }
-      //   return [...answers, newAnswer];
-      // });
-      // console.log(updatedAnswers);
-      // setAnswers(answers => [...updatedAnswers]);
-    });
+    console.log(newAnswer);
+    console.log('answers:', answers);
+    // console.log(answers);
   };
   const increaseIdx = () => {
     if (idx === test.length - 1) {

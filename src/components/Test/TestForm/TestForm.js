@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { v4 as uuid } from 'uuid';
 
 import AnswerOption from './AnswerOption/AnswerOption';
 // import styles from './TestForm.module.css';
@@ -13,21 +12,14 @@ export default function TestForm({
   increaseIdx,
   addAnswer,
 }) {
+  const [selection, setSelection] = useState({});
   const answers = [...question.answers];
 
-  const [selectedAnswer, setSelectedAnswer] = useState({});
-
-  const onCheked = e => {
+  const onSelection = e => {
     const { value } = e.target;
-    setSelectedAnswer({ questionId: question.questionId, answer: value });
-  };
-  const addAnswerIncrIdx = newAnswer => {
-    addAnswer(newAnswer);
-    increaseIdx();
-  };
-  const addAnswerDecrIdx = newAnswer => {
-    addAnswer(newAnswer);
-    decreaseIdx();
+    const selectedAnswer = { questionId: question.questionId, answer: value };
+    addAnswer(selectedAnswer);
+    setSelection({ questionId: question.questionId, answer: value });
   };
 
   return (
@@ -35,17 +27,17 @@ export default function TestForm({
       <h3>{question.question}</h3>
       <button onClick={addAnswer}>Finish Test</button>
       <ul>
-        {answers.map(answer => (
+        {answers.map((answer, index) => (
           <AnswerOption
             answer={answer}
-            onSelection={onCheked}
-            selectedOption={selectedAnswer.answer}
-            key={uuid()}
+            onSelection={onSelection}
+            selectedOption={selection.answer}
+            key={index}
           />
         ))}
       </ul>
-      <button onClick={() => addAnswerDecrIdx(selectedAnswer)}>PrevQ</button>
-      <button onClick={() => addAnswerIncrIdx(selectedAnswer)}>NextQ</button>
+      <button onClick={decreaseIdx}>PrevQ</button>
+      <button onClick={increaseIdx}>NextQ</button>
     </div>
   );
 }
