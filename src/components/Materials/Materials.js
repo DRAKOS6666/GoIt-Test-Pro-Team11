@@ -2,8 +2,9 @@ import React from 'react';
 import UsefullInfoItem from './UsefullInfoItem/UsefullInfoItem';
 import UsefullInfoUrl from './UsefullInfoItem/UsefullInfoUrl';
 import s from './Materials.module.css';
+import { books, resources, } from '../Materials/usefullMaterials.json';
 
-function UsefullInfo({ books, resources }) {
+function UsefullInfo() {
     return (
         <div className={s.section}>
             <div className={s.literature}>

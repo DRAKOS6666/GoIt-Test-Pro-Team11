@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  /* width: 320px; */
   height: 70px;
   border-bottom: 1px solid #e2e3e5;
   background-color: var(--primary-bg-color);
@@ -23,9 +23,9 @@
 .logo {
   position: relative;
   display: flex;
-  margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+  margin-left: 20px;
   width: 129px;
   height: 28px;
 }
@@ -119,6 +119,7 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  z-index: 1000;
 }
 
 @media screen and (min-width: 768px) {

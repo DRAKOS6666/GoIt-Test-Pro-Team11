@@ -1,0 +1,19 @@
+.line {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 321.5px;
+    border-bottom: 1px solid #d0d4dc;
+}
+.back {
+    display: flex;
+ justify-content: center;
+}
+.button {
+   width: 190px;
+    padding: 17px 28px; 
+background-color: var(--button-bg-color);
+border-color:  var(--button-bg-color);
+outline: none;
+cursor: pointer;}
+

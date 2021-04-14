@@ -36,18 +36,13 @@ const error = createReducer(null, {
 
 const tests = createReducer([], {
   [testOperations.getTechQuestion.fulfilled]: (_, { payload }) => payload,
-  [testOperations.getTestTheoryQuestion.fulfilled]: (state, { payload }) => [
-    ...state,
-    payload,
-  ],
+  [testOperations.getTestTheoryQuestion.fulfilled]: (_, { payload }) => payload,
 
 });
 
 const results = createReducer([], {
-  [testOperations.sendTestTechResults.fulfilled]: (state, { payload }) =>
-    state.filter(contact => contact.id !== payload),
-  [testOperations.sendTestTheoryResults.fulfilled]: (state, { payload }) =>
-    state.filter(contact => contact.id !== payload),
+  [testOperations.sendTestTechResults.fulfilled]: (_, { payload }) => payload,
+  [testOperations.sendTestTheoryResults.fulfilled]: (_, { payload }) => payload,
 });
 
 export default combineReducers({

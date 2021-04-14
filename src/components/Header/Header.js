@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { memo, useEffect, useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { authSelectors, authOperations } from 'redux/auth';
 
 import Navigation from 'components/Navigation';
 import UserMenu from 'components/UserMenu';
+
 import { ReactComponent as Menu } from '../../images/icons/menu.svg';
 import { ReactComponent as Close } from '../../images/icons/close.svg';
 import { ReactComponent as Out } from '../../images/icons/sign-out.svg';
 
 import styles from './Header.module.css';
 
-export default function Header() {
+function Header() {
   const [menuShow, setMenuShow] = useState(true);
   const dispatch = useDispatch();
   const isAuth = useSelector(authSelectors.getIsAuthUser);
@@ -22,7 +23,10 @@ export default function Header() {
 
   const onClickLogout = () => {
     dispatch(authOperations.logoutUser());
+    setMenuShow(true);
   };
+
+  useEffect(() => {}, []);
 
   return (
     <div className={styles.wrapper}>
@@ -38,7 +42,9 @@ export default function Header() {
         </Link>
       </div>
 
-      {(!menuShow || window.innerWidth > 767) && <Navigation />}
+      {(!menuShow || window.innerWidth > 767) && (
+        <Navigation closMenu={() => setMenuShow(true)} />
+      )}
 
       {isAuth && menuShow && <UserMenu />}
 
@@ -68,3 +74,5 @@ export default function Header() {
     </div>
   );
 }
+
+export default memo(Header);
