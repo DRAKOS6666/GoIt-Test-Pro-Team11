@@ -15,9 +15,9 @@ function UserMenu() {
         <div className={styles.letter}>
           {userEmail.slice(0, 1).toUpperCase()}
         </div>
-        <span className={styles.email}>
+        <div className={styles.email}>
           {userEmail.length > 20 ? 'Welcome' : userEmail}
-        </span>
+        </div>
       </div>
     )
   );
