@@ -1,37 +1,63 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { testOperations, testSelectors } from 'redux/qaTest';
+import React, { useState } from 'react';
 
-import styles from './TestForm.module.css';
+import AnswerOption from './AnswerOption/AnswerOption';
+// import styles from './TestForm.module.css';
 
-const TestForm = () => {
-    const testData = useSelector(testSelectors.getTestData);
-    const dispatch = useDispatch();
+// import { useDispatch, useSelector } from 'react-redux';
+// import { testOperations, testSelectors } from 'redux/qaTest';
 
+export default function TestForm({
+  question,
+  decreaseIdx,
+  increaseIdx,
+  addAnswer,
+  indexValue,
+  numberOfQ,
+}) {
+  const answers = [...question.answers];
+  const [selection, setSelection] = useState({});
 
-    const handleTheoryTest = event => {
-        event.preventDefault();
-        dispatch(testOperations.getTestTheoryQuestion());
-    }
-    const handleТесhTest = event => {
-        event.preventDefault();
-        dispatch(testOperations.getTechQuestion());
-    }
+  const onSelection = e => {
+    const { value } = e.target;
+    const selectedAnswer = { questionId: question.questionId, answer: value };
+    setSelection(selectedAnswer);
+    addAnswer(selectedAnswer);
+  };
 
-    return (<form className={styles.form}>
-        <button onClick={handleTheoryTest} >Theory test</button>
-        <button onClick={handleТесhTest} >Tech test</button>
-        {testData && <div>
-            <ol>
-                {testData.map(testQuestion => <li key={testQuestion.questionId}>
-                    <h3><span> questionID: {testQuestion.questionId}</span> {testQuestion.question}</h3>
-                    <ul>
-                        {testQuestion.answers.map((answer, index) => <li key={index}>{answer}</li>)}
-                    </ul>
-                </li>)}
+  const nextQ = () => {
+    increaseIdx();
+    setSelection({});
+  };
 
-            </ol>
-        </div>}
-    </form>);
-};
-export default TestForm;
+  const prevQ = () => {
+    decreaseIdx();
+    setSelection({});
+  };
+  const turnOffButonNext =
+    indexValue >= 0 && indexValue < numberOfQ ? false : true;
+  const turnOffButonPrev =
+    indexValue <= numberOfQ && indexValue > 0 ? false : true;
+
+  return (
+    <div>
+      <h3>{question.question}</h3>
+      <button onClick={addAnswer}>Finish Test</button>
+      <ul>
+        {answers.map((answer, index) => (
+          <AnswerOption
+            answer={answer}
+            onSelection={onSelection}
+            selectedOption={selection.answer}
+            key={index}
+          />
+        ))}
+      </ul>
+      <button onClick={prevQ} disabled={turnOffButonPrev}>
+        PrevQ
+      </button>
+      <button onClick={nextQ} disabled={turnOffButonNext}>
+        NextQ
+      </button>
+    </div>
+  );
+}
