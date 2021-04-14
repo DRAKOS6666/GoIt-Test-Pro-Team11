@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from 'redux/auth';
+import AuthForm from '../AuthForm/AuthForm';
 
 import styles from './AuthPage.module.css';
 import { toast } from 'react-toastify';
@@ -44,33 +45,7 @@ function AuthPage() {
           diverse_ <b>]</b>
         </p>
       </div>
-      <form className={styles.form}>
-        <label>
-          E-mail:
-          <input
-            type="text"
-            required
-            onChange={e => setEmail(e.target.value)}
-            placeholder="Enter your E-mail"
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            required
-            onChange={e => setPassword(e.target.value)}
-            placeholder="Enter your Password"
-          />
-        </label>
-
-        <button type="submit" onClick={handleSubmitRegistr}>
-          SIGN UP
-        </button>
-        <button type="submit" onClick={handleSubmitLogin}>
-          SIGN in
-        </button>
-      </form>
+      <AuthForm className={styles.form} />
     </div>
   );
 }
