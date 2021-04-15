@@ -1,0 +1,137 @@
+[
+  {
+    "question": "Item testing (or side testing) allows you to test individual work of source code units",
+    "questionId": 24,
+    "answers": [
+      "Currency testing",
+      "Testing the web application",
+      "Functional testing",
+      "Interface testing",
+      "Gamma testing",
+      "I don't know"
+    ]
+  },
+  {
+    "question": "What methodology are these 4 stages about: Inception, Elaboration, Construction, Transition",
+    "questionId": 8,
+    "answers": [
+      "RUP",
+      "Kanban",
+      "Scrum",
+      "Agile",
+      "Waterfall",
+      "All options are incorrect"
+    ]
+  },
+  {
+    "question": "What is formal testing?",
+    "questionId": 14,
+    "answers": [
+      "Verification of software, according to the test plan, test procedures and relevant documentation, taking into account the wishes of the client",
+      "Validation of software, according to the test plan, test procedures and relevant documentation, taking into account the wishes of the client",
+      "Verification of software, according to test procedures and relevant documentation, without taking into account the wishes of the client",
+      "I don't know"
+    ]
+  },
+  {
+    "question": "Validation is – ",
+    "questionId": 3,
+    "answers": [
+      "Answers the question whether the product is being created correctly in terms of customer expectations",
+      "During the validation process, we make sure that the product fully complies with the behavior that is expected of it and that the client knows about the presence of such functionality",
+      "Validation, in its essence, largely includes an overall assessment of the software and can be based solely on subjective opinion regarding the correct operation of the application or its components",
+      "Options 1 and 3 are correct",
+      "All options are correct",
+      "All options are incorrect"
+    ]
+  },
+  {
+    "question": "The test plan answers questions like this",
+    "questionId": 19,
+    "answers": [
+      "What's need to be tested",
+      "What's going to be tested",
+      "How and when is it going to be tested",
+      "Test start and end criteria",
+      "All options are correct",
+      "All options are incorrect"
+    ]
+  },
+  {
+    "question": "Agile's main ideas",
+    "questionId": 7,
+    "answers": [
+      "People and interactions are more important than processes and tools",
+      "A working product is more important than comprehensive documentation",
+      "Cooperation with the customer is more important than agreeing on the terms of the contract",
+      "Being ready for change is more important than following the original plan",
+      "All options are correct",
+      "All options are incorrect"
+    ]
+  },
+  {
+    "question": "What is superfluous in the criteria for completing testing",
+    "questionId": 21,
+    "answers": [
+      "Testing report",
+      "Metrics",
+      "Test Analysis Report",
+      "Test case",
+      "All options are correct",
+      "All options are incorrect"
+    ]
+  },
+  {
+    "question": "What are the tasks of the Product Owner?",
+    "questionId": 11,
+    "answers": [
+      "Setting tasks and monitoring deadlines",
+      "Control of budget spending",
+      "Maintenance of project documentation (technical specifications, contracts, acts, invoices, estimates, reports)",
+      "And once again - BUDGETS and TERMS - this is what is most important in his work",
+      "All options are correct",
+      "All options are incorrect"
+    ]
+  },
+  {
+    "question": "Interface testing checks the interaction of individual modules. Most often used to test the user interface of GUI applications",
+    "questionId": 25,
+    "answers": [
+      "Currency testing",
+      "Testing the web application",
+      "Functional testing",
+      "Interface testing",
+      "Gamma testing",
+      "I don't know"
+    ]
+  },
+  {
+    "question": "The correct sequence of Scrum elements",
+    "questionId": 9,
+    "answers": [
+      "Sprint Planning and Sprint Backlog Creation - Working on the sprint. Scrum meetings - Product testing and demonstration - Retrospective. Planning the next sprint",
+      "Creating a product backlog - Working on a sprint. Scrum meetings - Product testing and demonstration - Retrospective. Planning the next sprint",
+      "Product Backlog Creation - Sprint Planning and Sprint Backlog Creation - Product Testing and Demo - Retrospective. Planning the next sprint",
+      "Creating a Product Backlog - Planning a Sprint and creating a Sprint Backlog - Working on a Sprint. Scrum meetings - Retrospective. Planning the next sprint",
+      "Creating a Product Backlog - Planning a Sprint and creating a Sprint Backlog - Working on a Sprint. Scrum meetings - Product testing and demonstration",
+      "All options are incorrect"
+    ]
+  },
+  {
+    "question": "THIS software development methodology is mainly aimed at reducing the work being done at the moment. In this methodology: there are no time limits for either tasks or sprints; there are more and fewer tasks; There is no direct need to set deadlines for completing tasks, but you still need to measure them for a general presentation. What methodology are we talking about?",
+    "questionId": 5,
+    "answers": [
+      "Waterfall",
+      "Scrum",
+      "Agile",
+      "Kanban",
+      "This definition applies to all methodologies",
+      "There is not a right option"
+    ]
+  },
+  {
+    "question": "How many testing principles are there?",
+    "questionId": 1,
+    "answers": ["5", "6", "7", "8", "9", "I don't know"]
+  }
+]
