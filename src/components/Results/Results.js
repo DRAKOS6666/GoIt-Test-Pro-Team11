@@ -32,42 +32,42 @@ export default function Results() {
   // const totalQuestions = 12;
   // const correctAnswers = parseInt((totalQuestions * resultNumber) / 100, 10);
 
-      <h3>[TESTING THEORY_]</h3>
-      {/* <h3>[{testName}_]</h3> */}
+  //       <h3>[TESTING THEORY_]</h3>
+  //       {/* <h3>[{testName}_]</h3> */}
 
-      <div className={s.line}></div>
+  //       <div className={s.line}></div>
 
-      <div>
-        <Diagram
-          data={[
-            ['Answer', 'Percentage'],
-            ['Correct', resultNumber],
-            ['Incorrect', incorrectNumber],
-          ]}
-        />
-      </div>
+  //       <div>
+  //         <Diagram
+  //           data={[
+  //             ['Answer', 'Percentage'],
+  //             ['Correct', resultNumber],
+  //             ['Incorrect', incorrectNumber],
+  //           ]}
+  //         />
+  //       </div>
 
-      <p>Correct answers - {correctAnswers} </p>
-      <p>Total questions - {totalQuestions} </p>
-      <div className={s.back}>
-        <img
-          src={resultsImg}
-          alt="A picture with a cat holding a heart-baloon"
-        />
-      </div>
-      <p>{mainMessage}</p>
-      <p>{secondaryMessage}</p>
+  //       <p>Correct answers - {correctAnswers} </p>
+  //       <p>Total questions - {totalQuestions} </p>
+  //       <div className={s.back}>
+  //         <img
+  //           src={resultsImg}
+  //           alt="A picture with a cat holding a heart-baloon"
+  //         />
+  //       </div>
+  //       <p>{mainMessage}</p>
+  //       <p>{secondaryMessage}</p>
 
-      <button className={s.button} type="button" onClick={backToTestPage}>
-        {' '}
-        Try again
-      </button>
+  //       <button className={s.button} type="button" onClick={backToTestPage}>
+  //         {' '}
+  //         Try again
+  //       </button>
 
-      {/*   {{testName} === 'Testing Theory' ? <button
-	@@ -68,6 +76,6 @@ export default function Results () {
-        type="button"
-        onClick={() =>  dispatch(testOperations.getTechQuestion())}> Try again 
-      </button>}  */}
-    </div>
-  );
+  //       {/*   {{testName} === 'Testing Theory' ? <button
+  // 	@@ -68,6 +76,6 @@ export default function Results () {
+  //         type="button"
+  //         onClick={() =>  dispatch(testOperations.getTechQuestion())}> Try again
+  //       </button>}  */}
+  //     </div>
+  //   );
 }
