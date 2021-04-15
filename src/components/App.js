@@ -9,7 +9,9 @@ import PublicRoute from 'components/Route/PublicRoute';
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import AuthPage from 'views/AuthPage';
-import Test from 'components/Test';
+
+import Test from 'views/TestPage/TestPage';
+
 import Results from './Results';
 import Materials from './Materials';
 import MainPage from './MainPage';
@@ -56,7 +58,11 @@ function App() {
 
             <PublicRoute path="/test" component={Test} redirectTo="/auth" />
 
-            <PublicRoute path="/results" component={Results} redirectTo="/auth" />
+            <PublicRoute
+              path="/results"
+              component={Results}
+              redirectTo="/auth"
+            />
 
             <PrivateRoute
               path="/useful-info"
@@ -72,9 +78,9 @@ function App() {
 
             <Redirect to="/auth" />
           </Switch>
-          <Footer />
         </Suspense>
       </div>
+      <Footer />
       <ToastContainer autoClose={3700} position="top-center" />
     </div>
     // )
