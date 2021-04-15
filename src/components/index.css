@@ -9,11 +9,11 @@
   --form-field-text-color: #bbbbbb;
   --main-font: Montserrat, sans-serif;
 }
-#root,
+/* #root,
 html,
 body {
   height: 100%;
-}
+} */
 
 h1,
 h2,
