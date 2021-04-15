@@ -12,6 +12,7 @@ export default function Results() {
   const location = useLocation();
   console.log('history', history);
   console.log('location', location);
+
   const backToTestPage = () => {
     history.push('/test');
   };
@@ -20,6 +21,7 @@ export default function Results() {
   const resultInPercents = resultInfo.result;
 
   /*  const testName =  */
+
   /*    const dispatch = useDispatch(); */
 
   const resultNumber = Number(
@@ -48,6 +50,7 @@ export default function Results() {
       {/* <h3 className={s.subtitle}>[{testName}_]</h3> */}
 
       <div className={s.line}></div>
+
       <div>
         <Diagram
           data={[
@@ -74,11 +77,7 @@ export default function Results() {
       </button>
 
       {/*   {{testName} === 'Testing Theory' ? <button
-        className={s.button}
-        type="button"
-        onClick={() =>  dispatch(testOperations.getTestTheoryQuestion())}> Try again 
-      </button> : <button
-        className={s.button}
+	@@ -68,6 +76,6 @@ export default function Results () {
         type="button"
         onClick={() =>  dispatch(testOperations.getTechQuestion())}> Try again 
       </button>}  */}
