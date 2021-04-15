@@ -23,14 +23,17 @@ export default function Results() {
   /*  const testName =  */
 
   /*    const dispatch = useDispatch(); */
+  const resultNumber = Number(
+    resultInPercents ? resultInPercents.slice(0, -1) : 0,
+  );
+  const incorrectNumber = 100 - resultNumber;
 
-  // const resultNumber = Number(
-  //   resultInPercents ? resultInPercents.slice(0, -1) : 0,
-  // );
-  // const incorrectNumber = 100 - resultNumber;
+  const totalQuestions = 12;
+  const correctAnswers = parseInt((totalQuestions * resultNumber) / 100, 10);
 
-  // const totalQuestions = 12;
-  // const correctAnswers = parseInt((totalQuestions * resultNumber) / 100, 10);
+  return (
+    <div className={s.container}>
+      <h2>Results</h2>
 
   //       <h3>[TESTING THEORY_]</h3>
   //       {/* <h3>[{testName}_]</h3> */}
