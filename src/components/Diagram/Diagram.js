@@ -6,10 +6,11 @@ import s from './Diagram.module.css';
 const Diagram = ({ data }) => {
   return (
     <div className={s.position}>
-      <Chart className={s.chart}
-      width={'100%'}
-      height={'100%'}
-       chartType="PieChart"
+      <Chart
+        className={s.chart}
+        width={'100%'}
+        height={'100%'}
+        chartType="PieChart"
         loader={<div>Loading Chart</div>}
         data={data}
         options={{
