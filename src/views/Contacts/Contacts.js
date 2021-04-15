@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-
+import team from '../team.json';
+import styles from './Contacts.module.css';
 import ContactCard from './ContactCard';
-import team from './team.js';
 
-import s from './Contacts.module.css';
-
-const Contacts = () => {
+export default function Contacts() {
   const [showModal, setShowModal] = useState(false);
   const [img, setImg] = useState(null);
   const [name, setName] = useState(null);
@@ -23,22 +21,25 @@ const Contacts = () => {
     setDescr(descr);
     setShowModal(true);
   };
-
   return (
-    <div className={s.teamContainer}>
-      <h2 className={s.teamTitle}>Our Team</h2>
-
-      <ul className={s.teamList}>
-        {team.map(({ id, img, name, stack, descr }) => (
+    <div className={styles.wrapper}>
+      <h2 className={styles.title}>Our team</h2>
+      <ul className={styles.list}>
+        {team.map((el, index) => (
           <li
-            key={id}
-            className={s.teamItem}
-            onClick={() => handleClickImg(img, name, stack, descr)}
+            key={index}
+            className={styles.listItem}
+            onClick={() => {
+              const { url, alt, name, vocation, description } = el;
+              handleClickImg(url, alt, name, vocation, description);
+            }}
           >
-            <img className={s.teamImg} src={img} alt="" />
-            <h3 className={s.name}>{name}</h3>
-            <p className={s.stack}>{stack}</p>
-            <p className={s.description}>{descr}</p>
+            <img src={el.url} alt={el.alt} className={styles.photo} />
+            <div className={styles.content}>
+              <p className={styles.name}>{el.name}</p>
+              <p className={styles.vocation}>{el.vocation}</p>
+              <p className={styles.description}>{el.description}</p>
+            </div>
           </li>
         ))}
         {showModal && window.innerWidth > 767 && (
@@ -53,5 +54,4 @@ const Contacts = () => {
       </ul>
     </div>
   );
-};
-export default Contacts;
+}
