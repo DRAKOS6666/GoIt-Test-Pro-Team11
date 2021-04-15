@@ -17,10 +17,9 @@ export const registerUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const newUser = await authApi.registerUser(userData);
-      token.set(userData.token);
       return newUser;
-    } catch ({ response }) {
-      return rejectWithValue(`${response.data.message}`);
+    } catch (error) {
+      return rejectWithValue({ error });
     }
   },
 );
@@ -32,8 +31,8 @@ export const loginUser = createAsyncThunk(
       const response = await authApi.loginUser(userData);
       token.set(response.accesToken);
       return response;
-    } catch ({ response }) {
-      return rejectWithValue('Invalid email or password! Try again!');
+    } catch (error) {
+      return rejectWithValue({ error });
     }
   },
 );
@@ -44,9 +43,9 @@ export const logoutUser = createAsyncThunk(
     try {
       await authApi.logoutUser();
       token.unSet();
-    } catch (err) {
+    } catch (error) {
       return rejectWithValue(
-        `${err.response.statusText} ${err.response.status}`,
+        { error },
       );
     }
   },
@@ -58,10 +57,8 @@ export const getCurrentUser = createAsyncThunk(
     try {
       const response = await authApi.getCurrentUser(userData.email);
       return response;
-    } catch (err) {
-      return rejectWithValue(
-        `${err.response.statusText} ${err.response.status}`,
-      );
+    } catch (error) {
+      return rejectWithValue({ error });
     }
   },
   {
@@ -77,16 +74,16 @@ export const getCurrentUser = createAsyncThunk(
   },
 );
 
-export const refreshUser = createAsyncThunk(
-  'auth/refreshToken',
-  async ({ sid, refreshToken }, { rejectWithValue }) => {
-    try {
-      token.set(refreshToken);
-      const response = await authApi.refreshToken(sid);
-      token.set(response.accesToken);
-      return response;
-    } catch (err) {
-      return rejectWithValue(`${err.response.statusText} ${err.response.status}`);
-    }
-  },
-);
+// export const refreshUser = createAsyncThunk(
+//   'auth/refreshToken',
+//   async ({ sid, refreshToken }, { rejectWithValue }) => {
+//     try {
+//       token.set(refreshToken);
+//       const response = await authApi.refreshToken(sid);
+//       token.set(response.accesToken);
+//       return response;
+//     } catch (error) {
+//       return rejectWithValue({ error, refreshUser });
+//     }
+//   },
+// );
