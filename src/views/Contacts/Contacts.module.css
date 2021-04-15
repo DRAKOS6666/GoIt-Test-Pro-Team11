@@ -82,6 +82,12 @@
   list-style: none;
 }
 
+.listItem:hover {
+  box-shadow: 4px 4px 12px 0px rgba(2, 23, 42, 0.7);
+  -webkit-box-shadow: 4px 4px 12px 0px rgba(2, 23, 42, 0.7);
+  -moz-box-shadow: 4px 4px 12px 0px rgba(2, 23, 42, 0.7);
+}
+
 @media screen and (max-width: 768px) {
   .listItem:last-child {
     margin-bottom: 0;
