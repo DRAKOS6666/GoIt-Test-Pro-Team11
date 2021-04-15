@@ -27,6 +27,7 @@ p {
 }
 
 .wrapper {
+  padding: 0;
   text-align: center;
   /* padding-top: 0;
   height: 100%; */
@@ -37,6 +38,7 @@ p {
 
 .main-content {
   padding: 0 20px;
+  background-color: var(--primary-bg-color);
 }
 
 /* @media screen and (max-width: 767px) {
