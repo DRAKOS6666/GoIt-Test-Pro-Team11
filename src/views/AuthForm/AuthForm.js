@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from 'redux/auth';
+import { ReactComponent as Google } from '../../images/google-symbol.svg';
 
 import { toast } from 'react-toastify';
 import styles from './AuthForm.module.css';
@@ -91,12 +92,15 @@ const Login = () => {
           <p className={styles.text}>
             You can use your Google Account to authorize:
           </p>
-
-          <a href="https://protest-backend.goit.global/auth/google">
-            <img src="/src/images/icons/google-symbol.svg" alt="" />
-            <p className={styles.google}>Google</p>
-          </a>
-
+          <div className={styles.google_container}>
+            <a
+              href="https://protest-backend.goit.global/auth/google"
+              className={styles.google_link}
+            >
+              <Google className={styles.google} />
+              <p className={styles.google_text}>Google</p>
+            </a>
+          </div>
           <p className={styles.text}>
             Or login to our app using e-mail and password:
           </p>
