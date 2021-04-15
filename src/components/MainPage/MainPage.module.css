@@ -130,6 +130,7 @@
 @media screen and (min-width: 1280px) {
   .items {
     display: flex;
+    justify-content: center;
     margin-left: 210px;
     margin-right: 210px;
     margin-bottom: 114px;
