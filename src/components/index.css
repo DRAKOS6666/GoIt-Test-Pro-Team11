@@ -27,6 +27,7 @@ p {
 }
 
 .wrapper {
+  padding: 0;
   text-align: center;
   padding-top: 0;
   height: 100%;
