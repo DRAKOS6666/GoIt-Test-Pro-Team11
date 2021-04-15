@@ -10,6 +10,7 @@ export default function TestAnswerOption({
     <li className={AnswerOptStl.listItem}>
       <label className={AnswerOptStl.label}>
         <input
+          className={AnswerOptStl.input}
           type="radio"
           name="answer"
           value={answer}

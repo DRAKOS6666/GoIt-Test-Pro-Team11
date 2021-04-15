@@ -8,9 +8,10 @@ import React, { useState, useEffect } from 'react';
 //   getTestTheoryQuestion,
 // } from '../../redux/qaTest/test-operations';
 import TestForm from '../../components/Test/TestForm/';
+import TestStl from './TestPage.module.css';
 
 export default function TestPage() {
-  const title = 'qa technical training';
+  const title = 'Qa technical training';
 
   const [idx, setIdx] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -74,8 +75,12 @@ export default function TestPage() {
 
   return (
     <div>
-      <h2>{title}</h2>
-      <button onClick={addAnswer}>Finish Test</button>
+      <div className={TestStl.hdContainer}>
+        <h2 className={TestStl.header}>[{title}]</h2>
+        <button onClick={addAnswer} className={TestStl.btn}>
+          Finish Test
+        </button>
+      </div>
 
       <TestForm
         question={test[idx]}
