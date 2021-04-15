@@ -1,12 +1,7 @@
 .wrapper {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   background-color: var(--footer-bg-color);
-  width: 320px;
+  width: 100%;
   padding: 10px 10px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .footer_wrap {
@@ -49,7 +44,6 @@
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .wrapper {
     padding: 19px 0 19px 0;
-    width: 768px;
   }
   .footer_wrap {
     font-size: 12px;
@@ -57,11 +51,5 @@
   }
   .footer_icon {
     margin-right: 7px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .wrapper {
-    padding: 19px 0 19px 0;
-    width: 1280px;
   }
 }

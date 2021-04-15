@@ -11,6 +11,7 @@ import { ReactComponent as Close } from '../../images/icons/close.svg';
 import { ReactComponent as Out } from '../../images/icons/sign-out.svg';
 
 import styles from './Header.module.css';
+import { Avatar } from '@material-ui/core';
 
 function Header() {
   const [menuShow, setMenuShow] = useState(true);
@@ -60,7 +61,7 @@ function Header() {
 
       {((isAuth && !menuShow) || (isAuth && window.innerWidth > 767)) && (
         <div className={styles.outThumb}>
-          <Link to="/">
+          <Link to="/" className={styles.lnkOut}>
             <button
               type="button"
               onClick={onClickLogout}

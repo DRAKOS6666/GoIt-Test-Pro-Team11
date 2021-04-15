@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import team from '../team.json';
 import styles from './Contacts.module.css';
 import ContactCard from './ContactCard';
+import { ReactComponent as Avatar } from '../../images/icons/avatarsvg.svg';
 
 export default function Contacts() {
   const [showModal, setShowModal] = useState(false);

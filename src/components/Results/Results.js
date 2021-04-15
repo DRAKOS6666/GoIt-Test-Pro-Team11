@@ -12,7 +12,6 @@ export default function Results() {
   const location = useLocation();
   console.log('history', history);
   console.log('location', location);
-
   const backToTestPage = () => {
     history.push('/test');
   };
@@ -21,7 +20,6 @@ export default function Results() {
   const resultInPercents = resultInfo.result;
 
   /*  const testName =  */
-
   /*    const dispatch = useDispatch(); */
 
   const resultNumber = Number(
@@ -36,11 +34,20 @@ export default function Results() {
     <div className={s.container}>
       <h2>Results</h2>
 
-      <h3>[TESTING THEORY_]</h3>
-      {/* <h3>[{testName}_]</h3> */}
+  const totalQuestions = 12;
+  const resultNumber = useMemo(() => {return Number(
+  resultInPercents ? resultInPercents.slice(0, -1) : 0,
+  )}, []);
+ const incorrectNumber = useMemo(() => {return 100 - resultNumber}, []);
+  const correctAnswers =useMemo(() => {return parseInt((totalQuestions * resultNumber) / 100, 10)}, []);
+  /*    const dispatch = useDispatch(); */
+  return (
+    <div className={s.container}>
+      <h2 className={s.title}>Results</h2>
+      <h3 className={s.subtitle}>[TESTING THEORY_]</h3>
+      {/* <h3 className={s.subtitle}>[{testName}_]</h3> */}
 
       <div className={s.line}></div>
-
       <div>
         <Diagram
           data={[

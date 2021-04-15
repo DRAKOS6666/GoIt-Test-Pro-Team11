@@ -78,9 +78,9 @@ function App() {
 
             <Redirect to="/auth" />
           </Switch>
-          <Footer />
         </Suspense>
       </div>
+      <Footer />
       <ToastContainer autoClose={3700} position="top-center" />
     </div>
     // )
