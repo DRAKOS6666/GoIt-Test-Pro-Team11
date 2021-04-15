@@ -24,7 +24,7 @@ export default function TestPage() {
   const [answers, setAnswers] = useState([]);
 
   // const sendAnswers = () => {};
-  console.log(test);
+  // console.log(test);
 
   const changeAnswer = (arrAnswers, newAnswer) => {
     if (arrAnswers.length) {

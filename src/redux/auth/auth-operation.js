@@ -1,6 +1,5 @@
 import { authApi } from 'redux/auth';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const token = {
@@ -19,7 +18,7 @@ export const registerUser = createAsyncThunk(
       const newUser = await authApi.registerUser(userData);
       return newUser;
     } catch (error) {
-      return rejectWithValue({ error });
+      return rejectWithValue({ error, thunk: getCurrentUser, args: userData });
     }
   },
 );
@@ -32,7 +31,7 @@ export const loginUser = createAsyncThunk(
       token.set(response.accesToken);
       return response;
     } catch (error) {
-      return rejectWithValue({ error });
+      return rejectWithValue({ error, thunk: getCurrentUser, args: userData });
     }
   },
 );
@@ -45,7 +44,7 @@ export const logoutUser = createAsyncThunk(
       token.unSet();
     } catch (error) {
       return rejectWithValue(
-        { error },
+        { error, thunk: getCurrentUser },
       );
     }
   },
@@ -78,18 +77,3 @@ export const getCurrentUser = createAsyncThunk(
     },
   },
 );
-
-
-// export const refreshUser = createAsyncThunk(
-//   'auth/refreshToken',
-//   async ({ sid, refreshToken }, { rejectWithValue }) => {
-//     try {
-//       token.set(refreshToken);
-//       const response = await authApi.refreshToken(sid);
-//       token.set(response.accesToken);
-//       return response;
-//     } catch (error) {
-//       return rejectWithValue({ error, refreshUser });
-//     }
-//   },
-// );
