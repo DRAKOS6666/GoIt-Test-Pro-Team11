@@ -7,8 +7,8 @@ export async function getCurrentUser(userData) {
   return data;
 }
 
-export async function refreshToken(userData) {
-  const { data } = await axios.get('/auth/refresh', userData);
+export async function refreshToken(sid) {
+  const { data } = await axios.post('/auth/refresh', sid);
   return data;
 }
 
