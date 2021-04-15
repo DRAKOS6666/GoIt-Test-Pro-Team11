@@ -5,7 +5,6 @@ import { testSelectors } from 'redux/qaTest';
 import Diagram from '../Diagram';
 import s from './Results.module.css';
 import resultsImg from '../../images/results.png';
-
 export default function Results() {
   const resultInfo = useSelector(testSelectors.getTestResults);
   /* - для проверки отрисовки диаграммы без данных */
@@ -21,7 +20,6 @@ export default function Results() {
   const mainMessage = resultInfo.mainMessage;
   const secondaryMessage = resultInfo.secondaryMessage;
   const resultInPercents = resultInfo.result;
-
   /*  const testName =  */
 
   const totalQuestions = 12;
@@ -73,7 +71,6 @@ export default function Results() {
       <button className={s.button} type="button" onClick={backToTestPage}>
         Try again
       </button>
-
       {/*   {{testName} === 'Testing Theory' ? <button
         className={s.button}
         type="button"
