@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { testOperations, testSelectors } from 'redux/qaTest';
@@ -24,13 +24,10 @@ export default function Results() {
 
   /*    const dispatch = useDispatch(); */
 
-  const resultNumber = Number(
-    resultInPercents ? resultInPercents.slice(0, -1) : 0,
-  );
-  const incorrectNumber = 100 - resultNumber;
-
-  const totalQuestions = 12;
-  const correctAnswers = parseInt((totalQuestions * resultNumber) / 100, 10);
+  // const resultNumber = Number(
+  //   resultInPercents ? resultInPercents.slice(0, -1) : 0,
+  // );
+  // const incorrectNumber = 100 - resultNumber;
 
   //   return (
   //     <div className={s.container}>
