@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { testOperations, testSelectors } from 'redux/qaTest';
@@ -23,26 +23,29 @@ export default function Results() {
   /*  const testName =  */
   /*    const dispatch = useDispatch(); */
 
-  const resultNumber = Number(
-    resultInPercents ? resultInPercents.slice(0, -1) : 0,
-  );
-  const incorrectNumber = 100 - resultNumber;
+  // const resultNumber = Number(
+  //   resultInPercents ? resultInPercents.slice(0, -1) : 0,
+  // );
+  // const incorrectNumber = 100 - resultNumber;
+
+  // const totalQuestions = 12;
+  // const correctAnswers = parseInt((totalQuestions * resultNumber) / 100, 10);
 
   const totalQuestions = 12;
-  const correctAnswers = parseInt((totalQuestions * resultNumber) / 100, 10);
-
-  return (
-    <div className={s.container}>
-      <h2>Results</h2>
-
-  const totalQuestions = 12;
-  const resultNumber = useMemo(() => {return Number(
-  resultInPercents ? resultInPercents.slice(0, -1) : 0,
-  )}, []);
- const incorrectNumber = useMemo(() => {return 100 - resultNumber}, []);
-  const correctAnswers =useMemo(() => {return parseInt((totalQuestions * resultNumber) / 100, 10)}, []);
+  const resultNumber = useMemo(() => {
+    return Number(resultInPercents ? resultInPercents.slice(0, -1) : 0);
+  }, []);
+  const incorrectNumber = useMemo(() => {
+    return 100 - resultNumber;
+  }, []);
+  const correctAnswers = useMemo(() => {
+    return parseInt((totalQuestions * resultNumber) / 100, 10);
+  }, []);
   /*    const dispatch = useDispatch(); */
   return (
+    // return (
+    // <div className={s.container}>
+    //   <h2>Results</h2>
     <div className={s.container}>
       <h2 className={s.title}>Results</h2>
       <h3 className={s.subtitle}>[TESTING THEORY_]</h3>
