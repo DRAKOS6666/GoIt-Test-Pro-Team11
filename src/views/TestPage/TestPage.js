@@ -1,12 +1,12 @@
 import test from '../../components/Test/TestForm/question.json';
 
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getTestData } from '../../redux/qaTest/test-selectors';
-import {
-  getTechQuestion,
-  getTestTheoryQuestion,
-} from '../../redux/qaTest/test-operations';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { getTestData } from '../../redux/qaTest/test-selectors';
+// import {
+//   getTechQuestion,
+//   getTestTheoryQuestion,
+// } from '../../redux/qaTest/test-operations';
 import TestForm from '../../components/Test/TestForm/';
 
 export default function TestPage() {
@@ -75,8 +75,8 @@ export default function TestPage() {
   return (
     <div>
       <h2>{title}</h2>
+      <button onClick={addAnswer}>Finish Test</button>
 
-      <p>{`question ${idx + 1}/${test.length}`}</p>
       <TestForm
         question={test[idx]}
         increaseIdx={increaseIdx}

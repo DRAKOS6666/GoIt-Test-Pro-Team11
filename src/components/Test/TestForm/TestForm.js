@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import AnswerOption from './AnswerOption/AnswerOption';
-// import styles from './TestForm.module.css';
+import styles from './TestForm.module.css';
 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { testOperations, testSelectors } from 'redux/qaTest';
@@ -40,9 +40,9 @@ export default function TestForm({
 
   return (
     <div>
+      <p>{`question ${indexValue + 1}/${numberOfQ + 1}`}</p>
       <h3>{question.question}</h3>
-      <button onClick={addAnswer}>Finish Test</button>
-      <ul>
+      <ul className={styles.list}>
         {answers.map((answer, index) => (
           <AnswerOption
             answer={answer}

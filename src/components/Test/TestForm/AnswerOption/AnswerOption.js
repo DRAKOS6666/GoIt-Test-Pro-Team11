@@ -1,4 +1,5 @@
 import React from 'react';
+import AnswerOptStl from './AnswerOption.module.css';
 
 export default function TestAnswerOption({
   answer,
@@ -6,8 +7,8 @@ export default function TestAnswerOption({
   selectedOption,
 }) {
   return (
-    <li>
-      <label>
+    <li className={AnswerOptStl.listItem}>
+      <label className={AnswerOptStl.label}>
         <input
           type="radio"
           name="answer"
@@ -15,7 +16,7 @@ export default function TestAnswerOption({
           onChange={onSelection}
           checked={selectedOption === answer}
         />
-        {answer}
+        <span className={AnswerOptStl.text}>{answer}</span>
       </label>
     </li>
   );
