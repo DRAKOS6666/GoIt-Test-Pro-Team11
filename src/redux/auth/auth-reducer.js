@@ -22,10 +22,10 @@ const isLoading = createReducer(false, {
 });
 
 const error = createReducer(null, {
-  [authOperations.getCurrentUser.rejected]: (_, { payload }) => payload,
-  [authOperations.registerUser.rejected]: (_, { payload }) => payload,
-  [authOperations.loginUser.rejected]: (_, { payload }) => payload,
-  [authOperations.logoutUser.rejected]: (_, { payload }) => payload,
+  [authOperations.getCurrentUser.rejected]: (_, { payload }) => payload.error.response.data.message,
+  [authOperations.registerUser.rejected]: (_, { payload }) => payload.error.response.data.message,
+  [authOperations.loginUser.rejected]: (_, { payload }) => payload.error.response.data.message,
+  [authOperations.logoutUser.rejected]: (_, { payload }) => payload.error.response.data.message,
 
   [authOperations.getCurrentUser.pending]: () => null,
   [authOperations.registerUser.pending]: () => null,
@@ -47,21 +47,20 @@ const accessToken = createReducer(null, {
   [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.accessToken,
   [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.accessToken,
   [authOperations.logoutUser.fulfilled]: () => null,
-  ['SET_TOKENS']: (_, { payload }) => payload.accessToken,
+  'SET_TOKENS': (_, { payload }) => payload.accessToken,
 });
 
 const refreshToken = createReducer(null, {
   [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.refreshToken,
   [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.refreshToken,
   [authOperations.logoutUser.fulfilled]: () => null,
-  ['SET_TOKENS']: (_, { payload }) => payload.refreshToken,
+  'SET_TOKENS': (_, { payload }) => payload.refreshToken,
 });
 
 const sessionId = createReducer(null, {
-  // [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.sid,
   [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.sid,
   [authOperations.logoutUser.fulfilled]: () => null,
-  ['SET_TOKENS']: (_, { payload }) => payload.sid,
+  'SET_TOKENS': (_, { payload }) => payload.sid,
 });
 
 
