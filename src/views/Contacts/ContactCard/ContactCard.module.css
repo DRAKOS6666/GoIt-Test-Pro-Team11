@@ -90,4 +90,16 @@
     width: 500px;
     height: 650px;
   }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .stack {
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
 }

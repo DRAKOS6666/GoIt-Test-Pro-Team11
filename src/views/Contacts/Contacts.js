@@ -31,11 +31,11 @@ export default function Contacts() {
             key={index}
             className={styles.listItem}
             onClick={() => {
-              const { url, alt, name, vocation, description } = el;
-              handleClickImg(url, alt, name, vocation, description);
+              const { url, name, vocation, description } = el;
+              handleClickImg(url, name, vocation, description);
             }}
           >
-            <img src={el.url} alt={el.alt} className={styles.photo} />
+            <img src={el.url} alt={el.name} className={styles.photo} />
             <div className={styles.content}>
               <p className={styles.name}>{el.name}</p>
               <p className={styles.vocation}>{el.vocation}</p>

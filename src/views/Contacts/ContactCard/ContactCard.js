@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import styles from './ContactCard.module.css';
 
-export default function ContactCard({ img, alt, name, stack, descr, onClose }) {
+export default function ContactCard({ img, name, stack, descr, onClose }) {
   const onCloseModal = e => {
     if (e.target.nodeName === 'DIV') {
       onClose();
@@ -25,7 +25,7 @@ export default function ContactCard({ img, alt, name, stack, descr, onClose }) {
   return (
     <div className={styles.overlay} onClick={onCloseModal}>
       <div className={styles.contactCard}>
-        <img className={styles.image} src={img} alt={alt} />
+        <img className={styles.image} src={img} alt={name} />
         <h3 className={styles.name}>{name}</h3>
         <p className={styles.stack}>{stack}</p>
         <p className={styles.description}>{descr}</p>
