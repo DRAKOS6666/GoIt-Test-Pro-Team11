@@ -47,27 +47,29 @@ const accessToken = createReducer(null, {
   [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.accessToken,
   [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.accessToken,
   [authOperations.logoutUser.fulfilled]: () => null,
+  ['SET_TOKENS']: (_, { payload }) => payload.accessToken,
 });
 
 const refreshToken = createReducer(null, {
   [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.refreshToken,
   [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.refreshToken,
   [authOperations.logoutUser.fulfilled]: () => null,
+  ['SET_TOKENS']: (_, { payload }) => payload.refreshToken,
 });
 
 const sessionId = createReducer(null, {
   // [authOperations.registerUser.fulfilled]: (_, { payload }) => payload.sid,
   [authOperations.loginUser.fulfilled]: (_, { payload }) => payload.sid,
   [authOperations.logoutUser.fulfilled]: () => null,
+  ['SET_TOKENS']: (_, { payload }) => payload.sid,
 });
-
 
 
 const isLoggedIn = createReducer(false, {
   [authOperations.registerUser.fulfilled]: () => true,
   [authOperations.loginUser.fulfilled]: () => true,
   [authOperations.getCurrentUser.fulfilled]: () => true,
-  
+
   [authOperations.logoutUser.fulfilled]: () => false,
   [authOperations.logoutUser.rejected]: () => false,
   [authOperations.getCurrentUser.rejected]: () => false,

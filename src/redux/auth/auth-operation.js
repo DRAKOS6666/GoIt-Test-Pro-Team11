@@ -1,6 +1,5 @@
 import { authApi } from 'redux/auth';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const token = {
@@ -17,10 +16,9 @@ export const registerUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const newUser = await authApi.registerUser(userData);
-      token.set(userData.token);
       return newUser;
-    } catch ({ response }) {
-      return rejectWithValue(`${response.data.message}`);
+    } catch (error) {
+      return rejectWithValue({ error, thunk: getCurrentUser, args: userData });
     }
   },
 );
@@ -32,8 +30,8 @@ export const loginUser = createAsyncThunk(
       const response = await authApi.loginUser(userData);
       token.set(response.accesToken);
       return response;
-    } catch ({ response }) {
-      return rejectWithValue('Invalid email or password! Try again!');
+    } catch (error) {
+      return rejectWithValue({ error, thunk: getCurrentUser, args: userData });
     }
   },
 );
@@ -44,9 +42,9 @@ export const logoutUser = createAsyncThunk(
     try {
       await authApi.logoutUser();
       token.unSet();
-    } catch (err) {
+    } catch (error) {
       return rejectWithValue(
-        `${err.response.statusText} ${err.response.status}`,
+        { error, thunk: getCurrentUser },
       );
     }
   },
@@ -58,14 +56,17 @@ export const getCurrentUser = createAsyncThunk(
     try {
       const response = await authApi.getCurrentUser(userData.email);
       return response;
-    } catch (err) {
-      return rejectWithValue(
-        `${err.response.statusText} ${err.response.status}`,
-      );
+    } catch (error) {
+      return rejectWithValue({ error, thunk: getCurrentUser, args: userData });
     }
   },
   {
-    condition: (_, { getState }) => {
+    condition: (data, { getState }) => {
+      if (data.accessToken) {
+        token.set(data.accessToken);
+        return true;
+      }
+
       const {
         auth: { accessToken: persistedToken },
       } = getState();
