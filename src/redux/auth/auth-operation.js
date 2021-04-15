@@ -58,11 +58,16 @@ export const getCurrentUser = createAsyncThunk(
       const response = await authApi.getCurrentUser(userData.email);
       return response;
     } catch (error) {
-      return rejectWithValue({ error });
+      return rejectWithValue({ error, thunk: getCurrentUser, args: userData });
     }
   },
   {
-    condition: (_, { getState }) => {
+    condition: (data, { getState }) => {
+      if (data.accessToken) {
+        token.set(data.accessToken);
+        return true;
+      }
+
       const {
         auth: { accessToken: persistedToken },
       } = getState();
@@ -73,6 +78,7 @@ export const getCurrentUser = createAsyncThunk(
     },
   },
 );
+
 
 // export const refreshUser = createAsyncThunk(
 //   'auth/refreshToken',
