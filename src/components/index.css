@@ -27,19 +27,22 @@ p {
 }
 
 .wrapper {
+  padding: 0;
   text-align: center;
-  /* padding-top: 0;
-  height: 100%; */
+  padding-top: 0;
+  height: 100%;
   background-color: var(--primary-bg-color);
   margin: 0 auto;
-  /* max-width: 1280px; */
+  max-width: 1280px;
 }
 
 .main-content {
   padding: 0 20px;
+  height: 100%;
+  background-color: var(--primary-bg-color);
 }
 
-/* @media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .wrapper {
     width: 320px;
   }
@@ -53,4 +56,4 @@ p {
   .wrapper {
     width: 1280px;
   }
-} */
+}
