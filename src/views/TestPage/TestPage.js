@@ -11,6 +11,7 @@ import {
 import {
   addAnswerToState,
   changeAnswerInState,
+  deleteAnswersInState,
 } from '../../redux/answerTypes/answerTypes-actions';
 import { testOperations, testSelectors } from '../../redux/qaTest';
 
@@ -55,12 +56,19 @@ export default function TestPage() {
     if (answers.length === test.length) {
       if (testType.type === 'technical') {
         dispatch(testOperations.sendTestTechResults(answersToSend));
+        if (!error) {
+          dispatch(deleteAnswersInState());
+          toResultPage();
+        }
         toResultPage();
         return;
       }
       if (testType.type === 'theory') {
         dispatch(testOperations.sendTestTheoryResults(answersToSend));
-        toResultPage();
+        if (!error) {
+          dispatch(deleteAnswersInState());
+          toResultPage();
+        }
         return;
       }
     }

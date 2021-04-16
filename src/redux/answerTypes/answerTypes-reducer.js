@@ -4,7 +4,7 @@ import * as actions from './answerTypes-actions';
 export const answers = createReducer([], {
   [actions.addAnswerToState]: (state, action) => [...state, action.payload],
   [actions.changeAnswerInState]: (_, action) => [...action.payload],
-  [actions.deleteAnswerInState]: () => [],
+  [actions.deleteAnswersInState]: () => [],
 });
 export const testType = createReducer(
   {},
