@@ -51,9 +51,10 @@ export default function TestPage() {
 
   // dispatch(testOperations.sendTestTechResults(answers));
   // dispatch(testOperations.sendTestTheoryResults(answers));
+  const isFinished = answers.length === test.length;
 
-  const sendAnswers = answers => {
-    if (answers.length === test.length) {
+  const sendAnswers = () => {
+    if (isFinished) {
       if (testType.type === 'technical') {
         dispatch(testOperations.sendTestTechResults(answersToSend));
         if (!error) {
@@ -72,7 +73,6 @@ export default function TestPage() {
         return;
       }
     }
-    backToMainePage();
   };
 
   const changeAnswer = (arrAnswers, newAnswer) => {
@@ -122,10 +122,7 @@ export default function TestPage() {
         <div>
           <div className={TestStl.hdContainer}>
             <h2 className={TestStl.header}>[{testType.title}]</h2>
-            <button
-              onClick={() => sendAnswers(answers)}
-              className={TestStl.btn}
-            >
+            <button onClick={backToMainePage} className={TestStl.btn}>
               Finish Test
             </button>
           </div>
@@ -137,6 +134,8 @@ export default function TestPage() {
             addAnswer={addAnswer}
             indexValue={idx}
             numberOfQ={test.length - 1}
+            sendAnswers={sendAnswers}
+            isFinished={isFinished}
           />
         </div>
       )}

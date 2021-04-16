@@ -11,6 +11,8 @@ export default function TestForm({
   addAnswer,
   indexValue,
   numberOfQ,
+  sendAnswers,
+  isFinished,
 }) {
   const answers = [...question.answers];
   const [selection, setSelection] = useState({});
@@ -82,13 +84,20 @@ export default function TestForm({
           <div className={styles.svgContainer}>
             <Arrow className={styles.arrowLeft} />
           </div>
-          <span className={styles.btnTxt}>Previous question</span>
+          <span className={styles.btnTxt}>Previous</span>
         </button>
-        <button onClick={nextQ} disabled={turnOffButonNext}>
-          <span className={styles.btnTxt}>Next question</span>
-          <div className={styles.svgContainer}>
-            <Arrow className={styles.arrowRight} />
-          </div>
+        <button
+          onClick={() => (isFinished ? sendAnswers() : nextQ())}
+          // disabled={turnOffButonNext}
+        >
+          <span className={styles.btnTxt}>
+            {isFinished ? 'Submit' : 'Next'}
+          </span>
+          {!isFinished && (
+            <div className={styles.svgContainer}>
+              <Arrow className={styles.arrowRight} />
+            </div>
+          )}
         </button>
       </div>
     </div>

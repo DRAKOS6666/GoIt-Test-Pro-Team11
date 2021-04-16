@@ -1,7 +1,7 @@
 .container {
   box-sizing: border-box;
-  padding-left: 20px;
-  padding-right: 20px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
   display: flex;
   flex-direction: column;
 }
@@ -93,13 +93,13 @@
 }
 .navigationContainer button:hover .arrowLeft,
 .arrowRight {
-  fill: var(--white-text-color);
+  fill: black;
 }
 
-.navigationContainer button:disabled {
+/* .navigationContainer button:disabled {
   color: var(--footer-text-color);
   background-color: var(--footer-text-color);
-}
+} */
 
 /* .navigationContainer button:disabled .arrowLeft,
 .arrowRight {
