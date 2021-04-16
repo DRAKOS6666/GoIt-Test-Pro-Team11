@@ -24,7 +24,6 @@
     letter-spacing: 0.02em;
     color: var(--primary-text-color);
     text-align: left;
-
 }
 
 .input {
@@ -38,7 +37,6 @@
     height: 60px;
     align-items: center;
     cursor: pointer;
-
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
@@ -72,8 +70,6 @@ font-weight: bold;
 font-size: 14px;
 line-height: 17px;
 letter-spacing: 0.02em;
-
-
 color: var(--primary-text-color);
 }
 
@@ -84,7 +80,6 @@ font-weight: bold;
 font-size: 14px;
 line-height: 17px;
 letter-spacing: 0.02em;
-
 color: var(--primary-text-color);
 }
 
@@ -119,67 +114,67 @@ color: var(--primary-text-color);
 @media screen and (min-width: 768px) and (max-width: 1279px) {
     .form {
     width: 539px;
-
 }
-.google_container {
+    .google_container {
     text-align: left;
-   
 }
 
-.container {
-  
+    .container {  
     padding-left: 57px;
     padding-right: 57px;
     padding-bottom: 42px;
     padding-top: 62px;
 }
 
-.text {
+    .text {
     margin-bottom: 30px;
     font-size: 14px;
     line-height: 17px;
 }
-.google_link {
-    margin-bottom: 40px;
 
+    .google_link {
+    margin-bottom: 40px;
 }
-.input {
+
+    .input {
     width: 423px;
     height: 56px;
     margin-bottom: 24px;
 }
-.button {
+
+    .button {
     width: 202px;
     height: 60px;
     align-items: center;
     cursor: pointer;
     font-size: 12px;
     line-height: 15px;
-
 }
 }
 
 @media screen and (min-width: 1280px) {
-        .form {
+    .form {
     width: 505px;
 }
-.google_container {
+
+    .google_container {
     text-align: left;
 }
 
-.container {
+    .container {
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 42px;
     padding-top: 62px;
 }
 
-.input {
+    .input {
     width: 425px;
     height: 56px;
     margin-bottom: 24px;
 }
-.button {
+
+    .button {
     width: 202px;
     height: 60px;
     font-size: 12px;

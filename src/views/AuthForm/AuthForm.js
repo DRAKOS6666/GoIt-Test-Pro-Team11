@@ -11,7 +11,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-
   const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
   const [emailError, setEmailError] = useState('Email сan not be empty');
