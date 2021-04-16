@@ -33,12 +33,23 @@ function App() {
   useEffect(() => {
     if (location.search !== '' && location.pathname === '/') {
       const query = new URLSearchParams(location.search);
-      const token = query.get('accessToken');
+      const accessToken = query.get('accessToken');
+      const refreshToken = query.get('refreshToken');
+      const sid = query.get('sid');
+      console.log(query.get('sid'));
       dispatch(
         authOperations.getCurrentUser({
-          accessToken: token,
+          accessToken: accessToken,
         }),
       );
+      dispatch({
+        type: 'SET_TOKENS',
+        payload: {
+          accessToken: accessToken,
+          refreshToken: refreshToken,
+          sid: sid,
+        },
+      });
     }
   }, [dispatch, location.pathname, location.search]);
 
