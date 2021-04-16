@@ -1,7 +1,7 @@
 .form {
     width: 280px;
     height: auto;
-    background: #FFFFFF;
+    background: var(--white-text-color);
     box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
 }
 
@@ -22,8 +22,8 @@
     font-size: 10px;
     line-height: 12px;
     letter-spacing: 0.02em;
-    color: #000000;
-
+    color: var(--primary-text-color);
+    text-align: left;
 }
 
 .input {
@@ -37,7 +37,6 @@
     height: 60px;
     align-items: center;
     cursor: pointer;
-
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
@@ -49,13 +48,13 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
     justify-content: center;
-    color: #000000;
+    color: var(--primary-text-color);
 }
 
 .button:hover,
 .button:focus {
-    background-color: #FF6B09;
-    color: #FFFFFF;
+    background-color: var(--button-bg-color);
+    color: var(--white-text-color);
 }
 
 .buttons_container {
@@ -64,28 +63,24 @@
 }
 
 .google {
-    margin-right: 10px;
-    
+margin-right: 10px;
 font-family: Montserrat;
 font-style: normal;
 font-weight: bold;
 font-size: 14px;
 line-height: 17px;
 letter-spacing: 0.02em;
-
-
-color: #000000;
+color: var(--primary-text-color);
 }
 
 .google_text {
-    font-family: Montserrat;
+font-family: Montserrat;
 font-style: normal;
 font-weight: bold;
 font-size: 14px;
 line-height: 17px;
 letter-spacing: 0.02em;
-
-color: #000000;
+color: var(--primary-text-color);
 }
 
 /* плавное изменение прозрачности  placeholder-а при фокусе */
@@ -119,107 +114,70 @@ color: #000000;
 @media screen and (min-width: 768px) and (max-width: 1279px) {
     .form {
     width: 539px;
-
 }
-.google_container {
+    .google_container {
     text-align: left;
-   
 }
 
-.container {
-  
+    .container {  
     padding-left: 57px;
     padding-right: 57px;
     padding-bottom: 42px;
     padding-top: 62px;
 }
 
-.text {
+    .text {
     margin-bottom: 30px;
     font-size: 14px;
     line-height: 17px;
 }
-.google_link {
-    margin-bottom: 40px;
 
+    .google_link {
+    margin-bottom: 40px;
 }
-.input {
+
+    .input {
     width: 423px;
     height: 56px;
     margin-bottom: 24px;
 }
-.button {
+
+    .button {
     width: 202px;
     height: 60px;
     align-items: center;
     cursor: pointer;
-
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
     font-size: 12px;
     line-height: 15px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: #000000;
- 
 }
 }
 
 @media screen and (min-width: 1280px) {
-        .form {
+    .form {
     width: 505px;
-
 }
-.google_container {
+
+    .google_container {
     text-align: left;
 }
 
-.container {
+    .container {
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 42px;
     padding-top: 62px;
 }
-.google_link {
-     display: inline-flex;
-    width: 159px;
-    height: 51px;
-    align-items: center;
-    padding-left: 38px;
-    padding-right: 37px;
-    padding-top: 17px;
-    padding-bottom: 16px;
-    background-color: #FAFAFA;
-    margin-bottom: 30px;
-    text-decoration: none;
-}
 
-.input {
+    .input {
     width: 425px;
     height: 56px;
     margin-bottom: 24px;
 }
-.button {
+
+    .button {
     width: 202px;
     height: 60px;
-    align-items: center;
-    cursor: pointer;
-
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
     font-size: 12px;
-    line-height: 15px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: #000000;
- 
+    line-height: 15px; 
 }
 }
