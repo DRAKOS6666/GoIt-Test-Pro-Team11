@@ -3,34 +3,22 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { testSelectors } from 'redux/qaTest';
 import Diagram from '../Diagram';
-import { deleteTestTypr } from '../../redux/answerTypes/answerTypes-actions';
 import { getTestType } from '../../redux/answerTypes/answerTypes-selectors';
 import s from './Results.module.css';
 import resultsImg from '../../images/results.png';
-
 export default function Results() {
   const resultInfo = useSelector(testSelectors.getTestResults);
   const testType = useSelector(getTestType);
-  const dispatch = useDispatch();
-  /* - для проверки отрисовки диаграммы без данных */
-  /* const resultInfo ={
-    "result": "91%",
-    "mainMessage": "Great!",
-    "secondaryMessage": "You have very strong QA knowledge"
-  }  */
   const history = useHistory();
   const backToTestPage = () => {
-    dispatch(deleteTestTypr);
     history.push('/test');
   };
-  const mainMessage = resultInfo.mainMessage;
-  const secondaryMessage = resultInfo.secondaryMessage;
-  const resultInPercents = resultInfo.result;
-  /*  const testName =  */
-
+  const mainMessage = resultInfo.data.mainMessage;
+  const secondaryMessage = resultInfo.data.secondaryMessage;
+  const resultInPercents = resultInfo.data.result;
   const totalQuestions = 12;
   const resultNumber = useMemo(() => {
-    return Number(resultInPercents ? resultInPercents.slice(0, -1) : 0);
+    return Number(resultInPercents ? resultInPercents.slice(0, -1) : '0');
   }, [resultInPercents]);
   const incorrectNumber = useMemo(() => {
     return 100 - resultNumber;
@@ -38,13 +26,10 @@ export default function Results() {
   const correctAnswers = useMemo(() => {
     return parseInt((totalQuestions * resultNumber) / 100, 10);
   }, [resultNumber]);
-  /*    const dispatch = useDispatch(); */
   return (
     <div className={s.container}>
       <h2 className={s.title}>Results</h2>
       <h3 className={s.subtitle}>[{testType.title}_]</h3>
-      {/* <h3 className={s.subtitle}>[{testName}_]</h3> */}
-
       <div className={s.line}></div>
       <div>
         <Diagram
@@ -73,19 +58,9 @@ export default function Results() {
       </div>
       <p className={s.mainMessage}>{mainMessage}</p>
       <p className={s.secondaryMessage}>{secondaryMessage}</p>
-
       <button className={s.button} type="button" onClick={backToTestPage}>
         Try again
       </button>
-      {/*   {{testName} === 'Testing Theory' ? <button
-        className={s.button}
-        type="button"
-        onClick={() =>  dispatch(testOperations.getTestTheoryQuestion())}> Try again 
-      </button> : <button
-        className={s.button}
-        type="button"
-        onClick={() =>  dispatch(testOperations.getTechQuestion())}> Try again 
-      </button>}  */}
     </div>
   );
 }
