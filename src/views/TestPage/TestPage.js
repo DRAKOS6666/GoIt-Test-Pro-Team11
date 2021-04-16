@@ -50,7 +50,18 @@ export default function TestPage() {
 
   const sendAnswers = answers => {
     if (answers.length === test.length) {
+      if (testType.type === 'technical') {
+        dispatch(testOperations.sendTestTechResults(answers));
+        toResultPage();
+        return;
+      }
+      if (testType.type === 'theory') {
+        dispatch(testOperations.sendTestTheoryResults(answers));
+        toResultPage();
+        return;
+      }
     }
+    backToMainePage();
   };
 
   const changeAnswer = (arrAnswers, newAnswer) => {
@@ -100,7 +111,10 @@ export default function TestPage() {
         <div>
           <div className={TestStl.hdContainer}>
             <h2 className={TestStl.header}>[{testType.title}]</h2>
-            <button onClick={sendAnswers} className={TestStl.btn}>
+            <button
+              onClick={() => sendAnswers(answers)}
+              className={TestStl.btn}
+            >
               Finish Test
             </button>
           </div>
