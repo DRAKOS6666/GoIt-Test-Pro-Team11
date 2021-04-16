@@ -1,35 +1,30 @@
-import test from '../../components/Test/TestForm/question.json';
+// import test from '../../components/Test/TestForm/question.json';
 
-import React, { useState } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getTestData } from '../../redux/qaTest/test-selectors';
-// import {
-//   getTechQuestion,
-//   getTestTheoryQuestion,
-// } from '../../redux/qaTest/test-operations';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { testOperations, testSelectors } from '../../redux/qaTest';
+import Loader from '../../components/Loader';
 import TestForm from '../../components/Test/TestForm/';
+import TestStl from './TestPage.module.css';
 
 export default function TestPage() {
-  const title = 'qa technical training';
+  const title = 'Qa technical training';
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(testOperations.getTechQuestion());
+  }, [dispatch]);
+
+  const isLoading = useSelector(testSelectors.getTestIsLoading);
+
+  const test = useSelector(testSelectors.getTestData);
 
   const [idx, setIdx] = useState(0);
   const [answers, setAnswers] = useState([]);
-  // const dispatch = useDispatch();
-  // const test = useSelector(getTestData);
 
-  // useEffect(() => {
-  //   switch (title) {
-  //     case 'qa technical training':
-  //       dispatch(getTechQuestion());
-  //       break;
-  //     case 'testing theory':
-  //       dispatch(getTestTheoryQuestion());
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }, [title, dispatch]);
   // const sendAnswers = () => {};
+  // console.log(test);
 
   const changeAnswer = (arrAnswers, newAnswer) => {
     if (arrAnswers.length) {
@@ -50,9 +45,7 @@ export default function TestPage() {
     if (Object.keys(newAnswer).length !== 0) {
       if (answers.some(answer => answer.questionId === newAnswer.questionId)) {
         const newAnswersArr = changeAnswer(answers, newAnswer);
-        console.log(newAnswersArr);
         setAnswers([...newAnswersArr]);
-        console.log(answers);
         return;
       }
       setAnswers(answers => [...answers, newAnswer]);
@@ -72,20 +65,29 @@ export default function TestPage() {
     }
     setIdx(idx => idx - 1);
   };
-  console.log(answers);
-  return (
-    <div>
-      <h2>{title}</h2>
 
-      <p>{`question ${idx + 1}/${test.length}`}</p>
-      <TestForm
-        question={test[idx]}
-        increaseIdx={increaseIdx}
-        decreaseIdx={decreaseIdx}
-        addAnswer={addAnswer}
-        indexValue={idx}
-        numberOfQ={test.length - 1}
-      />
-    </div>
+  return (
+    <>
+      {isLoading && <Loader />}
+      {test.length > 0 && (
+        <div>
+          <div className={TestStl.hdContainer}>
+            <h2 className={TestStl.header}>[{title}]</h2>
+            <button onClick={addAnswer} className={TestStl.btn}>
+              Finish Test
+            </button>
+          </div>
+
+          <TestForm
+            question={test[idx]}
+            increaseIdx={increaseIdx}
+            decreaseIdx={decreaseIdx}
+            addAnswer={addAnswer}
+            indexValue={idx}
+            numberOfQ={test.length - 1}
+          />
+        </div>
+      )}
+    </>
   );
 }

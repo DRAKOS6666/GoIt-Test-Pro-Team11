@@ -15,27 +15,37 @@ import {
   REGISTER,
 } from 'redux-persist';
 
+
+import refreshTokenMiddleware from './middlewares/refreshToken';
+
 const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
+  refreshTokenMiddleware,
 ];
 
-if (process.env.NODE_ENV === `development`) {
-  middleware.push(logger);
-}
+// if (process.env.NODE_ENV === `development`) {
+//   middleware.push(logger);
+// }
 
 const persistAuthConfig = {
   key: 'tokens',
   storage,
-  whitelist: ['accessToken', 'refreshToken', 'sid', 'user'],
+  whitelist: ['accessToken', 'refreshToken', 'sessionId', 'user'],
+};
+
+const persistTestConfig = {
+  key: 'testing',
+  storage,
+  whitelist: ['tests', 'results'],
 };
 
 const store = configureStore({
   reducer: {
-    qaTest: qaTestReducer,
+    qaTest: persistReducer(persistTestConfig, qaTestReducer),
     auth: persistReducer(persistAuthConfig, authReducer),
   },
   middleware,

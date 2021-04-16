@@ -3,6 +3,8 @@ import { combineReducers } from 'redux';
 // import * as actions from './qaTest-actions';
 
 import { testOperations } from 'redux/qaTest';
+import { authOperations } from 'redux/auth/';
+
 
 const isLoading = createReducer(false, {
   [testOperations.getTechQuestion.pending]: () => true,
@@ -23,10 +25,10 @@ const isLoading = createReducer(false, {
 });
 
 const error = createReducer(null, {
-  [testOperations.getTechQuestion.rejected]: (_, { payload }) => payload,
-  [testOperations.getTestTheoryQuestion.rejected]: (_, { payload }) => payload,
-  [testOperations.sendTestTechResults.rejected]: (_, { payload }) => payload,
-  [testOperations.sendTestTheoryResults.rejected]: (_, { payload }) => payload,
+  [testOperations.getTechQuestion.rejected]: (_, { payload }) => payload.error.response.data.message,
+  [testOperations.getTestTheoryQuestion.rejected]: (_, { payload }) => payload.error.response.data.message,
+  [testOperations.sendTestTechResults.rejected]: (_, { payload }) => payload.error.response.data.message,
+  [testOperations.sendTestTheoryResults.rejected]: (_, { payload }) => payload.error.response.data.message,
 
   [testOperations.getTechQuestion.pending]: () => null,
   [testOperations.getTestTheoryQuestion.pending]: () => null,
@@ -37,12 +39,14 @@ const error = createReducer(null, {
 const tests = createReducer([], {
   [testOperations.getTechQuestion.fulfilled]: (_, { payload }) => payload,
   [testOperations.getTestTheoryQuestion.fulfilled]: (_, { payload }) => payload,
+  [authOperations.logoutUser.fulfilled]: () => [],
 
 });
 
 const results = createReducer([], {
   [testOperations.sendTestTechResults.fulfilled]: (_, { payload }) => payload,
   [testOperations.sendTestTheoryResults.fulfilled]: (_, { payload }) => payload,
+  [authOperations.logoutUser.fulfilled]: () => [],
 });
 
 export default combineReducers({

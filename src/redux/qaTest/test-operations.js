@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+import { getCurrentUser } from '../auth/auth-operation';
 import { testApi } from 'redux/qaTest';
+
 
 export const getTechQuestion = createAsyncThunk(
   'testTech/fetch',
@@ -8,8 +10,8 @@ export const getTechQuestion = createAsyncThunk(
     try {
       const qaTest = await testApi.getTechQuestion();
       return qaTest;
-    } catch (err) {
-      return rejectWithValue(`${err.message} ${err.name}`);
+    } catch (error) {
+      return rejectWithValue({ error, thunk: getCurrentUser });
     }
   },
 );
@@ -20,8 +22,8 @@ export const getTestTheoryQuestion = createAsyncThunk(
     try {
       const qaTest = await testApi.getTheoryQuestion();
       return qaTest;
-    } catch (err) {
-      return rejectWithValue(`${err.message} ${err.name}`);
+    } catch (error) {
+      return rejectWithValue({ error, thunk: getCurrentUser });
     }
   },
 );
@@ -32,9 +34,9 @@ export const sendTestTechResults = createAsyncThunk(
     try {
       const testResults = await testApi.getTechResult(results);
       return testResults;
-    } catch (err) {
+    } catch (error) {
       return rejectWithValue(
-        `${err.response.statusText} ${err.response.status}`,
+        { error, thunk: getCurrentUser, args: results },
       );
     }
   },
@@ -46,10 +48,9 @@ export const sendTestTheoryResults = createAsyncThunk(
     try {
       const testResults = await testApi.getTheoryResults(results);
       return testResults;
-    } catch (err) {
-      console.log('err', err.response);
+    } catch (error) {
       return rejectWithValue(
-        `${err.response.statusText} ${err.response.status}`,
+        { error, thunk: getCurrentUser, args: results },
       );
     }
   },

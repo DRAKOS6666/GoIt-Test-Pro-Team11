@@ -56,9 +56,12 @@ function App() {
               restricted
             />
 
-            <PublicRoute path="/test" component={Test} redirectTo="/auth" />
+            <PrivateRoute
+              path="/test"
+              component={Test}
+              redirectTo="/auth" />
 
-            <PublicRoute
+            <PrivateRoute
               path="/results"
               component={Results}
               redirectTo="/auth"
