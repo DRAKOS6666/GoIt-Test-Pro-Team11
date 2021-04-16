@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import AnswerOption from './AnswerOption/AnswerOption';
 import styles from './TestForm.module.css';
 import { ReactComponent as Arrow } from '../../../images/icons/arrow.svg';
-
+import { getAnswers } from '../../../redux/answerTypes/answerTypes-selectors';
 export default function TestForm({
   question,
   decreaseIdx,
@@ -13,6 +14,28 @@ export default function TestForm({
 }) {
   const answers = [...question.answers];
   const [selection, setSelection] = useState({});
+  const answersInStat = useSelector(getAnswers);
+  const questionId = question.questionId;
+  const findAnswer = (id, arr) => {
+    const item = arr.find(arrItem => arrItem.questionId === id);
+    return item;
+  };
+
+  useEffect(() => {
+    const isAnswerExist = answersInStat.some(
+      answerInStat => questionId === answerInStat.questionId,
+    );
+    if (answersInStat.length !== 0 && isAnswerExist) {
+      const answerInStat = findAnswer(questionId, answersInStat);
+      console.log(answerInStat);
+      const selectedAnswer = {
+        questionId: answerInStat.questionId,
+        answer: answerInStat.answer,
+      };
+      setSelection(selectedAnswer);
+    }
+    return;
+  }, [questionId, answersInStat]);
 
   const onSelection = e => {
     const { value } = e.target;
