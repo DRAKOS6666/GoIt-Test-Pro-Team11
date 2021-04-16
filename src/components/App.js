@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, Switch } from 'react-router-dom';
+import { Redirect, Switch, useLocation } from 'react-router-dom';
 import { authOperations, authSelectors } from 'redux/auth';
 
 import PrivateRoute from 'components/Route/PrivateRoute';
@@ -28,6 +28,19 @@ function App() {
   const dispatch = useDispatch();
   // const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrentUser);
   // console.log('isFetchingCurrentUser: ', isFetchingCurrentUser);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.search !== '' && location.pathname === '/') {
+      const query = new URLSearchParams(location.search);
+      const token = query.get('accessToken');
+      dispatch(
+        authOperations.getCurrentUser({
+          accessToken: token,
+        }),
+      );
+    }
+  }, [dispatch, location.pathname, location.search]);
 
   useEffect(() => {
     dispatch(authOperations.getCurrentUser(user));
@@ -56,10 +69,7 @@ function App() {
               restricted
             />
 
-            <PrivateRoute
-              path="/test"
-              component={Test}
-              redirectTo="/auth" />
+            <PrivateRoute path="/test" component={Test} redirectTo="/auth" />
 
             <PrivateRoute
               path="/results"
@@ -89,5 +99,7 @@ function App() {
     // )
   );
 }
+
+// console.log('https://protest-backend.goit.global/auth/google');
 
 export default App;
