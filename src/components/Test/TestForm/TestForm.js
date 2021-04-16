@@ -27,7 +27,6 @@ export default function TestForm({
     );
     if (answersInStat.length !== 0 && isAnswerExist) {
       const answerInStat = findAnswer(questionId, answersInStat);
-      console.log(answerInStat);
       const selectedAnswer = {
         questionId: answerInStat.questionId,
         answer: answerInStat.answer,
