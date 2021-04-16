@@ -6,11 +6,9 @@ import Diagram from '../Diagram';
 import { getTestType } from '../../redux/answerTypes/answerTypes-selectors';
 import s from './Results.module.css';
 import resultsImg from '../../images/results.png';
-
 export default function Results() {
   const resultInfo = useSelector(testSelectors.getTestResults);
   const testType = useSelector(getTestType);
-
   const history = useHistory();
   const backToTestPage = () => {
     history.push('/test');
@@ -18,19 +16,16 @@ export default function Results() {
   const mainMessage = resultInfo.data.mainMessage;
   const secondaryMessage = resultInfo.data.secondaryMessage;
   const resultInPercents = resultInfo.data.result;
-
   const totalQuestions = 12;
   const resultNumber = useMemo(() => {
     return Number(resultInPercents ? resultInPercents.slice(0, -1) : '0');
   }, [resultInPercents]);
-
   const incorrectNumber = useMemo(() => {
     return 100 - resultNumber;
   }, [resultNumber]);
   const correctAnswers = useMemo(() => {
     return parseInt((totalQuestions * resultNumber) / 100, 10);
   }, [resultNumber]);
-
   return (
     <div className={s.container}>
       <h2 className={s.title}>Results</h2>
@@ -63,7 +58,6 @@ export default function Results() {
       </div>
       <p className={s.mainMessage}>{mainMessage}</p>
       <p className={s.secondaryMessage}>{secondaryMessage}</p>
-
       <button className={s.button} type="button" onClick={backToTestPage}>
         Try again
       </button>
