@@ -28,10 +28,11 @@ export const loginUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const response = await authApi.loginUser(userData);
+      console.log('response', response)
       token.set(response.accesToken);
       return response;
     } catch (error) {
-      return rejectWithValue({ error, thunk: getCurrentUser, args: userData });
+      return rejectWithValue({ error: 'Email or Password is invalid', thunk: getCurrentUser, args: userData });
     }
   },
 );

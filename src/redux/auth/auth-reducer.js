@@ -22,9 +22,9 @@ const isLoading = createReducer(false, {
 });
 
 const error = createReducer(null, {
-  [authOperations.getCurrentUser.rejected]: (_, { payload }) => payload.error.response.data.message,
+  [authOperations.getCurrentUser.rejected]: (_, { payload }) => payload,
   [authOperations.registerUser.rejected]: (_, { payload }) => payload.error.response.data.message,
-  [authOperations.loginUser.rejected]: (_, { payload }) => payload.error.response.data.message,
+  [authOperations.loginUser.rejected]: (_, { payload }) => payload.error,
   [authOperations.logoutUser.rejected]: (_, { payload }) => payload.error.response.data.message,
 
   [authOperations.getCurrentUser.pending]: () => null,
