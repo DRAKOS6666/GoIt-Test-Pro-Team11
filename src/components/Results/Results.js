@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { testSelectors } from 'redux/qaTest';
 import Diagram from '../Diagram';
+import { deleteTestTypr } from '../../redux/answerTypes/answerTypes-actions';
 import { getTestType } from '../../redux/answerTypes/answerTypes-selectors';
 import s from './Results.module.css';
 import resultsImg from '../../images/results.png';
@@ -10,6 +11,7 @@ import resultsImg from '../../images/results.png';
 export default function Results() {
   const resultInfo = useSelector(testSelectors.getTestResults);
   const testType = useSelector(getTestType);
+  const dispatch = useDispatch();
   /* - для проверки отрисовки диаграммы без данных */
   /* const resultInfo ={
     "result": "91%",
@@ -18,6 +20,7 @@ export default function Results() {
   }  */
   const history = useHistory();
   const backToTestPage = () => {
+    dispatch(deleteTestTypr);
     history.push('/test');
   };
   const mainMessage = resultInfo.mainMessage;
