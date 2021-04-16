@@ -21,12 +21,16 @@ import TestStl from './TestPage.module.css';
 export default function TestPage() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const testType = useSelector(getTestType);
 
   useEffect(() => {
-    dispatch(testOperations.getTechQuestion());
-  }, [dispatch]);
-  // const title = useSelector(getTestType);
-  const title = 'QA technical training';
+    if (testType.type === 'technical') {
+      dispatch(testOperations.getTechQuestion());
+    }
+    if (testType.type === 'theory') {
+      dispatch(testOperations.getTechQuestion());
+    }
+  }, [dispatch, testType.type]);
 
   const test = useSelector(testSelectors.getTestData);
   const answers = useSelector(getAnswers);
@@ -95,7 +99,7 @@ export default function TestPage() {
       {test.length > 0 && (
         <div>
           <div className={TestStl.hdContainer}>
-            <h2 className={TestStl.header}>[{title}]</h2>
+            <h2 className={TestStl.header}>[{testType.title}]</h2>
             <button onClick={sendAnswers} className={TestStl.btn}>
               Finish Test
             </button>
