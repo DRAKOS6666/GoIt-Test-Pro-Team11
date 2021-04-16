@@ -3,10 +3,13 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { testSelectors } from 'redux/qaTest';
 import Diagram from '../Diagram';
+import { getTestType } from '../../redux/answerTypes/answerTypes-selectors';
 import s from './Results.module.css';
 import resultsImg from '../../images/results.png';
+
 export default function Results() {
   const resultInfo = useSelector(testSelectors.getTestResults);
+  const testType = useSelector(getTestType);
   /* - для проверки отрисовки диаграммы без данных */
   /* const resultInfo ={
     "result": "91%",
@@ -36,7 +39,7 @@ export default function Results() {
   return (
     <div className={s.container}>
       <h2 className={s.title}>Results</h2>
-      <h3 className={s.subtitle}>[TESTING THEORY_]</h3>
+      <h3 className={s.subtitle}>[{testType.title}_]</h3>
       {/* <h3 className={s.subtitle}>[{testName}_]</h3> */}
 
       <div className={s.line}></div>

@@ -45,18 +45,21 @@ export default function TestPage() {
   const toResultPage = () => {
     history.push('/results');
   };
+
+  const answersToSend = { answers: [...answers] };
+
   // dispatch(testOperations.sendTestTechResults(answers));
   // dispatch(testOperations.sendTestTheoryResults(answers));
 
   const sendAnswers = answers => {
     if (answers.length === test.length) {
       if (testType.type === 'technical') {
-        dispatch(testOperations.sendTestTechResults(answers));
+        dispatch(testOperations.sendTestTechResults(answersToSend));
         toResultPage();
         return;
       }
       if (testType.type === 'theory') {
-        dispatch(testOperations.sendTestTheoryResults(answers));
+        dispatch(testOperations.sendTestTheoryResults(answersToSend));
         toResultPage();
         return;
       }
