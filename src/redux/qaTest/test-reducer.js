@@ -1,7 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-// import * as actions from './qaTest-actions';
 
+// import * as actions from './qaTest-actions';
+import { answers, testType } from '../answerTypes/answerTypes-reducer';
 import { testOperations } from 'redux/qaTest';
 
 const isLoading = createReducer(false, {
@@ -37,7 +38,6 @@ const error = createReducer(null, {
 const tests = createReducer([], {
   [testOperations.getTechQuestion.fulfilled]: (_, { payload }) => payload,
   [testOperations.getTestTheoryQuestion.fulfilled]: (_, { payload }) => payload,
-
 });
 
 const results = createReducer([], {
@@ -48,6 +48,8 @@ const results = createReducer([], {
 export default combineReducers({
   tests,
   results,
+  answers,
+  testType,
   isLoading,
   error,
 });

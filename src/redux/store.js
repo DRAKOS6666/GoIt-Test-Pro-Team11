@@ -1,5 +1,5 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 
 import qaTestReducer from './qaTest/test-reducer';
 import authReducer from './auth/auth-reducer';
@@ -14,7 +14,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-
 
 import refreshTokenMiddleware from './middlewares/refreshToken';
 

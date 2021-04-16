@@ -2,29 +2,52 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
+import {
+  getAnswers,
+  getTestType,
+} from '../../redux/answerTypes/answerTypes-selectors';
+import {
+  addAnswerToState,
+  changeAnswerInState,
+} from '../../redux/answerTypes/answerTypes-actions';
 import { testOperations, testSelectors } from '../../redux/qaTest';
+
 import Loader from '../../components/Loader';
 import TestForm from '../../components/Test/TestForm/';
 import TestStl from './TestPage.module.css';
 
 export default function TestPage() {
-  const title = 'Qa technical training';
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(testOperations.getTechQuestion());
   }, [dispatch]);
-
-  const isLoading = useSelector(testSelectors.getTestIsLoading);
+  // const title = useSelector(getTestType);
+  const title = 'QA technical training';
 
   const test = useSelector(testSelectors.getTestData);
-
+  const answers = useSelector(getAnswers);
+  const isLoading = useSelector(testSelectors.getTestIsLoading);
+  const error = useSelector(testSelectors.getTestError);
   const [idx, setIdx] = useState(0);
-  const [answers, setAnswers] = useState([]);
 
-  // const sendAnswers = () => {};
-  // console.log(test);
+  const backToMainePage = () => {
+    history.push('/');
+  };
+
+  const toResultPage = () => {
+    history.push('/results');
+  };
+  // dispatch(testOperations.sendTestTechResults(answers));
+  // dispatch(testOperations.sendTestTheoryResults(answers));
+
+  const sendAnswers = answers => {
+    if (answers.length === test.length) {
+    }
+  };
 
   const changeAnswer = (arrAnswers, newAnswer) => {
     if (arrAnswers.length) {
@@ -45,10 +68,10 @@ export default function TestPage() {
     if (Object.keys(newAnswer).length !== 0) {
       if (answers.some(answer => answer.questionId === newAnswer.questionId)) {
         const newAnswersArr = changeAnswer(answers, newAnswer);
-        setAnswers([...newAnswersArr]);
+        dispatch(changeAnswerInState(newAnswersArr));
         return;
       }
-      setAnswers(answers => [...answers, newAnswer]);
+      dispatch(addAnswerToState(newAnswer));
     }
   };
 
@@ -73,7 +96,7 @@ export default function TestPage() {
         <div>
           <div className={TestStl.hdContainer}>
             <h2 className={TestStl.header}>[{title}]</h2>
-            <button onClick={addAnswer} className={TestStl.btn}>
+            <button onClick={sendAnswers} className={TestStl.btn}>
               Finish Test
             </button>
           </div>
