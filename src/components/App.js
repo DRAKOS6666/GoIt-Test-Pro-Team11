@@ -36,7 +36,6 @@ function App() {
       const accessToken = query.get('accessToken');
       const refreshToken = query.get('refreshToken');
       const sid = query.get('sid');
-      console.log(query.get('sid'));
       dispatch(
         authOperations.getCurrentUser({
           accessToken: accessToken,
