@@ -54,8 +54,8 @@ export default function TestForm({
     decreaseIdx();
     setSelection({});
   };
-  const turnOffButonNext =
-    indexValue >= 0 && indexValue < numberOfQ ? false : true;
+  // const turnOffButonNext =
+  //   indexValue >= 0 && indexValue < numberOfQ ? false : true;
   const turnOffButonPrev =
     indexValue <= numberOfQ && indexValue > 0 ? false : true;
 
