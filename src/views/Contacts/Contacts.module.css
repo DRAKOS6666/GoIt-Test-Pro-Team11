@@ -87,9 +87,9 @@
 
 .listItem:hover,
 .listItem:focus {
-  box-shadow: 4px 4px 12px 0px rgba(2, 23, 42, 0.7);
-  -webkit-box-shadow: 4px 4px 12px 0px rgba(2, 23, 42, 0.7);
-  -moz-box-shadow: 4px 4px 12px 0px rgba(2, 23, 42, 0.7);
+  box-shadow: 3px 3px 12px 0px rgba(2, 23, 42, 0.7);
+  -webkit-box-shadow: 3px 3px 12px 0px rgba(2, 23, 42, 0.7);
+  -moz-box-shadow: 3px 3px 12px 0px rgba(2, 23, 42, 0.7);
   transition: box-shadow 300ms ease;
 }
 
