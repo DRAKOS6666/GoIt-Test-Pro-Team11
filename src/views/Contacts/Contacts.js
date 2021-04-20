@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import team from '../team.json';
 import styles from './Contacts.module.css';
 import ContactCard from './ContactCard';
-import { ReactComponent as Avatar } from '../../images/icons/avatarsvg.svg';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
 export default function Contacts() {
   const [showModal, setShowModal] = useState(false);
@@ -31,15 +31,33 @@ export default function Contacts() {
             key={index}
             className={styles.listItem}
             onClick={() => {
-              const { url, name, vocation, description } = el;
-              handleClickImg(url, name, vocation, description);
+              const { url, name, stack, description } = el;
+              handleClickImg(url, name, stack, description);
             }}
           >
             <img src={el.url} alt={el.name} className={styles.photo} />
             <div className={styles.content}>
               <p className={styles.name}>{el.name}</p>
-              <p className={styles.vocation}>{el.vocation}</p>
+              <p className={styles.stack}>{el.stack}</p>
               <p className={styles.description}>{el.description}</p>
+              <div className={styles.overflow}>
+                <a
+                  href={el.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.link}
+                >
+                  <FaGithub className={styles.icon} />
+                </a>
+                <a
+                  href={el.linkedIn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.link}
+                >
+                  <FaLinkedinIn className={styles.icon} />
+                </a>
+              </div>
             </div>
           </li>
         ))}
