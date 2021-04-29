@@ -1,5 +1,3 @@
-// import test from '../../components/Test/TestForm/question.json';
-
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -12,6 +10,7 @@ import {
   addAnswerToState,
   changeAnswerInState,
   deleteAnswersInState,
+  deleteQTest,
 } from '../../redux/answerTypes/answerTypes-actions';
 import { testOperations, testSelectors } from '../../redux/qaTest';
 
@@ -40,17 +39,17 @@ export default function TestPage() {
   const [idx, setIdx] = useState(0);
 
   const backToMainePage = () => {
+    dispatch(deleteAnswersInState());
     history.push('/');
   };
 
   const toResultPage = () => {
+    dispatch(deleteAnswersInState());
+    dispatch(deleteQTest());
     history.push('/results');
   };
 
   const answersToSend = { answers: [...answers] };
-
-  // dispatch(testOperations.sendTestTechResults(answers));
-  // dispatch(testOperations.sendTestTheoryResults(answers));
   const isFinished = answers.length === test.length;
 
   const sendAnswers = () => {

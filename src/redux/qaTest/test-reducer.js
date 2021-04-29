@@ -2,10 +2,13 @@ import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
 // import * as actions from './qaTest-actions';
+import {
+  deleteTestResults,
+  deleteQTest,
+} from '../answerTypes/answerTypes-actions';
 import { answers, testType } from '../answerTypes/answerTypes-reducer';
 import { testOperations } from 'redux/qaTest';
 import { authOperations } from 'redux/auth/';
-
 
 const isLoading = createReducer(false, {
   [testOperations.getTechQuestion.pending]: () => true,
@@ -26,10 +29,14 @@ const isLoading = createReducer(false, {
 });
 
 const error = createReducer(null, {
-  [testOperations.getTechQuestion.rejected]: (_, { payload }) => payload.error.response.data.message,
-  [testOperations.getTestTheoryQuestion.rejected]: (_, { payload }) => payload.error.response.data.message,
-  [testOperations.sendTestTechResults.rejected]: (_, { payload }) => payload.error.response.data.message,
-  [testOperations.sendTestTheoryResults.rejected]: (_, { payload }) => payload.error.response.data.message,
+  [testOperations.getTechQuestion.rejected]: (_, { payload }) =>
+    payload.error.response.data.message,
+  [testOperations.getTestTheoryQuestion.rejected]: (_, { payload }) =>
+    payload.error.response.data.message,
+  [testOperations.sendTestTechResults.rejected]: (_, { payload }) =>
+    payload.error.response.data.message,
+  [testOperations.sendTestTheoryResults.rejected]: (_, { payload }) =>
+    payload.error.response.data.message,
 
   [testOperations.getTechQuestion.pending]: () => null,
   [testOperations.getTestTheoryQuestion.pending]: () => null,
@@ -42,14 +49,14 @@ const tests = createReducer([], {
   [testOperations.getTestTheoryQuestion.fulfilled]: (_, { payload }) => payload,
 
   [authOperations.logoutUser.fulfilled]: () => [],
-
-
+  [deleteQTest]: () => [],
 });
 
 const results = createReducer([], {
   [testOperations.sendTestTechResults.fulfilled]: (_, { payload }) => payload,
   [testOperations.sendTestTheoryResults.fulfilled]: (_, { payload }) => payload,
   [authOperations.logoutUser.fulfilled]: () => [],
+  [deleteTestResults]: () => [],
 });
 
 export default combineReducers({

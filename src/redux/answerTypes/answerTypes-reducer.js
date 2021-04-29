@@ -19,3 +19,17 @@ export const testType = createReducer(
     [actions.deleteTestTypr]: () => [],
   },
 );
+
+// export const deletResults = createReducer(
+//   {},
+//   {
+//     [actions.deleteTestResults]: () => {},
+//   },
+// );
+
+// export const deleteQTest = createReducer(
+//   {},
+//   {
+//     [actions.deleteQTest]: () => {},
+//   },
+// );
