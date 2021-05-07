@@ -33,7 +33,7 @@ export const loginUser = createAsyncThunk(
     } catch (error) {
       return rejectWithValue({
         error: 'Email or Password is invalid',
-        thunk: getCurrentUser,
+        thunk: loginUser,
         args: userData,
       });
     }
@@ -47,7 +47,7 @@ export const logoutUser = createAsyncThunk(
       await authApi.logoutUser();
       token.unSet();
     } catch (error) {
-      return rejectWithValue({ error, thunk: getCurrentUser });
+      return rejectWithValue({ error, thunk: logoutUser });
     }
   },
 );
