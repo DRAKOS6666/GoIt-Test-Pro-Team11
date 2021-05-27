@@ -1,0 +1,90 @@
+[
+  {
+    "linkedIn": "https://www.linkedin.com/in/drobinko-kostianstyn/",
+    "github": "https://github.com/DRAKOS6666",
+    "url": "Kostya.jpg",
+    "name": "Drobinko Kostiantyn",
+    "stack": "Front-End Developer",
+    "description": "Team lead of the project. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "linkedIn": "",
+    "github": "https://github.com/Gloomy699",
+    "url": "Yaroslav.jpg",
+    "name": "Vasylenko Yaroslav",
+    "stack": "Front-End Developer",
+    "description": "Scrum master of the project. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "linkedIn": "",
+    "github": "https://github.com/ViktoriiaBaraniuk",
+    "url": "Vika.jpg",
+    "name": "Baraniuk Viktoriia",
+    "stack": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "linkedIn": "",
+    "github": "https://github.com/unstopDD",
+    "url": "Dmitriy.jpg",
+    "name": "Khomiakov Dmitriy",
+    "stack": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "linkedIn": "",
+    "github": "https://github.com/WerewolfDevLearn",
+    "url": "Misha.jpg",
+    "name": "Khodak Mikhail",
+    "stack": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "linkedIn": "",
+    "github": "https://github.com/Vetokh-Marina",
+    "url": "Marina.jpg",
+    "name": "Vetokh Marina",
+    "stack": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "linkedIn": "",
+    "github": "https://github.com/SerhiyStepanov",
+    "url": "Sergey.jpg",
+    "name": "Stepanov Serhiy",
+    "stack": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "linkedIn": "",
+    "github": "https://github.com/reznik-denis",
+    "url": "Denis.jpg",
+    "name": "Reznik Denis",
+    "stack": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "linkedIn": "https://www.linkedin.com/in/yulia-sivonenko-13a4561a6/",
+    "github": "https://github.com/Sivonenko",
+    "url": "Yulia.jpg",
+    "name": "Sivonenko Yulia",
+    "stack": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "linkedIn": "",
+    "github": "https://github.com/Alex-BC",
+    "url": "Alex.jpg",
+    "name": "Chepak Alexandr",
+    "stack": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  },
+  {
+    "linkedIn": "",
+    "github": "",
+    "url": "avatarsvg.svg",
+    "name": "Kholod Alex",
+    "stack": "Front-End Developer",
+    "description": "Collaborator. Write a frontend according to a given layout, implement logic, link to a back-end."
+  }
+]

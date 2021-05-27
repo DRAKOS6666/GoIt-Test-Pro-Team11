@@ -1,0 +1,146 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid #e2e3e5;
+  background-color: var(--primary-bg-color);
+}
+
+@media screen and (width: 768px) {
+  .wrapper {
+    width: 768px;
+  }
+}
+
+.link {
+  display: flex;
+  text-decoration: none;
+  border: 1px solid var(--footer-bg-color);
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  width: 129px;
+  height: 28px;
+}
+
+.pro {
+  display: flex;
+  align-items: center;
+  width: 43px;
+  color: var(--white-text-color);
+  background-color: var(--footer-bg-color);
+  outline: 1px solid var(--footer-bg-color);
+}
+
+.textPro {
+  display: flex;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.triangle {
+  position: absolute;
+  top: 0;
+  left: 43px;
+  width: 10px;
+  height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+
+  border-left: 9px solid var(--footer-bg-color);
+}
+
+.test {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  background-color: var(--primary-bg-color);
+}
+
+.textTest {
+  display: flex;
+  margin-bottom: 4px;
+  margin-right: 8px;
+  margin-left: 16px;
+  color: var(--footer-bg-color);
+}
+
+.menuThumb {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  height: 100%;
+  border-left: 1px solid #e2e3e5;
+}
+
+.btnMenu {
+  padding: 0;
+  margin-left: 21px;
+  margin-right: 20px;
+  display: flex;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.icon {
+  fill: var(--primary-text-color);
+}
+
+@media screen and (min-width: 768px) {
+  .outThumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 58px;
+    height: 70px;
+    padding: 20px;
+    border-left: 1px solid #e2e3e5;
+  }
+}
+
+.lnkOut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnOut {
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  width: 16px;
+  transform: translateX(-50%);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+@media screen and (min-width: 768px) {
+  .btnOut {
+    position: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.out {
+  display: block;
+  fill: var(--primary-text-color);
+}
